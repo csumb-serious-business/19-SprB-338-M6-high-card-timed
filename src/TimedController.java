@@ -23,10 +23,10 @@ public class TimedController {
         // shuffle and deal into the hands.
         timedCardGame.deal();
 
-        cardView.setModel(timedCardGame);
+        cardView.setModel(timedCardGame); //Pass the model data to the view
         //TODO add timer here
         cardView.displayGame(null, null); // Start off with nothing selected
-        cardView.addLabelsForPlayers();
+        cardView.addLabelsForPlayers(); //Do this for the first GO
         cardView.myCardTable.setVisible(true);
 //	
 
