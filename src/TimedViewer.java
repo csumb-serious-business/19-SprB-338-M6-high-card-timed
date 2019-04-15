@@ -29,11 +29,8 @@ public class TimedViewer {
     	myCardTable.setSize(800, 600);
         myCardTable.setLocationRelativeTo(null);
 	    myCardTable.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	
 	    myCardTable.setVisible(true);
 	    GUICard.loadCardIcons();
-	
-    	
     }
     /**
      * Clears the panels in the CardTable
