@@ -1,12 +1,10 @@
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import com.sun.jdi.event.ExceptionEvent;
+
+import java.awt.*;
 import java.awt.event.*;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.lang.*;
+import javax.swing.border.Border;
 
 public class TimedViewer {
     static int NUM_CARDS_PER_HAND = 7;
@@ -16,6 +14,8 @@ public class TimedViewer {
     static JLabel[] playedCardLabels = new JLabel[NUM_PLAYERS];
     static JLabel[] playLabelText = new JLabel[NUM_PLAYERS];
     static Card[] unusedCardsPerPack;
+    static JButton timerStop;
+    static JTextField timer;
     static public CardGameFramework highCardGame;
     static public CardTable myCardTable;
     static private int playerWinCount = 0;
@@ -136,8 +136,20 @@ public class TimedViewer {
 
         return buttons;
     }
-    
-    
+
+    private static class TimerListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent stopClicked) {
+            if (stopClicked.getActionCommand() == "stop") {
+                timerStop.setText("start");
+            }
+            else {
+                timerStop.setText("stop");
+            }
+        }
+
+    }
+
     private static class HumanHandListener implements ActionListener {
       @Override
       public void actionPerformed(ActionEvent cardClicked) {
@@ -234,7 +246,24 @@ public class TimedViewer {
       return true;
 
   }
+
+  public static boolean addLabelsForTimer() {
+      timerStop = new JButton("stop");
+      timerStop.addActionListener(new TimerListener());
+      timer = new JTextField("0",6);
+      timer.setEditable(false);
+      myCardTable.pnlTimer.add(timer);
+      myCardTable.pnlTimer.add(timerStop);
+      return true;
+  }
+
+  public static boolean changeTimerDisplay(int time) {
+      timer.setText(Integer.toString(time));
+      timer.repaint();
+      return true;
+    }
 }
+
 
 
 
@@ -295,6 +324,7 @@ class CardTable extends JFrame
     public JPanel pnlComputerHand;
     public JPanel pnlHumanHand;
     public JPanel pnlPlayArea;
+    public JPanel pnlTimer;
     private int numCardsPerHand;
     private int numPlayers;
 
@@ -335,6 +365,10 @@ class CardTable extends JFrame
         pnlHumanHand = new JPanel();
         pnlHumanHand.setLayout(new GridLayout(1, numCardsPerHand));
         add(pnlHumanHand, BorderLayout.SOUTH);
+
+        pnlTimer = new JPanel();
+        pnlTimer.setLayout(new FlowLayout());
+        add(pnlTimer, BorderLayout.EAST);
     }
 
     /**

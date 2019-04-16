@@ -1,9 +1,10 @@
+import java.awt.event.ActionListener;
 import java.util.StringJoiner;
 
 public class TimedController {
 
-	TimedModel cardModel;
-	TimedViewer cardView;
+	static TimedModel cardModel;
+	static TimedViewer cardView;
 	
 	static int NUM_CARDS_PER_HAND = 7;
 	static int NUM_PLAYERS = 2; 
@@ -28,12 +29,55 @@ public class TimedController {
 		    //TODO add timer here
 	      cardView.displayGame(null, null); // Start off with nothing selected
 	      cardView.addLabelsForPlayers();
-	      cardView.myCardTable.setVisible(true);	    
+	      cardView.addLabelsForTimer();
+	      cardView.myCardTable.setVisible(true);
+	      Timer timer = new Timer();
+	      timer.start();
 //	
 		
 	}
 }
 
+class Timer extends Thread {
+    private static int timePlayed;
+    private static boolean isRunning;
+
+    public void start() {
+        isRunning = true;
+        Thread timerThread = new Thread(this);
+        timerThread.start();
+    }
+
+    public void doNothing(int mili) throws InterruptedException{
+        Thread.sleep(mili);
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            if (TimedController.cardView.timerStop.getActionCommand() == "start") {
+                isRunning = false;
+            }
+
+            else {
+                isRunning = true;
+            }
+            try {
+                if(isRunning == false) {
+                    doNothing(0);
+                }
+                else {
+                    TimedController.cardView.changeTimerDisplay(timePlayed);
+                    doNothing(1000);
+                    timePlayed++;
+                }
+            }
+            catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+    }
+}
 
 class CardGameFramework {
     private static final int MAX_PLAYERS = 50;
