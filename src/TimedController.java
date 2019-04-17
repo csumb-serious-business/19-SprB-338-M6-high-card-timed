@@ -30,9 +30,14 @@ public class TimedController {
 	      cardView.displayGame(null, null); // Start off with nothing selected
 	      cardView.addLabelsForPlayers();
 	      cardView.addLabelsForTimer();
+	      
+	      cardView.addLabelsForCannotPlay();
+	      
 	      cardView.myCardTable.setVisible(true);
 	      Timer timer = new Timer();
 	      timer.start();
+	      
+	      
 //	
 		
 	}
