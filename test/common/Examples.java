@@ -10,10 +10,10 @@ import java.util.Map;
  *
  * @author M Robertson
  */
-public class Examples {
+class Examples {
     /// Map declaration (inline)
     // @formatter:off
-    final Map<String, String> map = new LinkedHashMap<String, String>() {{
+    private final Map<String, String> map = new LinkedHashMap<String, String>() {{
        put("first"          , "primary details"                    );
        put("second"         , "secondary details"                  );
        put("subsequent ..." , "subsequent details continue on ..." );
@@ -21,13 +21,13 @@ public class Examples {
     // @formatter:on
 
     /// List declaration (inline)
-    final List<String> list = new ArrayList<String>() {{
+    private final List<String> list = new ArrayList<String>() {{
         add("first");
         add("second");
         add("continues on ...");
     }};
 
     /// Convert list to array
-    String[] arr = list.toArray(new String[0]);
+    private String[] arr = list.toArray(new String[0]);
 
 }
