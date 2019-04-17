@@ -1,33 +1,124 @@
 import javax.swing.*;
+import java.awt.*;
 
-public class GameView {
-    //todo remove these
-    private static final int NUM_CARDS_PER_HAND = 7;
-    private static final int NUM_PLAYERS = 2;
-    private JButton cannotPlayButton;
-    private int playerCannotPlayCount;
-    private int computerCannotPlayCount;
-    private JTextField timer;
-    private JButton timerStop;
-    private TableView table;
+/**
+ * todo: add desc
+ *
+ * @author todo
+ */
+class GameView extends JFrame {
+    private JPanel pnlHandAi;
+    private JPanel pnlHandPlayer;
+
+    private JPanel pnlPlayArea;
+
+    private JPanel pnlTimer;
+    private JLabel txtTimerTime;
+    private JButton btnStopTimer;
+
+    private JPanel pnlSkipTurn;
+
+    private JLabel[] lblPlayedCard;
+
+
     private CardView cardView;
-    private JLabel[] playedCardLabels;
-    private JLabel[] botLabels;
-    private JButton[] userLabels;
     private GameController controller;
 
-    public GameView() {
-        playerCannotPlayCount = 0;
-        computerCannotPlayCount = 0;
+    /**
+     * Arranges panels for the card table
+     *
+     * @param title           the name of the game played on this table
+     * @param numCardsPerHand the max number of per player hand
+     * @param numPlayers      the number of players for this game
+     */
+    public GameView(String title, int numCardsPerHand, int numPlayers) {
+        super();
 
-        table = new TableView("Timed Card Game", NUM_CARDS_PER_HAND, NUM_PLAYERS);
-        table.setSize(800, 600);
-        table.setLocationRelativeTo(null);
-        table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        table.setVisible(true);
+        setSize(1150, 650);
+        setTitle(title);
+
+        setLayout(new BorderLayout());
+
+        pnlHandAi = new JPanel();
+        pnlHandAi.setLayout(new GridLayout(1, numCardsPerHand));
+        add(pnlHandAi, BorderLayout.NORTH);
+
+        pnlPlayArea = new JPanel();
+        pnlPlayArea.setLayout(new GridLayout(2, numPlayers));
+        add(pnlPlayArea, BorderLayout.CENTER);
+
+        pnlHandPlayer = new JPanel();
+        pnlHandPlayer.setLayout(new GridLayout(1, numCardsPerHand));
+        add(pnlHandPlayer, BorderLayout.SOUTH);
+
+        pnlTimer = new JPanel();
+        pnlTimer.setLayout(new FlowLayout());
+        add(pnlTimer, BorderLayout.EAST);
+
+        pnlSkipTurn = new JPanel();
+        pnlSkipTurn.setLayout(new FlowLayout());
+        add(pnlSkipTurn, BorderLayout.WEST);
+
+
+        setSize(800, 600);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        setVisible(true);
 
         cardView = new CardView();
+
+    }
+
+    public boolean addLabelsForTimer() {
+        btnStopTimer = new JButton("stop");
+        btnStopTimer.addActionListener(controller.getTimerListener());
+        txtTimerTime = new JLabel("0");
+        pnlTimer.add(txtTimerTime);
+        pnlTimer.add(btnStopTimer);
+        return true;
+    }
+
+    public boolean addLabelsForCannotPlay() {
+        JButton btnSkipTurn = new JButton("Cannot Play");
+        pnlSkipTurn.add(btnSkipTurn);
+        btnSkipTurn.addActionListener(controller.getCannotPlayListener());
+        return true;
+    }
+
+    /**
+     * Validate the panels in the CardTable
+     *
+     * @return true if successful
+     */
+    private boolean validateAll() {
+        pnlPlayArea.validate();
+        pnlHandAi.validate();
+        pnlHandPlayer.validate();
+        pnlSkipTurn.validate();
+        super.validate();
+        return true;
+    }
+
+    /**
+     * Clears the panels in the CardTable
+     *
+     * @return true if successful
+     */
+    public boolean removeAllPanels() {
+        pnlHandAi.removeAll();
+        pnlHandPlayer.removeAll();
+        pnlPlayArea.removeAll();
+
+        //table.pnlSkipTurn.removeAll();
+        return true;
+    }
+
+
+    public boolean setController(GameController controller) {
+        this.controller = controller;
+        return true;
     }
 
     /**
@@ -53,19 +144,64 @@ public class GameView {
         return handLabels;
     }
 
-    public int playerCannotPlay() {
-        return playerCannotPlayCount++;
+    /**
+     * //   * Adds labels for CardTable's players
+     * //   *
+     * //   * @return true if successful
+     * //
+     */
+    public boolean addLabelsForPlayers() {
+        JButton[] btnsPlayerHand = populateButtons(controller.getPlayerHand());
+        JLabel[] lblsAiHand = populateLabels(controller.getAiHand(), false);
 
-    }
+        for (JButton button : btnsPlayerHand) {
+            pnlHandPlayer.add(button);
+        }
 
-    public int computerCannotPlay() {
-        return computerCannotPlayCount++;
-    }
+        for (JLabel label : lblsAiHand) {
+            pnlHandAi.add(label);
+        }
 
-    public boolean changeTimerDisplay(int time) {
-        timer.setText(Integer.toString(time));
-        timer.repaint();
         return true;
+
+    }
+
+    /**
+     * The main loop for this Card Game
+     *
+     * @param playerChoice   the player's chosen card
+     * @param computerChoice the computer's chosen card
+     */
+    public void takeTurn(Card playerChoice, Card computerChoice) {
+        String playerPrompt = "Test";
+        String computerPrompt = "Test1";
+        String tieCountPrompt = "";
+
+        // clear everything
+        removeAllPanels();
+
+        Hand playHand = new Hand();
+        if (playerChoice != null && computerChoice != null) {
+            playHand.takeCard(computerChoice);
+            playHand.takeCard(playerChoice);
+            lblPlayedCard = populateLabels(playHand, true);
+            playerPrompt = "[Status]User Cannot Plays: " + controller.getPlayerSkips();
+            computerPrompt = "[Status]Computer Cannot Plays: " + controller.getAiSkips();
+        }
+
+        //TODO: Add cards to table first but cant because of null check
+        if (lblPlayedCard[0] != null || lblPlayedCard[1] != null) {
+            pnlPlayArea.add(lblPlayedCard[0]);//start throwing cards out
+            pnlPlayArea.add(lblPlayedCard[1]);
+            addLabelsForPlayers();
+        }
+
+        pnlPlayArea.add(new JLabel(computerPrompt, SwingConstants.HORIZONTAL));
+        pnlPlayArea.add(new JLabel(playerPrompt + "\n" + tieCountPrompt, SwingConstants.HORIZONTAL));
+
+        validateAll();
+        // If something goes wrong we know because this will return false
+
     }
 
     /**
@@ -80,7 +216,7 @@ public class GameView {
         for (int i = 0; i < hand.getNumCards(); i++) {
             Card card = hand.inspectCard(i);
             JButton button = new JButton(cardView.getIcon(card));
-            button.addActionListener(controller.getHandListener());
+            button.addActionListener(controller.playCardListener());
             button.setActionCommand(String.valueOf(i));
             buttons[i] = button;
         }
@@ -88,141 +224,22 @@ public class GameView {
         return buttons;
     }
 
-    public boolean setController(GameController controller) {
-        this.controller = controller;
+
+    public boolean changeTimerDisplay(int time) {
+        txtTimerTime.setText(Integer.toString(time));
+        txtTimerTime.repaint();
         return true;
     }
 
-    /**
-     * @return timerStop of the GameView
-     */
-    public JButton getTimerStop() {
-        return timerStop;
-    }
 
-    /**
-     * Validate the panels in the CardTable
-     *
-     * @return true if successful
-     */
-    private boolean validateAll() {
-        table.pnlPlayArea.validate();
-        table.pnlComputerHand.validate();
-        table.pnlHumanHand.validate();
-        table.pnlCannotPlay.validate();
-        table.validate();
-        return true;
-    }
-
-    public boolean addLabelsForTimer() {
-        timerStop = new JButton("stop");
-        timerStop.addActionListener(controller.getTimerListener());
-        timer = new JTextField("0", 6);
-        timer.setEditable(false);
-        table.pnlTimer.add(timer);
-        table.pnlTimer.add(timerStop);
-        return true;
-    }
-
-    public boolean addLabelsForCannotPlay() {
-        cannotPlayButton = new JButton("Cannot Play");
-        table.pnlCannotPlay.add(cannotPlayButton);
-        cannotPlayButton.addActionListener(controller.getCannotPlayListener());
-        //leftPanel[0]=cannotPlayButton;
-        return true;
-    }
-
-    /**
-     * Clears the panels in the CardTable
-     *
-     * @return true if successful
-     */
-    private boolean removeAll() {
-        table.pnlComputerHand.removeAll();
-        table.pnlHumanHand.removeAll();
-        table.pnlPlayArea.removeAll();
-
-        //table.pnlCannotPlay.removeAll();
-        return true;
-    }
-
-    /**
-     * @return table of the GameView
-     */
-    public TableView getTable() {
-        return table;
-    }
-
-    /**
-     * The main loop for this Card Game
-     *
-     * @param playerChoice   the player's chosen card
-     * @param computerChoice the computer's chosen card
-     */
-    public void displayGame(Card playerChoice, Card computerChoice) {
-        String playerPrompt = "Test";
-        String computerPrompt = "Test1";
-        String tieCountPrompt = "";
-
-        // clear everything
-        removeAll();
-
-        Hand playHand = new Hand();
-        if (playerChoice != null && computerChoice != null) {
-            playHand.takeCard(computerChoice);
-            playHand.takeCard(playerChoice);
-            playedCardLabels = populateLabels(playHand, true);
-
-            //TODO Rules:
-            //			if (compare(playerChoice, computerChoice) >= 1) {
-            //				playerWinCount++;
-            //			} else if (compare(playerChoice, computerChoice) == 0) {
-            //				tieCount++;
-            //			} else if (compare(playerChoice, computerChoice) <= -1) {
-            //				computerWinCount++;
-            //			}
-
-            playerPrompt = "[Status]User Cannot Plays: " + playerCannotPlayCount;
-            computerPrompt = "[Status]Computer Cannot Plays: " + computerCannotPlayCount;
+    public void timerState(boolean state) {
+        if (state) {
+            // start the txtTimerTime and set button text to stop
+            btnStopTimer.setText("stop");
+        } else {
+            btnStopTimer.setText("start");
         }
-
-        //TODO: Add cards to table first but cant because of null check
-        if (playedCardLabels[0] != null || playedCardLabels[1] != null) {
-            table.pnlPlayArea.add(playedCardLabels[0]);//start throwing cards out
-            table.pnlPlayArea.add(playedCardLabels[1]);
-            addLabelsForPlayers();
-        }
-
-        table.pnlPlayArea.add(new JLabel(computerPrompt, 0));
-        table.pnlPlayArea.add(new JLabel(playerPrompt + "\n" + tieCountPrompt, 0));
-
-        validateAll();
-        // If something goes wrong we know because this will return false
-
     }
 
-    /**
-     * //   * Adds labels for CardTable's players
-     * //   *
-     * //   * @return true if successful
-     * //
-     */
-    public boolean addLabelsForPlayers() {
-        Game model = controller.getModel();
-        userLabels = populateButtons(model.getHand(1));
-        botLabels = populateLabels(model.getHand(0), false);
 
-        for (JButton button : userLabels) {
-            table.pnlHumanHand.add(button);
-        }
-
-        for (JLabel label : botLabels) {
-            table.pnlComputerHand.add(label);
-        }
-
-        return true;
-
-    }
 }
-
-

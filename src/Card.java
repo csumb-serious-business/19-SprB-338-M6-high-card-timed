@@ -3,7 +3,7 @@
  *
  * @author todo
  */
-class Card implements Comparable<Card> {
+public class Card implements Comparable<Card> {
     private FaceValue value;
     private Suit suit;
     private boolean errorFlag;

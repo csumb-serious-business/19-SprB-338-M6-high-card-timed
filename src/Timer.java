@@ -13,24 +13,31 @@ class Timer extends Thread {
 
     }
 
+    /**
+     * sets isRunning of the Timer
+     *
+     * @param running todo
+     */
+    public void setRunning(boolean running) {
+        isRunning = running;
+    }
+
     public void start() {
         isRunning = true;
         Thread timerThread = new Thread(this);
         timerThread.start();
     }
 
-    public void doNothing(int mili) throws InterruptedException {
-        Thread.sleep(mili);
+    public void doNothing(int milliseconds) throws InterruptedException {
+        Thread.sleep(milliseconds);
     }
 
     @Override
     public void run() {
-        GameView view = controller.getView();
         while (true) {
-            isRunning = view.getTimerStop().getActionCommand().equals("stop");
             try {
                 if (isRunning) {
-                    view.changeTimerDisplay(timePlayed);
+                    controller.changeTimerDisplay(timePlayed);
                     doNothing(1000);
                     timePlayed++;
                 } else {

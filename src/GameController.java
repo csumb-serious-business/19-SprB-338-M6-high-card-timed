@@ -16,6 +16,29 @@ public class GameController {
         this.timer = new Timer(this);
     }
 
+    public Hand getPlayerHand() {
+        return model.getHand(1);
+
+    }
+
+    public Hand getAiHand() {
+        return model.getHand(0);
+    }
+
+    public int getPlayerSkips() {
+        return model.getPlayerSkips();
+    }
+
+    public int getAiSkips() {
+        return model.getAiSkips();
+    }
+
+    public boolean changeTimerDisplay(int time) {
+        view.changeTimerDisplay(time);
+        return true;
+    }
+
+
     /**
      * @return cannotPlayListener of the GameControl
      */
@@ -24,24 +47,10 @@ public class GameController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getActionCommand().equals("Cannot Play")) {
-                    view.playerCannotPlay();
+                    model.skipPlayer();
                 }
             }
         };
-    }
-
-    /**
-     * @return model of the GameControl
-     */
-    public Game getModel() {
-        return model;
-    }
-
-    /**
-     * @return view of the GameControl
-     */
-    public GameView getView() {
-        return view;
     }
 
     /**
@@ -51,19 +60,21 @@ public class GameController {
         return new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (e.getActionCommand().equals("stop")) {
-                    view.getTimerStop().setText("start");
+                if (e.getActionCommand().equals("start")) {
+                    timer.setRunning(true);
+                    view.timerState(true);
                 } else {
-                    view.getTimerStop().setText("stop");
+                    timer.setRunning(false);
+                    view.timerState(false);
                 }
             }
         };
     }
 
     /**
-     * @return handListener of the GameControl
+     * @return an action listener for played cards
      */
-    public ActionListener getHandListener() {
+    public ActionListener playCardListener() {
         return new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,8 +85,8 @@ public class GameController {
                 Card botCard = model.getHand(0).playCard(humanIndex);
 
                 // If the bot has a card higher, should we do something?
-                view.displayGame(humanCard, botCard);
-                view.getTable().repaint();
+                view.takeTurn(humanCard, botCard);
+                view.repaint();
             }
         };
     }
@@ -86,14 +97,14 @@ public class GameController {
         // shuffle and deal into the hands.
         model.deal();
 
-        //view.displayGame(null, null); // Start off with nothing selected
+        //view.takeTurn(null, null); // Start off with nothing selected
         view.addLabelsForPlayers();
         view.addLabelsForTimer();
 
         view.addLabelsForCannotPlay();
         //view.addLabelsForStartGame();
 
-        view.getTable().setVisible(true);
+        view.setVisible(true);
         timer.start();
 
     }

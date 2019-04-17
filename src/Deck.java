@@ -1,10 +1,10 @@
 /**
  * Represents the source of playing cards in a game
  */
-class Deck {
+public class Deck {
     private static final int MAX_PACKS = 6;
     private static final int CARDS_PER_PACK = 56;
-    private static final Card[] masterpack = generateMasterpack();
+    private static final Card[] masterPack = generateMasterPack();
 
     private Card[] cards;
     private int numPacks;
@@ -30,7 +30,7 @@ class Deck {
      * Populates the reusable master pack for decks
      * only if it is empty.
      */
-    private static Card[] generateMasterpack() {
+    private static Card[] generateMasterPack() {
 
         Card[] pack = new Card[CARDS_PER_PACK];
         int c = 0;
@@ -72,9 +72,9 @@ class Deck {
 
         // for the desired number of packs, copy the master pack into packs
         for (int i = 0; i < numPacks; i++) {
-            System.arraycopy(Deck.masterpack, 0,
+            System.arraycopy(Deck.masterPack, 0,
                     this.cards, i * CARDS_PER_PACK,
-                    Deck.masterpack.length);
+                    Deck.masterPack.length);
         }
 
         // set the position of the top card
@@ -85,7 +85,7 @@ class Deck {
      * Refreshes this deck, discarding all current cards (if any)
      * and populating it with a fresh pack.
      */
-    public void init() { //reinitializes an existing Deck object with one pack
+    public void init() { // re-initializes an existing Deck object with one pack
         this.init(1);
     }
 
@@ -183,7 +183,6 @@ class Deck {
         boolean success = false;
         for (Card c : cards) {
             if (c == card) {
-                c = cards[topCard];
                 cards[topCard] = null;
                 topCard--;
                 success = true;

@@ -3,9 +3,10 @@
  *
  * @author todo
  */
-class Game {
+public class Game {
+    public static final int DEFAULT_NUM_CARDS_PER_HAND = 7;
+    public static final int DEFAULT_NUM_PLAYERS = 2;
     private static final int DEFAULT_CARDS_PER_HAND = 7;
-    private static final int DEFAULT_NUM_PLAYERS = 2;
     private static final Card[] DEFAULT_UNUSED_CARDS = new Card[0];
     private static final int DEFAULT_PACKS_PER_DECK = 1;
     private static final int DEFAULT_JOKERS_PER_PACK = 0;
@@ -23,9 +24,8 @@ class Game {
     // smaller (usually) during play
     private Hand[] hand; // one Hand for each player
     private Card[] unusedCardsPerPack; // an array holding the cards not used
-    // in the game. e.g. pinochle does not
-    // use cards 2-8 of any suit
-
+    private int playerSkips;
+    private int aiSkips;
 
     public Game(int numPacks,
                 int numJokersPerPack,
@@ -63,12 +63,42 @@ class Game {
         for (k = 0; k < numUnusedCardsPerPack; k++)
             this.unusedCardsPerPack[k] = unusedCardsPerPack[k];
         // prepare deck and shuffle
+
+        playerSkips = 0;
+        aiSkips = 0;
+
         newGame();
     }
 
     public Game() {
         this(DEFAULT_PACKS_PER_DECK, DEFAULT_JOKERS_PER_PACK, DEFAULT_NUM_UNUSED_CARDS_PER_PACK,
                 DEFAULT_UNUSED_CARDS, DEFAULT_NUM_PLAYERS, DEFAULT_CARDS_PER_HAND);
+    }
+
+    // in the game. e.g. pinochle does not
+    // use cards 2-8 of any suit
+
+    /**
+     * @return playerSkips of the Game
+     */
+    public int getPlayerSkips() {
+        return playerSkips;
+    }
+
+    /**
+     * @return aiSkips of the Game
+     */
+    public int getAiSkips() {
+        return aiSkips;
+    }
+
+    public int skipPlayer() {
+        return playerSkips++;
+
+    }
+
+    public int skipAi() {
+        return aiSkips++;
     }
 
     public Hand getHand(int k) {
@@ -90,61 +120,57 @@ class Game {
     }
 
     public void newGame() {
-        int k, j;
-
 
         // clear the hands
-        for (k = 0; k < numPlayers; k++)
-            hand[k].resetHand();
+        for (int i = 0; i < numPlayers; i++) {
+            hand[i].resetHand();
+        }
 
         // restock the deck
         deck.init(numPacks);
 
         // remove unused cards
-        for (k = 0; k < DEFAULT_NUM_UNUSED_CARDS_PER_PACK; k++)
-            deck.removeCard(unusedCardsPerPack[k]);
+        for (int i = 0; i < DEFAULT_NUM_UNUSED_CARDS_PER_PACK; i++) {
+            deck.removeCard(unusedCardsPerPack[i]);
+        }
 
         // add jokers
-        for (k = 0; k < numPacks; k++)
-            for (j = 0; j < numJokersPerPack; j++)
+        for (int i = 0; i < numPacks; i++) {
+            for (int j = 0; j < numJokersPerPack; j++) {
                 deck.addCard(new Card(Card.FaceValue.X, Card.Suit.values()[j]));
-
+            }
+        }
         // shuffle the cards
         deck.shuffle();
-
-        //set leftCard and rightCard out
-//        Card leftCard=getCardFromDeck();
-//        Card Card=getCardFromDeck();
     }
 
     public boolean deal() {
         // returns false if not enough cards, but deals what it can
-        int k, j;
         boolean enoughCards;
 
         // clear all hands
-        for (j = 0; j < numPlayers; j++)
-            hand[j].resetHand();
+        for (int i = 0; i < numPlayers; i++)
+            hand[i].resetHand();
 
         enoughCards = true;
-        for (k = 0; k < numCardsPerHand && enoughCards; k++) {
-            for (j = 0; j < numPlayers; j++)
-                if (deck.getNumCards() > 0)
+        for (int i = 0; i < numCardsPerHand && enoughCards; i++) {
+            for (int j = 0; j < numPlayers; j++) {
+                if (deck.getNumCards() > 0) {
                     hand[j].takeCard(deck.dealCard());
-                else {
+                } else {
                     enoughCards = false;
                     break;
                 }
+            }
         }
 
         return enoughCards;
     }
 
     void sortHands() {
-        int k;
-
-        for (k = 0; k < numPlayers; k++)
-            hand[k].sort();
+        for (int i = 0; i < numPlayers; i++) {
+            hand[i].sort();
+        }
     }
 
     Card playCard(int playerIndex, int cardIndex) {

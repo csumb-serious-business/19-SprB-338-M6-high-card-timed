@@ -5,7 +5,7 @@ import javax.swing.*;
  *
  * @author todo
  */
-class CardView {
+public class CardView {
     private static final String imagesDir = "images/";
     private static boolean iconsLoaded = false;
     private static Icon[][] iconCards = new ImageIcon[14][4]; // 14 = A through K plus joker
