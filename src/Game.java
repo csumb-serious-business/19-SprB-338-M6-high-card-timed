@@ -11,11 +11,20 @@ public class Game {
 
 
     private int numPlayers;
-    private int numCardsPerHand; //-----/ count of cards dealt to each player
-    private Deck deck; //---------------/ holds the initial full deck and gets
-    private Hand[] hand; //-------------/ each player's hand
+    private int numCardsPerHand; // count of cards dealt to each player
+    private Deck deck;
+    private Hand[] hand; //-------/ each player's hand
+    private Card leftStack; //----/ top card on the left stack
+    private Card rightStack; //---/ top card on the right stack
 
-    private int numJokersPerPack;
+    //todo add ui-element to gameView for stacks
+    //todo add click to select card, click on stack to play card.
+    //todo add stack card value constraint
+    //todo add draw on play logic
+    //todo add ai play/skip logic
+    //todo add skip turn functionality
+    //todo add both skip -> deal from deck to both stacks
+    //todo add empty deck -> count min skip to winner logic
 
     private int playerSkips;
     private int aiSkips;
@@ -23,20 +32,19 @@ public class Game {
     public Game(Deck deck, int numPlayers, int numCardsPerHand) {
         this.deck = deck;
 
-        // filter bad values
+        // players
         if (1 <= numPlayers && numPlayers <= MAX_PLAYERS) {
             this.numPlayers = numPlayers;
         } else {
             this.numPlayers = 4;
         }
 
-        // one of many ways to assure at least one full deal to each player
+        // hand sizes
         if (1 <= numCardsPerHand && numCardsPerHand <= (deck.getCardCount() / numPlayers)) {
             this.numCardsPerHand = numCardsPerHand;
         } else {
             this.numCardsPerHand = deck.getCardCount() / numPlayers;
         }
-
 
         // hand
         this.hand = new Hand[numPlayers];
@@ -80,13 +88,11 @@ public class Game {
     }
 
     public Hand getHand(int k) {
-        // hands start from 0 like arrays
-
         // on error return automatic empty hand
-        if (k < 0 || k >= numPlayers)
-            return new Hand();
-
-        return hand[k];
+        if (0 <= k && k < numPlayers) {
+            return hand[k];
+        }
+        return new Hand();
     }
 
     public Card getCardFromDeck() {
@@ -104,7 +110,7 @@ public class Game {
             hand[i].resetHand();
         }
 
-        // restock & suffle the deck
+        // restock & shuffle the deck
         deck.init();
         deck.shuffle();
     }
@@ -139,26 +145,28 @@ public class Game {
     }
 
     Card playCard(int playerIndex, int cardIndex) {
-        // returns bad card if either argument is bad
-        if (playerIndex < 0 || playerIndex > numPlayers - 1 || cardIndex < 0 || cardIndex > numCardsPerHand - 1) {
-            // Creates a card that does not work
-            return new Card(null, Card.Suit.spades);
+        // card is ok
+        if ((0 <= playerIndex && playerIndex <= (numPlayers - 1)) &&
+                (0 <= cardIndex && cardIndex <= (numCardsPerHand - 1))) {
+            // return the played card
+            return hand[playerIndex].playCard(cardIndex);
         }
 
-        // return the card played
-        return hand[playerIndex].playCard(cardIndex);
-
+        // bad card, return invalid
+        return new Card(null, Card.Suit.spades);
     }
 
     boolean takeCard(int playerIndex) {
-        // returns false if either argument is bad
-        if (playerIndex < 0 || playerIndex > numPlayers - 1)
-            return false;
-
         // Are there enough Cards?
-        if (deck.getNumCards() <= 0)
+        if (deck.getNumCards() <= 0) {
             return false;
+        }
 
-        return hand[playerIndex].takeCard(deck.dealCard());
+        // is the index ok?
+        if (0 <= playerIndex && playerIndex <= (numPlayers - 1)) {
+            return hand[playerIndex].takeCard(deck.dealCard());
+        }
+
+        return false;
     }
 }
