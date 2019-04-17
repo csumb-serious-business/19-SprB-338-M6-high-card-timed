@@ -2,21 +2,22 @@
  * Represents the source of playing cards in a game
  */
 public class Deck {
-    private static final int MAX_PACKS = 6;
-    private static final int CARDS_PER_PACK = 56;
-    private static final Card[] masterPack = generateMasterPack();
+    public static final int DEFAULT_PACKS_COUNT = 1;
+    public static final int MAX_PACKS = 6;
+    public static final Deck DEFAULT_DECK = new Deck();
 
     private Card[] cards;
-    private int numPacks;
+    private int packCount;
     private int topCard;
+    private int cardCount;
 
     /**
-     * Creates a new deck using a given number of packs
+     * Creates a new deck using a given number of packCount
      *
-     * @param numPacks the number of packs within this deck
+     * @param packCount the number of packCount within this deck
      */
-    public Deck(int numPacks) {
-        this.init(numPacks);
+    public Deck(int packCount) {
+        this.init(packCount);
     }
 
     /**
@@ -27,58 +28,49 @@ public class Deck {
     }
 
     /**
-     * Populates the reusable master pack for decks
-     * only if it is empty.
+     * @return cardCount of the Deck
      */
-    private static Card[] generateMasterPack() {
-
-        Card[] pack = new Card[CARDS_PER_PACK];
-        int c = 0;
-
-        for (Card.FaceValue value : Card.FaceValue.values()) {
-            for (Card.Suit suit : Card.Suit.values()) {
-                pack[c] = new Card(value, suit);
-                c++;
-            }
-        }
-        return pack;
+    public int getCardCount() {
+        return cardCount;
     }
 
     /**
-     * @return numPacks of the Deck
+     * @return packCount of the Deck
      */
-    public int getNumPacks() {
-        return numPacks;
+    public int getPackCount() {
+        return packCount;
     }
 
     /**
      * Refreshes this deck, discarding all current cards (if any)
-     * and populating it with fresh packs.
+     * and populating it with fresh packCount.
      *
-     * @param numPacks the number of packs to refresh with
+     * @param packCount the number of packCount to refresh with
      */
-    public void init(int numPacks) {
+    public void init(int packCount) {
         // enforce pack limit
-        if (numPacks > MAX_PACKS) {
-            numPacks = MAX_PACKS;
-            System.out.printf("Maximum number of packs exceeded, set to maximum: %d%n", numPacks);
+        if (packCount > MAX_PACKS) {
+            packCount = MAX_PACKS;
+            System.out.printf("Maximum number of packCount exceeded, set to maximum: %d%n", packCount);
         }
 
-        this.numPacks = numPacks;
+        this.packCount = packCount;
+        Pack pack = new Pack();
 
-        int numCards = numPacks * CARDS_PER_PACK;
-        this.cards = new Card[numCards];
+        int cardCount = packCount * pack.getCount();
+        this.cards = new Card[cardCount];
 
 
-        // for the desired number of packs, copy the master pack into packs
-        for (int i = 0; i < numPacks; i++) {
-            System.arraycopy(Deck.masterPack, 0,
-                    this.cards, i * CARDS_PER_PACK,
-                    Deck.masterPack.length);
+        // for the desired number of packCount, copy the STANDARD pack into packCount
+        for (int i = 0; i < packCount; i++) {
+            System.arraycopy(Pack.STANDARD, 0,
+                    this.cards, i * pack.getCount(),
+                    Pack.STANDARD.length);
         }
 
         // set the position of the top card
-        this.topCard = numCards - 1; // zero-indexed
+        this.topCard = cardCount - 1; // zero-indexed
+        this.cardCount = cardCount;
     }
 
     /**
@@ -86,7 +78,7 @@ public class Deck {
      * and populating it with a fresh pack.
      */
     public void init() { // re-initializes an existing Deck object with one pack
-        this.init(1);
+        this.init(DEFAULT_PACKS_COUNT);
     }
 
     /**
