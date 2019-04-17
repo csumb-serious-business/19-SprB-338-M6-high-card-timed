@@ -168,7 +168,7 @@ public class TimedViewer {
 		@Override
 		public void actionPerformed(ActionEvent cannotPlayClicked) {
 			if(cannotPlayClicked.getActionCommand()=="Cannot Play") {
-				playerCannotPlayCount++;
+				playerCannotPlay();
 				cannotPlayButton.setText("Cannot Play");
 			}
 		}
@@ -288,20 +288,17 @@ public class TimedViewer {
 		return true;
 	}
 
-	//TODO fix increment
+	public static int playerCannotPlay() {
+		return playerCannotPlayCount++;
+
+	}
+	public static int computerCannotPlay() {
+		return computerCannotPlayCount++;
+	}
 	public static boolean addLabelsForCannotPlay() {
 		cannotPlayButton=new JButton("Cannot Play");
 		cannotPlayButton.addActionListener(new CannotPlayListener());
-		String playerCannotPlayCountTextField=Integer.toString(playerCannotPlayCount);
-		cannotPlay=new JTextField(playerCannotPlayCountTextField,6);
-		cannotPlay.setEditable(false);
-		myCardTable.pnlCannotPlay.add(cannotPlay);
 		myCardTable.pnlCannotPlay.add(cannotPlayButton);
-		return true;
-	}
-	public static boolean changeCannotPlay(int count) {
-		cannotPlay.setText(Integer.toString(count));
-		cannotPlay.repaint();
 		return true;
 	}
 
