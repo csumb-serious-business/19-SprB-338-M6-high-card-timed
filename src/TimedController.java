@@ -27,11 +27,13 @@ public class TimedController {
 	      
 	      cardView.setModel(timedCardGame);
 		    //TODO add timer here
-	      cardView.displayGame(null, null); // Start off with nothing selected
+
+	      //cardView.displayGame(null, null); // Start off with nothing selected
 	      cardView.addLabelsForPlayers();
 	      cardView.addLabelsForTimer();
 	      
 	      cardView.addLabelsForCannotPlay();
+	      //cardView.addLabelsForStartGame();
 	      
 	      cardView.myCardTable.setVisible(true);
 	      Timer timer = new Timer();
@@ -99,6 +101,7 @@ class CardGameFramework {
     private Card[] unusedCardsPerPack; // an array holding the cards not used
     // in the game. e.g. pinochle does not
     // use cards 2-8 of any suit
+   
 
     public CardGameFramework(int numPacks, int numJokersPerPack, int numUnusedCardsPerPack, Card[] unusedCardsPerPack,
                              int numPlayers, int numCardsPerHand) {
@@ -132,7 +135,6 @@ class CardGameFramework {
         this.numCardsPerHand = numCardsPerHand;
         for (k = 0; k < numUnusedCardsPerPack; k++)
             this.unusedCardsPerPack[k] = unusedCardsPerPack[k];
-
         // prepare deck and shuffle
         newGame();
     }
@@ -162,6 +164,7 @@ class CardGameFramework {
 
     public void newGame() {
         int k, j;
+        
 
         // clear the hands
         for (k = 0; k < numPlayers; k++)
@@ -181,6 +184,10 @@ class CardGameFramework {
 
         // shuffle the cards
         deck.shuffle();
+        
+        //set leftCard and rightCard out
+//        Card leftCard=getCardFromDeck();
+//        Card Card=getCardFromDeck();
     }
 
     public boolean deal() {

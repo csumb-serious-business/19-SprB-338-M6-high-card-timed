@@ -17,11 +17,15 @@ public class TimedViewer {
 	static JButton timerStop;
 	static JTextField timer;
 
-	public static JButton cannotPlayButton;
-	public static JTextField cannotPlay;
+	static JButton[] leftPanel;//includes cannot play and start game
+	static JButton cannotPlayButton;
+	static JButton startGameButton;
 
 	static public CardGameFramework highCardGame;
 	static public CardTable myCardTable;
+
+	private Card leftCard;
+	private Card rightCard;
 
 	//	static private int playerWinCount = 0;
 	//	static private int computerWinCount = 0;
@@ -56,7 +60,8 @@ public class TimedViewer {
 		myCardTable.pnlComputerHand.removeAll();
 		myCardTable.pnlHumanHand.removeAll();
 		myCardTable.pnlPlayArea.removeAll();
-		myCardTable.pnlCannotPlay.removeAll();
+
+		//myCardTable.pnlCannotPlay.removeAll();
 		return true;
 	}
 
@@ -90,7 +95,6 @@ public class TimedViewer {
 		for (JLabel label : botLabels) {
 			myCardTable.pnlComputerHand.add(label);
 		}
-
 		return true;
 
 	}
@@ -105,8 +109,6 @@ public class TimedViewer {
 	public static int compare(Card playerCard, Card botCard) {
 		return playerCard.compareTo(botCard);
 	}
-
-
 
 	/**
 	 * populates UI labels for a given hand
@@ -163,17 +165,25 @@ public class TimedViewer {
 		}
 
 	}
-	//TODO increments but doesnt show in textfield but at the end
 	private static class CannotPlayListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent cannotPlayClicked) {
 			if(cannotPlayClicked.getActionCommand()=="Cannot Play") {
 				playerCannotPlay();
-				cannotPlayButton.setText("Cannot Play");
 			}
 		}
 	}
-
+	//TODO Connect this to startGame function
+	private static class StartGameListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent startClicked) {
+			if (startClicked.getActionCommand() == "Start Game") {
+				Card card0=playedCardLabels[0];
+				Card card1=playedCardLabels[1];
+				startGame(Card card1,Card card2);
+			}
+		}
+	}
 	private static class HumanHandListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent cardClicked) {
@@ -191,7 +201,19 @@ public class TimedViewer {
 			myCardTable.repaint();
 		}
 	}
-
+	//TODO This needs to put cards out first
+	//But also needs to make sure they stay null for displayGame
+	//or something
+	public static void startGame(JLabel card0,JLabel card1) {
+		card0=playedCardLabels[0];
+		card1=playedCardLabels[1];
+		myCardTable.pnlPlayArea.add(card0);//start throwing cards out
+		myCardTable.pnlPlayArea.add(card1);	
+		playedCardLabels[0]=null;
+		playedCardLabels[1]=null;
+		displayGame(null,null);
+		
+	}
 	/**
 	 * The main loop for this Card Game
 	 *
@@ -199,8 +221,8 @@ public class TimedViewer {
 	 * @param computerChoice the computer's chosen card
 	 */
 	public static void displayGame(Card playerChoice, Card computerChoice) {
-		String playerPrompt = "Click on a card below to choose";
-		String computerPrompt = "Computer says 'Please choose a card one higher or one lower";
+		String playerPrompt = "Test";
+		String computerPrompt = "Test1";
 		String tieCountPrompt = "";
 
 		// clear everything
@@ -221,19 +243,20 @@ public class TimedViewer {
 			//				computerWinCount++;
 			//			}
 
-
-			//playerPrompt = "[Status]User Wins: " + playerWinCount;
-			//computerPrompt = "[Status]Computer Wins: " + computerWinCount;
-			//tieCountPrompt = " [Ties]: " + tieCount;
 			playerPrompt = "[Status]User Cannot Plays: " + playerCannotPlayCount;
 			computerPrompt = "[Status]Computer Cannot Plays: " + computerCannotPlayCount;
 		}
 
 
-
 		// At the start of this we don't need any
+		//		if (playedCardLabels[0] != null || playedCardLabels[1] != null) {
+		//			myCardTable.pnlPlayArea.add(playedCardLabels[0]);
+		//			myCardTable.pnlPlayArea.add(playedCardLabels[1]);
+		//			addLabelsForPlayers();
+		//		}
+		//TODO: Add cards to table first but cant because of null check
 		if (playedCardLabels[0] != null || playedCardLabels[1] != null) {
-			myCardTable.pnlPlayArea.add(playedCardLabels[0]);
+			myCardTable.pnlPlayArea.add(playedCardLabels[0]);//start throwing cards out
 			myCardTable.pnlPlayArea.add(playedCardLabels[1]);
 			addLabelsForPlayers();
 		}
@@ -241,13 +264,11 @@ public class TimedViewer {
 		myCardTable.pnlPlayArea.add(new JLabel(computerPrompt, 0));
 		myCardTable.pnlPlayArea.add(new JLabel(playerPrompt + "\n" + tieCountPrompt, 0));
 
-
 		validateAll();
 		// If something goes wrong we know because this will return false
 
 	}
 	public void setModel(CardGameFramework timedCardGame) {
-		// TODO Auto-generated method stub
 		this.highCardGame = timedCardGame;	
 	}
 
@@ -297,11 +318,18 @@ public class TimedViewer {
 	}
 	public static boolean addLabelsForCannotPlay() {
 		cannotPlayButton=new JButton("Cannot Play");
-		cannotPlayButton.addActionListener(new CannotPlayListener());
 		myCardTable.pnlCannotPlay.add(cannotPlayButton);
+		cannotPlayButton.addActionListener(new CannotPlayListener());
+		//leftPanel[0]=cannotPlayButton;
 		return true;
 	}
-
+	public static boolean addLabelsForStartGame() {
+		startGameButton=new JButton("Start Game");
+		myCardTable.pnlPlayArea.add(startGameButton);
+		startGameButton.addActionListener(new StartGameListener());
+		leftPanel[1]=cannotPlayButton;
+		return true;
+	}
 }
 
 class GUICard 
@@ -955,9 +983,8 @@ class Card implements Comparable<Card> {
 			pnlHumanHand.setLayout(new GridLayout(1, numCardsPerHand));
 			add(pnlHumanHand, BorderLayout.SOUTH);
 
-			//TODO
+			//TODO This needs to include startGame
 			pnlCannotPlayArea=new JPanel();
-			//			pnlCannotPlayArea.setLayout(new GridLayout(1,));
 			pnlCannotPlayArea.setLayout(new FlowLayout());
 			add(pnlCannotPlayArea,BorderLayout.WEST);
 		}
