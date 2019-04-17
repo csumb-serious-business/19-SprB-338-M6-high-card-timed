@@ -174,16 +174,16 @@ public class TimedViewer {
 		}
 	}
 	//TODO Connect this to startGame function
-	private static class StartGameListener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent startClicked) {
-			if (startClicked.getActionCommand() == "Start Game") {
-				Card card0=playedCardLabels[0];
-				Card card1=playedCardLabels[1];
-				startGame(Card card1,Card card2);
-			}
-		}
-	}
+//	private static class StartGameListener implements ActionListener {
+//		@Override
+//		public void actionPerformed(ActionEvent startClicked) {
+//			if (startClicked.getActionCommand() == "Start Game") {
+//				Card card0=playedCardLabels[0];
+//				Card card1=playedCardLabels[1];
+//				startGame(Card card1,Card card2);
+//			}
+//		}
+//	}
 	private static class HumanHandListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent cardClicked) {
@@ -323,13 +323,13 @@ public class TimedViewer {
 		//leftPanel[0]=cannotPlayButton;
 		return true;
 	}
-	public static boolean addLabelsForStartGame() {
-		startGameButton=new JButton("Start Game");
-		myCardTable.pnlPlayArea.add(startGameButton);
-		startGameButton.addActionListener(new StartGameListener());
-		leftPanel[1]=cannotPlayButton;
-		return true;
-	}
+//	public static boolean addLabelsForStartGame() {
+//		startGameButton=new JButton("Start Game");
+//		myCardTable.pnlPlayArea.add(startGameButton);
+//		startGameButton.addActionListener(new StartGameListener());
+//		leftPanel[1]=cannotPlayButton;
+//		return true;
+//	}
 }
 
 class GUICard 
