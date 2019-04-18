@@ -50,7 +50,9 @@ public class GameController {
                 if (e.getActionCommand().equals("Skip Turn")) {
                     model.skipPlayer();
                     view.updateScore();
-                    // TODO AI to play here
+                    aiPlay();
+                    //todo add both skip -> deal from deck to both stacks
+                    //todo add empty deck -> count min skip to winner logic
                 }
             }
         };
@@ -82,7 +84,6 @@ public class GameController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String[] actionCommand = e.getActionCommand().split("\\|");
-                Card.FaceValue stackValue = Card.FaceValue.valueOf(actionCommand[0]);
                 boolean onLeftStack = Boolean.valueOf(actionCommand[1]);
 
                 // get player's selected card, if any
@@ -98,17 +99,52 @@ public class GameController {
                 }
 
                 if (found >= 0) {
-                    Card playerCard = model.getHand(1).inspectCard(found);
+                    playerPlay(found, onLeftStack);
 
-                    if (model.canPlay(playerCard, onLeftStack)) {
-                        model.getHand(1).playCard(found);
-                        view.cardPlayed(playerCard, onLeftStack);
-                    }
-//                Card botCard = model.getHand(0).playCard(playerIndex);
 
                 }
+                //todo add empty deck -> count min skip to winner logic
+
             }
         };
+    }
+
+    private void playerPlay(int playerCardIndex, boolean onLeftStack) {
+        Hand playerHand = model.getHand(1);
+        Card playerCard = playerHand.inspectCard(playerCardIndex);
+        if (model.canPlay(playerCard, onLeftStack)) {
+            Card played = playerHand.playCard(playerCardIndex);
+
+            view.cardPlayed(playerCard, onLeftStack);
+            if (onLeftStack) {
+                model.playOnLeftStack(1, played);
+            } else {
+                model.playOnRightStack(1, played);
+            }
+        }
+        aiPlay();
+
+    }
+
+    private void aiPlay() {
+        Hand aiHand = model.getHand(0);
+        Card toPlay;
+        Card played = null;
+        for (int i = 0; i < model.getHand(0).getNumCards(); i++) {
+            toPlay = aiHand.inspectCard(i);
+            if (model.canPlay(toPlay, true)) {
+                played = aiHand.playCard(i);
+                model.playOnLeftStack(0, played);
+                view.cardPlayed(played, true);
+            } else if (model.canPlay(toPlay, false)) {
+                played = aiHand.playCard(i);
+                model.playOnRightStack(0, played);
+                view.cardPlayed(played, false);
+            }
+        }
+        if (played == null) {
+            //todo add skips
+        }
     }
 
     public ActionListener selectCardListener() {
