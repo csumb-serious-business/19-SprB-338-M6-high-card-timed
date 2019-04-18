@@ -2,9 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * todo: add desc
- *
- * @author todo
+ * This is the UI view for the game
  */
 class GameView extends JFrame {
     private GameController controller;
@@ -15,7 +13,6 @@ class GameView extends JFrame {
     private JButton btnStopTimer;
     private JLabel txtTimerTime;
     private JLabel txtNotifications;
-    private JButton btnSkipTurn;
     private JPanel pnlLeftStack;
     private JPanel pnlRightStack;
     private JButton[] btnsPlayerHand;
@@ -36,12 +33,14 @@ class GameView extends JFrame {
     }
 
     /**
-     * @return pnlHandPlayer of the GameView
+     * After creating this game view, build assembles
+     * all the parts an wires them up to the controller
+     *
+     * @param title           the tile for this view
+     * @param numCardsPerHand the number cards in each hand
+     * @param leftStackCard   the card on top of the left card stack
+     * @param rightStackCard  the card on top of the right card stack
      */
-    public JPanel getPnlHandPlayer() {
-        return pnlHandPlayer;
-    }
-
     public void build(String title, int numCardsPerHand, Card leftStackCard, Card rightStackCard) {
         setTitle(title);
         setSize(800, 600);
@@ -82,7 +81,7 @@ class GameView extends JFrame {
         pnlSkipTurn = new JPanel();
         pnlStatus.add(pnlSkipTurn, BorderLayout.WEST);
 
-        btnSkipTurn = new JButton("Skip Turn");
+        JButton btnSkipTurn = new JButton("Skip Turn");
         pnlSkipTurn.add(btnSkipTurn);
         btnSkipTurn.addActionListener(controller.getSkipTurnListener());
 
@@ -105,8 +104,8 @@ class GameView extends JFrame {
         add(pnlPlayer, BorderLayout.SOUTH);
 
         addPlayerHands();
-        cardPlayed(leftStackCard, true);
-        cardPlayed(rightStackCard, false);
+        updateStack(leftStackCard, true);
+        updateStack(rightStackCard, false);
 
         setVisible(true);
     }
@@ -194,7 +193,6 @@ class GameView extends JFrame {
         }
 
         return true;
-
     }
 
     /**
@@ -202,14 +200,7 @@ class GameView extends JFrame {
      *
      * @param onLeftStack true if the card is to be played on the left stack
      */
-    public void cardPlayed(Card card, boolean onLeftStack) {
-
-        // update hands
-        pnlHandPlayer.removeAll();
-        pnlHandAi.removeAll();
-
-        addPlayerHands();
-
+    private void updateStack(Card card, boolean onLeftStack) {
         // update play area
         JButton btnChosen = new JButton(CardViewBuilder.getIcon(card));
         btnChosen.addActionListener(controller.playCardListener());
@@ -217,32 +208,83 @@ class GameView extends JFrame {
         // update the correct stack
         if (onLeftStack) {
             pnlLeftStack.removeAll();
-            pnlLeftStack.add(btnChosen);
             btnChosen.setActionCommand(card.getValue().name() + "|" + true);
+            pnlLeftStack.add(btnChosen);
         } else {
             pnlRightStack.removeAll();
-            pnlRightStack.add(btnChosen);
             btnChosen.setActionCommand(card.getValue().name() + "|" + false);
+            pnlRightStack.add(btnChosen);
         }
+    }
+
+    /**
+     * Updates both stacks of cards given a pair of cards
+     *
+     * @param leftCard  the card to place on the left stack
+     * @param rightCard the card to place on the right stack
+     */
+    public void updateStacks(Card leftCard, Card rightCard) {
+        updateStack(leftCard, true);
+        updateStack(rightCard, false);
+    }
 
 
+    /**
+     * updates the ui for player / ai hands
+     */
+    private void updateHands() {
+        pnlHandPlayer.removeAll();
+        pnlHandAi.removeAll();
+
+        addPlayerHands();
+    }
+
+    /**
+     * updates all the view panels after updating
+     * a play stack with a given card
+     *
+     * @param card        the card to play on the stack
+     * @param onLeftStack true if the card is intended to
+     *                    be played on the left stack
+     */
+    public void updateViews(Card card, boolean onLeftStack) {
+        updateStack(card, onLeftStack);
+        updateHands();
         updateScore();
-
         validateAll();
-
     }
 
+
+    /**
+     * updates the score area of the UI
+     */
     public void updateScore() {
-        String message = String.format("Player skips: %s, AI skips: %s", controller.getPlayerSkips(), controller.getAiSkips());
-        txtNotifications.setText(message);
+        String message = String.format(
+                "Player skips: %s, AI skips: %s, Cards in Deck: %s",
+                controller.getPlayerSkips(),
+                controller.getAiSkips(),
+                controller.getCardsInDeck());
+
+        updateScore(message);
     }
 
+    /**
+     * updates the score area of the UI with a given message
+     *
+     * @param message the message to use
+     */
     public void updateScore(String message) {
         txtNotifications.setText(message);
 
     }
 
 
+    /**
+     * updates the timer value in the UI
+     *
+     * @param time the current timer value
+     * @return true if successful
+     */
     public boolean changeTimerDisplay(int time) {
         txtTimerTime.setText(Integer.toString(time));
         txtTimerTime.repaint();
@@ -250,6 +292,11 @@ class GameView extends JFrame {
     }
 
 
+    /**
+     * toggles the timer state and button
+     *
+     * @param state the timer state, true if running
+     */
     public void timerState(boolean state) {
         if (state) {
             // start the txtTimerTime and set button text to stop

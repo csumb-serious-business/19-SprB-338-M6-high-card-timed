@@ -1,14 +1,12 @@
 import javax.swing.*;
 
 /**
- * todo: add desc
- *
- * @author todo
+ * builds UI icons for individual cards
  */
 public class CardViewBuilder {
     private static final String imagesDir = "images/";
+    private static final Icon[][] iconCards = new ImageIcon[14][4]; // 14 = A through K plus joker
     private static boolean iconsLoaded = false;
-    private static Icon[][] iconCards = new ImageIcon[14][4]; // 14 = A through K plus joker
     private static Icon iconBack;
 
     /**

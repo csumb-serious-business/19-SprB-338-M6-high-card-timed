@@ -2,12 +2,20 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Controls interactions between a game and its UI
+ */
 public class GameController {
+    private final Game model;
+    private final GameView view;
+    private final Timer timer;
 
-    private Game model;
-    private GameView view;
-    private Timer timer;
-
+    /**
+     * Create a controller for a given game/view pair
+     *
+     * @param game the game for this controller
+     * @param view the view to control
+     */
     public GameController(Game game, GameView view) {
         model = game;
 
@@ -17,26 +25,44 @@ public class GameController {
         this.timer = new Timer(this);
     }
 
+    /**
+     * @return the player's hand
+     */
     public Hand getPlayerHand() {
         return model.getHand(1);
 
     }
 
+    /**
+     * @return the AI player's hand
+     */
     public Hand getAiHand() {
         return model.getHand(0);
     }
 
+    /**
+     * @return the number of skips from the player
+     */
     public int getPlayerSkips() {
         return model.getPlayerSkips();
     }
 
+
+    /**
+     * @return the number of skips for the AI player
+     */
     public int getAiSkips() {
         return model.getAiSkips();
     }
 
+    /**
+     * updates the timer display
+     *
+     * @param time the time to use
+     * @return true if the update was successful
+     */
     public boolean changeTimerDisplay(int time) {
-        view.changeTimerDisplay(time);
-        return true;
+        return view.changeTimerDisplay(time);
     }
 
 
@@ -48,14 +74,17 @@ public class GameController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getActionCommand().equals("Skip Turn")) {
-                    model.skipPlayer();
-                    view.updateScore();
-                    aiPlay();
-                    //todo add both skip -> deal from deck to both stacks
-                    //todo add empty deck -> count min skip to winner logic
+                    skipTurn();
                 }
             }
         };
+    }
+
+    /**
+     * deals a card onto each stack in the game
+     */
+    private void dealFromDeck() {
+        model.deckToStacks();
     }
 
     /**
@@ -99,34 +128,64 @@ public class GameController {
                 }
 
                 if (found >= 0) {
-                    playerPlay(found, onLeftStack);
-
-
+                    takeTurn(found, onLeftStack);
                 }
-                //todo add empty deck -> count min skip to winner logic
-
             }
         };
     }
 
+    /**
+     * Checks whether the winning condition has been met
+     * if it has, updates the UI to reflect that
+     */
+    private void evalWinCon() {
+        if (model.getNumCardsRemainingInDeck() <= 1) {
+            String winner;
+            int skips;
+            if (model.getPlayerSkips() == model.getAiSkips()) {
+                view.updateScore("GAME OVER! %s  having only skipped %s times.");
+                return;
+            } else if (model.getPlayerSkips() < model.getAiSkips()) {
+                winner = "You win,";
+                skips = getPlayerSkips();
+
+            } else {
+                winner = "The Computer wins,";
+                skips = getAiSkips();
+            }
+            String message = String.format("GAME OVER! %s having only skipped %s times.", winner, skips);
+            view.updateScore(message);
+        }
+    }
+
+    /**
+     * plays a card onto one stack
+     *
+     * @param playerCardIndex the index of the card to play
+     * @param onLeftStack     true if the card is played on the left stack
+     */
     private void playerPlay(int playerCardIndex, boolean onLeftStack) {
         Hand playerHand = model.getHand(1);
         Card playerCard = playerHand.inspectCard(playerCardIndex);
         if (model.canPlay(playerCard, onLeftStack)) {
             Card played = playerHand.playCard(playerCardIndex);
 
-            view.cardPlayed(playerCard, onLeftStack);
             if (onLeftStack) {
                 model.playOnLeftStack(1, played);
             } else {
                 model.playOnRightStack(1, played);
             }
-        }
-        aiPlay();
 
+            view.updateViews(playerCard, onLeftStack);
+        }
     }
 
-    private void aiPlay() {
+    /**
+     * The AI player plays a card onto one stack
+     *
+     * @return true if a card was played
+     */
+    private boolean aiPlay() {
         Hand aiHand = model.getHand(0);
         Card toPlay;
         Card played = null;
@@ -135,18 +194,25 @@ public class GameController {
             if (model.canPlay(toPlay, true)) {
                 played = aiHand.playCard(i);
                 model.playOnLeftStack(0, played);
-                view.cardPlayed(played, true);
+                view.updateViews(played, true);
+                break;
             } else if (model.canPlay(toPlay, false)) {
                 played = aiHand.playCard(i);
                 model.playOnRightStack(0, played);
-                view.cardPlayed(played, false);
+                view.updateViews(played, false);
+                break;
             }
         }
         if (played == null) {
-            //todo add skips
+            model.skipAi();
         }
+        return played != null;
     }
 
+    /**
+     * @return an action listener for when a card
+     * is selected by the player in the UI
+     */
     public ActionListener selectCardListener() {
         return new ActionListener() {
             @Override
@@ -163,15 +229,52 @@ public class GameController {
         };
     }
 
+    /**
+     * @return the number of cards remaining in the deck
+     */
+    public int getCardsInDeck() {
+        return model.getNumCardsRemainingInDeck();
+    }
+
+    private void takeTurn(int playerCardIndex, boolean onLeftStack) {
+        playerPlay(playerCardIndex, onLeftStack);
+        aiPlay();
+        evalWinCon();
+    }
+
+    /**
+     * skips a players turn, and lets the AI player take a turn
+     */
+    private void skipTurn() {
+        model.skipPlayer();
+
+        boolean played = aiPlay();
+        if (!played) {
+            model.skipAi();
+            if (model.isPlayerSkipped()) {
+                dealFromDeck();
+                view.updateStacks(model.getLeftStack(), model.getRightStack());
+            }
+        }
+
+        view.updateScore();
+        evalWinCon();
+    }
+
+    /**
+     * starts running the game
+     */
     public void startGame() {
 
         // shuffle and deal into the hands.
         model.deal();
 
-        //view.cardPlayed(null, null); // Start off with nothing selected
+        //view.updateStack(null, null); // Start off with nothing selected
         view.build(model.getTitle(), model.getNumCardsPerHand(), model.getLeftStack(), model.getRightStack());
         timer.start();
 
     }
+
+
 }
 

@@ -1,20 +1,18 @@
 import java.util.StringJoiner;
 
 /**
- * todo: add desc
- *
- * @author todo
+ * represents a player's hand
  */
 class Hand {
-    public static int MAX_CARDS = 50; // no 'monster arrays'
-    private Card[] myCards; //---------/ also called myArray in assignment desc
-    private int numCards; //-----------/ count of cards
+    public static final int MAX_CARDS = 50; // no 'monster arrays'
+    private Card[] cards;
+    private int numCards;
 
     /**
      * Creates an empty hand
      */
     public Hand() {
-        this.myCards = new Card[MAX_CARDS];
+        this.cards = new Card[MAX_CARDS];
         this.numCards = 0;
     }
 
@@ -27,7 +25,7 @@ class Hand {
     public boolean takeCard(Card card) {
         if (numCards < MAX_CARDS) {
             Card takenCard = new Card(card.getValue(), card.getSuit());
-            myCards[numCards++] = takenCard; //copies card to myCards
+            cards[numCards++] = takenCard; //copies card to cards
             return true;//return true if success
         } else {
             return false;
@@ -39,7 +37,7 @@ class Hand {
      */
     public void resetHand() {
         numCards = 0;
-        myCards = new Card[MAX_CARDS];
+        cards = new Card[MAX_CARDS];
     }
 
     /**
@@ -59,7 +57,7 @@ class Hand {
     Card inspectCard(int k) {
         //if(index is less than the accessible and greater than the index)
         if (0 <= k && k <= numCards) {
-            return new Card(myCards[k].getValue(), myCards[k].getSuit());
+            return new Card(cards[k].getValue(), cards[k].getSuit());
         }
 
         return new Card(null, Card.Suit.spades); //creates a card that will not work so error flag returns true
@@ -73,7 +71,7 @@ class Hand {
             return joiner.add("empty").toString();
         }
         for (int i = 0; i < numCards; i++) {
-            joiner.add(myCards[i].toString());
+            joiner.add(cards[i].toString());
         }
         return joiner.toString();
 
@@ -91,14 +89,14 @@ class Hand {
             return new Card(null, Card.Suit.spades);
         }
         //Decreases numCards.
-        Card card = myCards[cardIndex];
+        Card card = cards[cardIndex];
 
         numCards--;
         for (int i = cardIndex; i < numCards; i++) {
-            myCards[i] = myCards[i + 1];
+            cards[i] = cards[i + 1];
         }
 
-        myCards[numCards] = null;
+        cards[numCards] = null;
 
         return card;
     }
@@ -107,6 +105,6 @@ class Hand {
      * Sorts this hands cards by value and suit
      */
     void sort() {
-        Card.arraySort(myCards, numCards);
+        Card.arraySort(cards, numCards);
     }
 }

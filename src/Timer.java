@@ -1,13 +1,16 @@
 /**
- * todo: add desc
- *
- * @author todo
+ * A timer for the game
  */
 class Timer extends Thread {
+    private final GameController controller;
     private int timePlayed;
     private boolean isRunning;
-    private GameController controller;
 
+    /**
+     * Creates a new game timer
+     *
+     * @param controller the game controller for this timer
+     */
     public Timer(GameController controller) {
         this.controller = controller;
 
@@ -16,18 +19,27 @@ class Timer extends Thread {
     /**
      * sets isRunning of the Timer
      *
-     * @param running todo
+     * @param running true if this timer should be running
      */
     public void setRunning(boolean running) {
         isRunning = running;
     }
 
+    /**
+     * Starts this timer
+     */
     public void start() {
         isRunning = true;
         Thread timerThread = new Thread(this);
         timerThread.start();
     }
 
+    /**
+     * sets this timer to idle for a number of milliseconds
+     *
+     * @param milliseconds the time to idle in milliseconds
+     * @throws InterruptedException when thread interrupted
+     */
     public void doNothing(int milliseconds) throws InterruptedException {
         Thread.sleep(milliseconds);
     }

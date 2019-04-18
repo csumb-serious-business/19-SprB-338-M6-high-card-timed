@@ -62,10 +62,11 @@ public class Deck {
 
 
         // for the desired number of packCount, copy the STANDARD pack into packCount
+        Card[] master = Pack.getMaster();
         for (int i = 0; i < packCount; i++) {
-            System.arraycopy(Pack.MASTER, 0,
+            System.arraycopy(master, 0,
                     this.cards, i * pack.getCount(),
-                    Pack.MASTER.length);
+                    master.length);
         }
 
         // set the position of the top card
@@ -86,11 +87,17 @@ public class Deck {
      *
      * @return the top card from the deck
      */
-    public Card dealCard() { //returns the top card of the deck and removes it
-        Card dealtCard = cards[topCard];
-        cards[topCard] = null;
-        topCard--;
-        return dealtCard;
+    public Card dealCard() {
+        if (cardCount > 0) {
+            Card dealtCard = cards[topCard];
+            cards[topCard] = null;
+            topCard--;
+            cardCount--;
+            return dealtCard;
+        }
+        cardCount--;
+        return new Card();
+
     }
 
     /**

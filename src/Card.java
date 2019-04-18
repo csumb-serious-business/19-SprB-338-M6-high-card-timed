@@ -1,7 +1,5 @@
 /**
- * todo: add desc
- *
- * @author todo
+ * represents a playing card
  */
 public class Card implements Comparable<Card> {
     private FaceValue value;
