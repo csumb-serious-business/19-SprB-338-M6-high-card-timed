@@ -63,9 +63,9 @@ public class Deck {
 
         // for the desired number of packCount, copy the STANDARD pack into packCount
         for (int i = 0; i < packCount; i++) {
-            System.arraycopy(Pack.STANDARD, 0,
+            System.arraycopy(Pack.MASTER, 0,
                     this.cards, i * pack.getCount(),
-                    Pack.STANDARD.length);
+                    Pack.MASTER.length);
         }
 
         // set the position of the top card

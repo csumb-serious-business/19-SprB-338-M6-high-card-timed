@@ -242,5 +242,27 @@ public class Card implements Comparable<Card> {
             return this.name().substring(this.name().length() - 1);
         }
 
+        public FaceValue next() {
+            if (this.equals(X)) {
+                return X;
+            }
+
+            if (this.equals(K)) {
+                return A;
+            }
+            return FaceValue.values()[this.ordinal() + 1];
+        }
+
+        public FaceValue previous() {
+            if (this.equals(X)) {
+                return X;
+            }
+
+            if (this.equals(A)) {
+                return K;
+            }
+            return FaceValue.values()[this.ordinal() - 1];
+        }
+
     }
 }

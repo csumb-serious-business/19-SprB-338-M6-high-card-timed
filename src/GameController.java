@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -48,6 +49,8 @@ public class GameController {
             public void actionPerformed(ActionEvent e) {
                 if (e.getActionCommand().equals("Skip Turn")) {
                     model.skipPlayer();
+                    view.updateScore();
+                    // TODO AI to play here
                 }
             }
         };
@@ -78,15 +81,48 @@ public class GameController {
         return new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int humanIndex = Integer.parseInt(e.getActionCommand());
+                String[] actionCommand = e.getActionCommand().split("\\|");
+                Card.FaceValue stackValue = Card.FaceValue.valueOf(actionCommand[0]);
+                boolean onLeftStack = Boolean.valueOf(actionCommand[1]);
 
-                // cards are ordered by value
-                Card humanCard = model.getHand(1).playCard(humanIndex);
-                Card botCard = model.getHand(0).playCard(humanIndex);
+                // get player's selected card, if any
+                JButton[] playerHand = view.getBtnsPlayerHand();
 
-                // If the bot has a card higher, should we do something?
-                view.takeTurn(humanCard, botCard);
-                view.repaint();
+                int found = -1;
+                for (int i = 0; i < playerHand.length; i++) {
+                    JButton card = playerHand[i];
+                    if (!card.isEnabled()) {
+                        found = i;
+                        break;
+                    }
+                }
+
+                if (found >= 0) {
+                    Card playerCard = model.getHand(1).inspectCard(found);
+
+                    if (model.canPlay(playerCard, onLeftStack)) {
+                        model.getHand(1).playCard(found);
+                        view.cardPlayed(playerCard, onLeftStack);
+                    }
+//                Card botCard = model.getHand(0).playCard(playerIndex);
+
+                }
+            }
+        };
+    }
+
+    public ActionListener selectCardListener() {
+        return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int playerIndex = Integer.parseInt(e.getActionCommand());
+                JButton[] playerHand = view.getBtnsPlayerHand();
+                playerHand[playerIndex].setEnabled(false);
+                for (int i = 0; i < playerHand.length; i++) {
+                    if (i != playerIndex) {
+                        playerHand[i].setEnabled(true);
+                    }
+                }
             }
         };
     }
@@ -96,8 +132,8 @@ public class GameController {
         // shuffle and deal into the hands.
         model.deal();
 
-        //view.takeTurn(null, null); // Start off with nothing selected
-        view.build(model.getTitle(), model.getNumPlayers(), model.getNumCardsPerHand());
+        //view.cardPlayed(null, null); // Start off with nothing selected
+        view.build(model.getTitle(), model.getNumCardsPerHand(), model.getLeftStack(), model.getRightStack());
         timer.start();
 
     }
