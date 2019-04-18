@@ -5,15 +5,11 @@ import javax.swing.*;
  *
  * @author todo
  */
-public class CardView {
+public class CardViewBuilder {
     private static final String imagesDir = "images/";
     private static boolean iconsLoaded = false;
     private static Icon[][] iconCards = new ImageIcon[14][4]; // 14 = A through K plus joker
     private static Icon iconBack;
-
-    public CardView() {
-        loadCardIcons();
-    }
 
     /**
      * Populates the static iconCards array
@@ -40,7 +36,8 @@ public class CardView {
      *
      * @return the backside UI icon
      */
-    public Icon getBackCardIcon() {
+    public static Icon getBackCardIcon() {
+        loadCardIcons();
         return iconBack;
     }
 
@@ -50,7 +47,8 @@ public class CardView {
      * @param card the card to retrieve
      * @return the corresponding UI icon for that card
      */
-    public Icon getIcon(Card card) {
+    public static Icon getIcon(Card card) {
+        loadCardIcons();
         return iconCards[Card.valueAsInt(card)][Card.suitAsInt(card)];
     }
 }

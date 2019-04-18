@@ -7,84 +7,95 @@ import java.awt.*;
  * @author todo
  */
 class GameView extends JFrame {
+    private GameController controller;
     private JPanel pnlHandAi;
     private JPanel pnlHandPlayer;
-
     private JPanel pnlPlayArea;
-
-    private JPanel pnlTimer;
-    private JLabel txtTimerTime;
-    private JButton btnStopTimer;
-
     private JPanel pnlSkipTurn;
-
+    private JButton btnStopTimer;
+    private JLabel txtTimerTime;
+    private JLabel txtNotifications;
     private JLabel[] lblPlayedCard;
-
-
-    private CardView cardView;
-    private GameController controller;
+    private JButton btnSkipTurn;
 
     /**
-     * Arranges panels for the card table
-     *
-     * @param title           the name of the game played on this table
-     * @param numCardsPerHand the max number of per player hand
-     * @param numPlayers      the number of players for this game
+     * Simply calls super, call build after setting the controller
+     * to render completely wired UI
      */
-    public GameView(String title, int numCardsPerHand, int numPlayers) {
+    public GameView() {
         super();
+    }
 
-
-        setSize(1150, 650);
+    public void build(String title, int numCardsPerHand, int numPlayers) {
         setTitle(title);
-
-        setLayout(new BorderLayout());
-
-        pnlHandAi = new JPanel();
-        pnlHandAi.setLayout(new GridLayout(1, numCardsPerHand));
-        add(pnlHandAi, BorderLayout.NORTH);
-
-        pnlPlayArea = new JPanel();
-        pnlPlayArea.setLayout(new GridLayout(2, numPlayers));
-        add(pnlPlayArea, BorderLayout.CENTER);
-
-        pnlHandPlayer = new JPanel();
-        pnlHandPlayer.setLayout(new GridLayout(1, numCardsPerHand));
-        add(pnlHandPlayer, BorderLayout.SOUTH);
-
-        pnlTimer = new JPanel();
-        pnlTimer.setLayout(new FlowLayout());
-        add(pnlTimer, BorderLayout.EAST);
-
-        pnlSkipTurn = new JPanel();
-        pnlSkipTurn.setLayout(new FlowLayout());
-        add(pnlSkipTurn, BorderLayout.WEST);
-
-
         setSize(800, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        setVisible(true);
+        setLayout(new BorderLayout());
+        //--- Top panel -- AI hand (face down) ------------------------------\\
+        pnlHandAi = new JPanel();
+        pnlHandAi.setLayout(new GridLayout(1, numCardsPerHand));
 
-        cardView = new CardView();
+        add(pnlHandAi, BorderLayout.NORTH);
 
-    }
+        //--- Middle panel -- play area -------------------------------------\\
+        pnlPlayArea = new JPanel();
+        pnlPlayArea.setLayout(new GridLayout(2, numPlayers));
 
-    public boolean addLabelsForTimer() {
+        add(pnlPlayArea, BorderLayout.CENTER);
+
+        //--- Bottom panel -- player's controls & notifications -------------\\
+        JPanel pnlPlayer = new JPanel();
+        pnlPlayer.setLayout(new BorderLayout());
+
+        // player hand
+        pnlHandPlayer = new JPanel();
+        pnlHandPlayer.setLayout(new GridLayout(1, numCardsPerHand));
+        pnlPlayer.add(pnlHandPlayer, BorderLayout.NORTH);
+
+        // status notifications & controls
+        // skip | notifications | timer & button
+        JPanel pnlStatus = new JPanel();
+        pnlStatus.setLayout(new BorderLayout());
+
+        pnlSkipTurn = new JPanel();
+        pnlStatus.add(pnlSkipTurn, BorderLayout.WEST);
+
+        btnSkipTurn = new JButton("Skip Turn");
+        pnlSkipTurn.add(btnSkipTurn);
+        btnSkipTurn.addActionListener(controller.getSkipTurnListener());
+
+
+        txtNotifications = new JLabel();
+        pnlStatus.add(txtNotifications, BorderLayout.CENTER);
+
+        JPanel pnlTimer = new JPanel();
+        pnlStatus.add(pnlTimer, BorderLayout.EAST);
+
         btnStopTimer = new JButton("stop");
         btnStopTimer.addActionListener(controller.getTimerListener());
+
         txtTimerTime = new JLabel("0");
         pnlTimer.add(txtTimerTime);
         pnlTimer.add(btnStopTimer);
-        return true;
+
+
+        pnlPlayer.add(pnlStatus, BorderLayout.SOUTH);
+        add(pnlPlayer, BorderLayout.SOUTH);
+
+        addPlayerHands();
+
+        setVisible(true);
     }
 
-    public boolean addLabelsForCannotPlay() {
-        JButton btnSkipTurn = new JButton("Cannot Play");
-        pnlSkipTurn.add(btnSkipTurn);
-        btnSkipTurn.addActionListener(controller.getCannotPlayListener());
-        return true;
+    /**
+     * sets controller of the GameView
+     *
+     * @param controller todo
+     */
+    public void setController(GameController controller) {
+        this.controller = controller;
     }
 
     /**
@@ -110,16 +121,29 @@ class GameView extends JFrame {
         pnlHandAi.removeAll();
         pnlHandPlayer.removeAll();
         pnlPlayArea.removeAll();
-
-        //table.pnlSkipTurn.removeAll();
         return true;
     }
 
+    /**
+     * populates UI buttons for a given hand
+     *
+     * @param hand the hand to display
+     * @return an array of buttons to place into a UI container.
+     */
+    public JButton[] buildHandButtons(Hand hand) {
+        JButton[] buttons = new JButton[hand.getNumCards()];
 
-    public boolean setController(GameController controller) {
-        this.controller = controller;
-        return true;
+        for (int i = 0; i < hand.getNumCards(); i++) {
+            Card card = hand.inspectCard(i);
+            JButton button = new JButton(CardViewBuilder.getIcon(card));
+            button.addActionListener(controller.playCardListener());
+            button.setActionCommand(String.valueOf(i));
+            buttons[i] = button;
+        }
+
+        return buttons;
     }
+
 
     /**
      * populates UI labels for a given hand
@@ -128,16 +152,15 @@ class GameView extends JFrame {
      * @param isFaceUp whether the cards are face up or face down in the UI
      * @return an array of labels to place into a UI container
      */
-    private JLabel[] populateLabels(Hand hand, boolean isFaceUp) {
+    private JLabel[] buildHandLabels(Hand hand, boolean isFaceUp) {
         JLabel[] handLabels = new JLabel[hand.getNumCards()];
-
 
         for (int i = 0; i < hand.getNumCards(); i++) {
             JLabel label;
             if (isFaceUp) {
-                label = new JLabel(cardView.getIcon(hand.inspectCard(i)));
+                label = new JLabel(CardViewBuilder.getIcon(hand.inspectCard(i)));
             } else {
-                label = new JLabel(cardView.getBackCardIcon());
+                label = new JLabel(CardViewBuilder.getBackCardIcon());
             }
             handLabels[i] = label;
         }
@@ -145,19 +168,17 @@ class GameView extends JFrame {
     }
 
     /**
-     * //   * Adds labels for CardTable's players
-     * //   *
-     * //   * @return true if successful
-     * //
+     * Adds labels for CardTable's players
+     *
+     * @return true if successful
      */
-    public boolean addLabelsForPlayers() {
-        JButton[] btnsPlayerHand = populateButtons(controller.getPlayerHand());
-        JLabel[] lblsAiHand = populateLabels(controller.getAiHand(), false);
-
+    public boolean addPlayerHands() {
+        JButton[] btnsPlayerHand = buildHandButtons(controller.getPlayerHand());
         for (JButton button : btnsPlayerHand) {
             pnlHandPlayer.add(button);
         }
 
+        JLabel[] lblsAiHand = buildHandLabels(controller.getAiHand(), false);
         for (JLabel label : lblsAiHand) {
             pnlHandAi.add(label);
         }
@@ -184,16 +205,16 @@ class GameView extends JFrame {
         if (playerChoice != null && computerChoice != null) {
             playHand.takeCard(computerChoice);
             playHand.takeCard(playerChoice);
-            lblPlayedCard = populateLabels(playHand, true);
+            lblPlayedCard = buildHandLabels(playHand, true);
             playerPrompt = "[Status]User Cannot Plays: " + controller.getPlayerSkips();
             computerPrompt = "[Status]Computer Cannot Plays: " + controller.getAiSkips();
         }
 
         //TODO: Add cards to table first but cant because of null check
         if (lblPlayedCard[0] != null || lblPlayedCard[1] != null) {
-            pnlPlayArea.add(lblPlayedCard[0]);//start throwing cards out
+            pnlPlayArea.add(lblPlayedCard[0]);
             pnlPlayArea.add(lblPlayedCard[1]);
-            addLabelsForPlayers();
+            addPlayerHands();
         }
 
         pnlPlayArea.add(new JLabel(computerPrompt, SwingConstants.HORIZONTAL));
@@ -202,26 +223,6 @@ class GameView extends JFrame {
         validateAll();
         // If something goes wrong we know because this will return false
 
-    }
-
-    /**
-     * populates UI buttons for a given hand
-     *
-     * @param hand the hand to display
-     * @return an array of buttons to place into a UI container.
-     */
-    public JButton[] populateButtons(Hand hand) {
-        JButton[] buttons = new JButton[hand.getNumCards()];
-
-        for (int i = 0; i < hand.getNumCards(); i++) {
-            Card card = hand.inspectCard(i);
-            JButton button = new JButton(cardView.getIcon(card));
-            button.addActionListener(controller.playCardListener());
-            button.setActionCommand(String.valueOf(i));
-            buttons[i] = button;
-        }
-
-        return buttons;
     }
 
 

@@ -8,9 +8,33 @@ public class Game {
     public static final int DEFAULT_NUM_PLAYERS = 2;
     private static final int DEFAULT_CARDS_PER_HAND = 7;
     private static final int MAX_PLAYERS = 50;
+    private static final String DEFAULT_TITLE = "Timed Card Game";
 
 
+    /**
+     * @return title of the Game
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    private String title;
     private int numPlayers;
+
+    /**
+     * @return numPlayers of the Game
+     */
+    public int getNumPlayers() {
+        return numPlayers;
+    }
+
+    /**
+     * @return numCardsPerHand of the Game
+     */
+    public int getNumCardsPerHand() {
+        return numCardsPerHand;
+    }
+
     private int numCardsPerHand; // count of cards dealt to each player
     private Deck deck;
     private Hand[] hand; //-------/ each player's hand
@@ -29,8 +53,9 @@ public class Game {
     private int playerSkips;
     private int aiSkips;
 
-    public Game(Deck deck, int numPlayers, int numCardsPerHand) {
+    public Game(Deck deck, String title, int numPlayers, int numCardsPerHand) {
         this.deck = deck;
+        this.title = title;
 
         // players
         if (1 <= numPlayers && numPlayers <= MAX_PLAYERS) {
@@ -60,7 +85,7 @@ public class Game {
     }
 
     public Game() {
-        this(Deck.DEFAULT_DECK, DEFAULT_NUM_PLAYERS, DEFAULT_CARDS_PER_HAND);
+        this(Deck.DEFAULT_DECK, DEFAULT_TITLE, DEFAULT_NUM_PLAYERS, DEFAULT_CARDS_PER_HAND);
     }
 
 

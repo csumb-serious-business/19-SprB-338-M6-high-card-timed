@@ -42,11 +42,11 @@ public class GameController {
     /**
      * @return cannotPlayListener of the GameControl
      */
-    public ActionListener getCannotPlayListener() {
+    public ActionListener getSkipTurnListener() {
         return new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (e.getActionCommand().equals("Cannot Play")) {
+                if (e.getActionCommand().equals("Skip Turn")) {
                     model.skipPlayer();
                 }
             }
@@ -91,20 +91,13 @@ public class GameController {
         };
     }
 
-
     public void startGame() {
 
         // shuffle and deal into the hands.
         model.deal();
 
         //view.takeTurn(null, null); // Start off with nothing selected
-        view.addLabelsForPlayers();
-        view.addLabelsForTimer();
-
-        view.addLabelsForCannotPlay();
-        //view.addLabelsForStartGame();
-
-        view.setVisible(true);
+        view.build(model.getTitle(), model.getNumPlayers(), model.getNumCardsPerHand());
         timer.start();
 
     }
