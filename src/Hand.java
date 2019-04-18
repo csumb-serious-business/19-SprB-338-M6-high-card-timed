@@ -86,8 +86,7 @@ class Hand {
      * @return the Card that was played or an invalid card upon failure
      */
     public Card playCard(int cardIndex) {
-        if (numCards == 0) //error
-        {
+        if (numCards == 0) {
             //Creates a card that does not work
             return new Card(null, Card.Suit.spades);
         }

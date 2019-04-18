@@ -9,50 +9,15 @@ public class Game {
     private static final int DEFAULT_CARDS_PER_HAND = 7;
     private static final int MAX_PLAYERS = 50;
     private static final String DEFAULT_TITLE = "Timed Card Game";
-
-
-    /**
-     * @return title of the Game
-     */
-    public String getTitle() {
-        return title;
-    }
-
     private String title;
     private int numPlayers;
-
-    /**
-     * @return numPlayers of the Game
-     */
-    public int getNumPlayers() {
-        return numPlayers;
-    }
-
-    /**
-     * @return numCardsPerHand of the Game
-     */
-    public int getNumCardsPerHand() {
-        return numCardsPerHand;
-    }
-
     private int numCardsPerHand; // count of cards dealt to each player
     private Deck deck;
     private Hand[] hand; //-------/ each player's hand
     private Card leftStack; //----/ top card on the left stack
     private Card rightStack; //---/ top card on the right stack
-
-    //todo add ui-element to gameView for stacks
-    //todo add click to select card, click on stack to play card.
-    //todo add stack card value constraint
-    //todo add draw on play logic
-    //todo add ai play/skip logic
-    //todo add skip turn functionality
-    //todo add both skip -> deal from deck to both stacks
-    //todo add empty deck -> count min skip to winner logic
-
     private int playerSkips;
     private int aiSkips;
-
     public Game(Deck deck, String title, int numPlayers, int numCardsPerHand) {
         this.deck = deck;
         this.title = title;
@@ -83,11 +48,52 @@ public class Game {
 
         newGame();
     }
-
     public Game() {
         this(Deck.DEFAULT_DECK, DEFAULT_TITLE, DEFAULT_NUM_PLAYERS, DEFAULT_CARDS_PER_HAND);
     }
 
+    /**
+     * @return leftStack of the Game
+     */
+    public Card getLeftStack() {
+        return leftStack;
+    }
+
+    //todo add click to select card, click on stack to play card.
+    //todo add stack card value constraint
+    //todo add draw on play logic
+    //todo add ai play/skip logic
+    //todo add skip turn functionality
+    //todo add both skip -> deal from deck to both stacks
+    //todo add empty deck -> count min skip to winner logic
+
+    /**
+     * @return rightStack of the Game
+     */
+    public Card getRightStack() {
+        return rightStack;
+    }
+
+    /**
+     * @return title of the Game
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * @return numPlayers of the Game
+     */
+    public int getNumPlayers() {
+        return numPlayers;
+    }
+
+    /**
+     * @return numCardsPerHand of the Game
+     */
+    public int getNumCardsPerHand() {
+        return numCardsPerHand;
+    }
 
     /**
      * @return playerSkips of the Game
@@ -159,7 +165,11 @@ public class Game {
                 }
             }
         }
-
+        enoughCards = deck.getCardCount() >= 2;
+        if (enoughCards) {
+            leftStack = deck.dealCard();
+            rightStack = deck.dealCard();
+        }
         return enoughCards;
     }
 
@@ -167,6 +177,15 @@ public class Game {
         for (int i = 0; i < numPlayers; i++) {
             hand[i].sort();
         }
+    }
+
+    public boolean canPlay(Card toPlay, boolean isLeftStack) {
+        if (isLeftStack) {
+            return toPlay.getValue().previous() == leftStack.getValue() ||
+                    toPlay.getValue().next() == leftStack.getValue();
+        }
+        return toPlay.getValue().previous() == rightStack.getValue() ||
+                toPlay.getValue().next() == rightStack.getValue();
     }
 
     Card playCard(int playerIndex, int cardIndex) {

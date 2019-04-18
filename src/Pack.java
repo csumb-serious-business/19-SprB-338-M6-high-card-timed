@@ -33,9 +33,13 @@ public class Pack {
     }
 
     private static Card[] generateMaster(int jokerCount, Card[] unusedCards) {
+        // add the required number of jokers
+        if (MIN_JOKERS <= jokerCount && jokerCount <= MAX_JOKERS) {
+            jokerCount = MIN_JOKERS;
+        }
 
         // don't include unused cards in master pack
-        Card[] master = new Card[STANDARD.length - unusedCards.length];
+        Card[] master = new Card[STANDARD.length - unusedCards.length + jokerCount];
         int masterSlot = 0;
         for (int i = 0; i < STANDARD.length; i++) {
             boolean isUsed = true;
@@ -45,6 +49,14 @@ public class Pack {
                     isUsed = false;
                     break;
                 }
+                if (toCheck.getValue().equals(Card.FaceValue.X)) {
+                    if (jokerCount <= 0) {
+                        isUsed = false;
+                        break;
+                    } else {
+                        jokerCount -= 1;
+                    }
+                }
             }
             if (isUsed) {
                 master[masterSlot] = toCheck;
@@ -52,18 +64,9 @@ public class Pack {
             }
         }
 
-        // add the required number of jokers
-        if (MIN_JOKERS <= jokerCount && jokerCount <= MAX_JOKERS) {
-            jokerCount = MIN_JOKERS;
-        }
-
-        for (int i = 0; i < jokerCount; i++) {
-            master[masterSlot] = new Card(Card.FaceValue.X, Card.Suit.values()[i]);
-            masterSlot++;
-        }
-
         return master;
     }
+
 
     private static Card[] generateMaster() {
         return generateMaster(DEFAULT_JOKERS, DEFAULT_UNUSED_CARDS);

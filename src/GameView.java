@@ -15,8 +15,10 @@ class GameView extends JFrame {
     private JButton btnStopTimer;
     private JLabel txtTimerTime;
     private JLabel txtNotifications;
-    private JLabel[] lblPlayedCard;
     private JButton btnSkipTurn;
+    private JPanel pnlLeftStack;
+    private JPanel pnlRightStack;
+    private JButton[] btnsPlayerHand;
 
     /**
      * Simply calls super, call build after setting the controller
@@ -26,7 +28,21 @@ class GameView extends JFrame {
         super();
     }
 
-    public void build(String title, int numCardsPerHand, int numPlayers) {
+    /**
+     * @return btnsPlayerHand of the GameView
+     */
+    public JButton[] getBtnsPlayerHand() {
+        return btnsPlayerHand;
+    }
+
+    /**
+     * @return pnlHandPlayer of the GameView
+     */
+    public JPanel getPnlHandPlayer() {
+        return pnlHandPlayer;
+    }
+
+    public void build(String title, int numCardsPerHand, Card leftStackCard, Card rightStackCard) {
         setTitle(title);
         setSize(800, 600);
         setLocationRelativeTo(null);
@@ -41,7 +57,11 @@ class GameView extends JFrame {
 
         //--- Middle panel -- play area -------------------------------------\\
         pnlPlayArea = new JPanel();
-        pnlPlayArea.setLayout(new GridLayout(2, numPlayers));
+
+        pnlLeftStack = new JPanel();
+        pnlRightStack = new JPanel();
+        pnlPlayArea.add(pnlLeftStack, BorderLayout.WEST);
+        pnlPlayArea.add(pnlRightStack, BorderLayout.EAST);
 
         add(pnlPlayArea, BorderLayout.CENTER);
 
@@ -85,6 +105,8 @@ class GameView extends JFrame {
         add(pnlPlayer, BorderLayout.SOUTH);
 
         addPlayerHands();
+        cardPlayed(leftStackCard, true);
+        cardPlayed(rightStackCard, false);
 
         setVisible(true);
     }
@@ -92,7 +114,7 @@ class GameView extends JFrame {
     /**
      * sets controller of the GameView
      *
-     * @param controller todo
+     * @param controller the game controller to wire into this game view
      */
     public void setController(GameController controller) {
         this.controller = controller;
@@ -113,18 +135,6 @@ class GameView extends JFrame {
     }
 
     /**
-     * Clears the panels in the CardTable
-     *
-     * @return true if successful
-     */
-    public boolean removeAllPanels() {
-        pnlHandAi.removeAll();
-        pnlHandPlayer.removeAll();
-        pnlPlayArea.removeAll();
-        return true;
-    }
-
-    /**
      * populates UI buttons for a given hand
      *
      * @param hand the hand to display
@@ -136,7 +146,7 @@ class GameView extends JFrame {
         for (int i = 0; i < hand.getNumCards(); i++) {
             Card card = hand.inspectCard(i);
             JButton button = new JButton(CardViewBuilder.getIcon(card));
-            button.addActionListener(controller.playCardListener());
+            button.addActionListener(controller.selectCardListener());
             button.setActionCommand(String.valueOf(i));
             buttons[i] = button;
         }
@@ -173,7 +183,7 @@ class GameView extends JFrame {
      * @return true if successful
      */
     public boolean addPlayerHands() {
-        JButton[] btnsPlayerHand = buildHandButtons(controller.getPlayerHand());
+        btnsPlayerHand = buildHandButtons(controller.getPlayerHand());
         for (JButton button : btnsPlayerHand) {
             pnlHandPlayer.add(button);
         }
@@ -188,40 +198,47 @@ class GameView extends JFrame {
     }
 
     /**
-     * The main loop for this Card Game
+     * try to play a card on a stack
      *
-     * @param playerChoice   the player's chosen card
-     * @param computerChoice the computer's chosen card
+     * @param onLeftStack true if the card is to be played on the left stack
      */
-    public void takeTurn(Card playerChoice, Card computerChoice) {
-        String playerPrompt = "Test";
-        String computerPrompt = "Test1";
-        String tieCountPrompt = "";
+    public void cardPlayed(Card card, boolean onLeftStack) {
 
-        // clear everything
-        removeAllPanels();
+        // update hands
+        pnlHandPlayer.removeAll();
+        pnlHandAi.removeAll();
 
-        Hand playHand = new Hand();
-        if (playerChoice != null && computerChoice != null) {
-            playHand.takeCard(computerChoice);
-            playHand.takeCard(playerChoice);
-            lblPlayedCard = buildHandLabels(playHand, true);
-            playerPrompt = "[Status]User Cannot Plays: " + controller.getPlayerSkips();
-            computerPrompt = "[Status]Computer Cannot Plays: " + controller.getAiSkips();
+        addPlayerHands();
+
+        // update play area
+        JButton btnChosen = new JButton(CardViewBuilder.getIcon(card));
+        btnChosen.addActionListener(controller.playCardListener());
+
+        // update the correct stack
+        if (onLeftStack) {
+            pnlLeftStack.removeAll();
+            pnlLeftStack.add(btnChosen);
+            btnChosen.setActionCommand(card.getValue().name() + "|" + true);
+        } else {
+            pnlRightStack.removeAll();
+            pnlRightStack.add(btnChosen);
+            btnChosen.setActionCommand(card.getValue().name() + "|" + false);
         }
 
-        //TODO: Add cards to table first but cant because of null check
-        if (lblPlayedCard[0] != null || lblPlayedCard[1] != null) {
-            pnlPlayArea.add(lblPlayedCard[0]);
-            pnlPlayArea.add(lblPlayedCard[1]);
-            addPlayerHands();
-        }
 
-        pnlPlayArea.add(new JLabel(computerPrompt, SwingConstants.HORIZONTAL));
-        pnlPlayArea.add(new JLabel(playerPrompt + "\n" + tieCountPrompt, SwingConstants.HORIZONTAL));
+        updateScore();
 
         validateAll();
-        // If something goes wrong we know because this will return false
+
+    }
+
+    public void updateScore() {
+        String message = String.format("Player skips: %s, AI skips: %s", controller.getPlayerSkips(), controller.getAiSkips());
+        txtNotifications.setText(message);
+    }
+
+    public void updateScore(String message) {
+        txtNotifications.setText(message);
 
     }
 
