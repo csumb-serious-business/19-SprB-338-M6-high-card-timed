@@ -1,0 +1,2695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Code="http:///schemas/Code/_aZA7QGGsEemTNvAnnLvP1w/0" xmlns:JavaExtensions="http:///schemas/JavaExtensions/_aY2jMGGsEemTNvAnnLvP1w/0" xmlns:default="http:///schemas/default/_aZDXgGGsEemTNvAnnLvP1w/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/Code/_aZA7QGGsEemTNvAnnLvP1w/0 Code.profile.uml#_abPv52GsEemTNvAnnLvP1w http:///schemas/JavaExtensions/_aY2jMGGsEemTNvAnnLvP1w/0 JavaExtensions.profile.uml#_aaCO92GsEemTNvAnnLvP1w http:///schemas/default/_aZDXgGGsEemTNvAnnLvP1w/0 default.profile.uml#_acP1d2GsEemTNvAnnLvP1w">
+  <uml:Model xmi:id="_aYyRwGGsEemTNvAnnLvP1w" name="highcard">
+    <eAnnotations xmi:id="_aYyRwWGsEemTNvAnnLvP1w" source="Objing">
+      <contents xmi:type="uml:Property" xmi:id="_aYyRwmGsEemTNvAnnLvP1w" name="exporterVersion">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyRw2GsEemTNvAnnLvP1w" value="3.0.0"/>
+      </contents>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_aYyRxGGsEemTNvAnnLvP1w" name="Main">
+      <ownedOperation xmi:id="_aYyRxWGsEemTNvAnnLvP1w" name="main" visibility="public" isStatic="true">
+        <ownedComment xmi:id="_aYyRxmGsEemTNvAnnLvP1w">
+          <body>Game game = new Game();
+GameView view = new GameView();
+
+GameController controller = new GameController(game, view);
+controller.startGame();
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyRx2GsEemTNvAnnLvP1w" name="args" isUnique="false" direction="inout">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyRyGGsEemTNvAnnLvP1w" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyRyWGsEemTNvAnnLvP1w"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyRymGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_aYyRy2GsEemTNvAnnLvP1w" name="Pack">
+      <ownedComment xmi:id="_aYyRzGGsEemTNvAnnLvP1w">
+        <body>todo: add desc
+
+@author todo</body>
+      </ownedComment>
+      <ownedComment xmi:id="_aYyRzWGsEemTNvAnnLvP1w">
+        <body>/**
+ * todo: add desc
+ *
+ * @author todo
+ */</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_aYyRzmGsEemTNvAnnLvP1w" name="MASTER" visibility="public" isStatic="true" type="_aYyTNGGsEemTNvAnnLvP1w" association="_aYySAGGsEemTNvAnnLvP1w">
+        <ownedComment xmi:id="_aYyRz2GsEemTNvAnnLvP1w">
+          <body>Pack.generateMaster()</body>
+        </ownedComment>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyR0GGsEemTNvAnnLvP1w" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyR0WGsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyR0mGsEemTNvAnnLvP1w" name="DEFAULT_COUNT" visibility="private" isStatic="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyR02GsEemTNvAnnLvP1w" value="56"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyR1GGsEemTNvAnnLvP1w" name="MIN_JOKERS" visibility="private" isStatic="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyR1WGsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyR1mGsEemTNvAnnLvP1w" name="MAX_JOKERS" visibility="private" isStatic="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyR12GsEemTNvAnnLvP1w" value="4"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyR2GGsEemTNvAnnLvP1w" name="DEFAULT_JOKERS" visibility="private" isStatic="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:Expression" xmi:id="_aYyR2WGsEemTNvAnnLvP1w" symbol="MIN_JOKERS"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyR2mGsEemTNvAnnLvP1w" name="count" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:Expression" xmi:id="_aYyR22GsEemTNvAnnLvP1w" symbol="MASTER.length"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_aYyR3GGsEemTNvAnnLvP1w" name="generateStandard" visibility="private" isStatic="true">
+        <ownedComment xmi:id="_aYyR3WGsEemTNvAnnLvP1w">
+          <body>Populates the reusable STANDARD pack for decks
+only if it is empty.</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyR3mGsEemTNvAnnLvP1w">
+          <body>return pack;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyR32GsEemTNvAnnLvP1w">
+          <body>Card[] pack = new Card[DEFAULT_COUNT];
+int c = 0;
+
+for (Card.FaceValue value : Card.FaceValue.values()) {
+    for (Card.Suit suit : Card.Suit.values()) {
+        pack[c] = new Card(value, suit);
+        c++;
+    }
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyR4GGsEemTNvAnnLvP1w" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyR4WGsEemTNvAnnLvP1w" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyR4mGsEemTNvAnnLvP1w"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyR42GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyR5GGsEemTNvAnnLvP1w" name="generateMaster" visibility="private" isStatic="true">
+        <ownedComment xmi:id="_aYyR5WGsEemTNvAnnLvP1w">
+          <body>return master;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyR5mGsEemTNvAnnLvP1w">
+          <body>// don't include unused cards in master pack
+Card[] master = new Card[STANDARD.length - unusedCards.length];
+int masterSlot = 0;
+for (int i = 0; i &lt; STANDARD.length; i++) {
+    boolean isUsed = true;
+    Card toCheck = STANDARD[i];
+    for (Card u : unusedCards) {
+        if (toCheck.equals(u)) {
+            isUsed = false;
+            break;
+        }
+    }
+    if (isUsed) {
+        master[masterSlot] = toCheck;
+        masterSlot += 1;
+    }
+}
+
+// add the required number of jokers
+if (MIN_JOKERS &lt;= jokerCount &amp;&amp; jokerCount &lt;= MAX_JOKERS) {
+    jokerCount = MIN_JOKERS;
+}
+
+for (int i = 0; i &lt; jokerCount; i++) {
+    master[masterSlot] = new Card(Card.FaceValue.X, Card.Suit.values()[i]);
+    masterSlot++;
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyR52GsEemTNvAnnLvP1w" name="jokerCount" isUnique="false" direction="inout">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyR6GGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyR6WGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyR6mGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyR62GsEemTNvAnnLvP1w" name="unusedCards" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyR7GGsEemTNvAnnLvP1w" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyR7WGsEemTNvAnnLvP1w"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyR7mGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyR72GsEemTNvAnnLvP1w" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyR8GGsEemTNvAnnLvP1w" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyR8WGsEemTNvAnnLvP1w"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyR8mGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyR82GsEemTNvAnnLvP1w" name="generateMaster" visibility="private" isStatic="true">
+        <ownedComment xmi:id="_aYyR9GGsEemTNvAnnLvP1w">
+          <body>return generateMaster(DEFAULT_JOKERS, DEFAULT_UNUSED_CARDS);</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyR9WGsEemTNvAnnLvP1w" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyR9mGsEemTNvAnnLvP1w" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyR92GsEemTNvAnnLvP1w"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyR-GGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyR-WGsEemTNvAnnLvP1w" name="getCount" visibility="public">
+        <ownedComment xmi:id="_aYyR-mGsEemTNvAnnLvP1w">
+          <body>return count;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyR-2GsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyR_GGsEemTNvAnnLvP1w">
+            <body>count of the Pack</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyR_WGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyR_mGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyR_2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aYySAGGsEemTNvAnnLvP1w" memberEnd="_aYyRzmGsEemTNvAnnLvP1w _aYySAWGsEemTNvAnnLvP1w">
+      <ownedEnd xmi:id="_aYySAWGsEemTNvAnnLvP1w" visibility="public" type="_aYyRy2GsEemTNvAnnLvP1w" association="_aYySAGGsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySAmGsEemTNvAnnLvP1w"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_aYySA2GsEemTNvAnnLvP1w" name="Deck">
+      <ownedComment xmi:id="_aYySBGGsEemTNvAnnLvP1w">
+        <body>Represents the source of playing cards in a game</body>
+      </ownedComment>
+      <ownedComment xmi:id="_aYySBWGsEemTNvAnnLvP1w">
+        <body>/**
+ * Represents the source of playing cards in a game
+ */</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_aYySBmGsEemTNvAnnLvP1w" name="DEFAULT_DECK" visibility="public" isStatic="true" type="_aYySA2GsEemTNvAnnLvP1w" association="_aYySjGGsEemTNvAnnLvP1w">
+        <ownedComment xmi:id="_aYySB2GsEemTNvAnnLvP1w">
+          <body>new Deck()</body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySCGGsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYySCWGsEemTNvAnnLvP1w" name="cards" visibility="private" type="_aYyTNGGsEemTNvAnnLvP1w" association="_aYySj2GsEemTNvAnnLvP1w">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySCmGsEemTNvAnnLvP1w" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySC2GsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYySDGGsEemTNvAnnLvP1w" name="DEFAULT_PACKS_COUNT" visibility="public" isStatic="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySDWGsEemTNvAnnLvP1w" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYySDmGsEemTNvAnnLvP1w" name="MAX_PACKS" visibility="public" isStatic="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySD2GsEemTNvAnnLvP1w" value="6"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYySEGGsEemTNvAnnLvP1w" name="packCount" visibility="private" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYySEWGsEemTNvAnnLvP1w" name="topCard" visibility="private" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYySEmGsEemTNvAnnLvP1w" name="cardCount" visibility="private" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_aYySE2GsEemTNvAnnLvP1w" name="Deck" visibility="public">
+        <ownedComment xmi:id="_aYySFGGsEemTNvAnnLvP1w">
+          <body>Creates a new deck using a given number of packCount</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySFWGsEemTNvAnnLvP1w">
+          <body>this.init(packCount);</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYySFmGsEemTNvAnnLvP1w" name="packCount" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYySF2GsEemTNvAnnLvP1w">
+            <body>the number of packCount within this deck</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySGGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySGWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySGmGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySG2GsEemTNvAnnLvP1w" name="Deck" visibility="public">
+        <ownedComment xmi:id="_aYySHGGsEemTNvAnnLvP1w">
+          <body>Creates a new deck with a single pack</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySHWGsEemTNvAnnLvP1w">
+          <body>this.init();</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySHmGsEemTNvAnnLvP1w" name="getCardCount" visibility="public">
+        <ownedComment xmi:id="_aYySH2GsEemTNvAnnLvP1w">
+          <body>return cardCount;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYySIGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYySIWGsEemTNvAnnLvP1w">
+            <body>cardCount of the Deck</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySImGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySI2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySJGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySJWGsEemTNvAnnLvP1w" name="getPackCount" visibility="public">
+        <ownedComment xmi:id="_aYySJmGsEemTNvAnnLvP1w">
+          <body>return packCount;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYySJ2GsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYySKGGsEemTNvAnnLvP1w">
+            <body>packCount of the Deck</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySKWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySKmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySK2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySLGGsEemTNvAnnLvP1w" name="init" visibility="public">
+        <ownedComment xmi:id="_aYySLWGsEemTNvAnnLvP1w">
+          <body>Refreshes this deck, discarding all current cards (if any)
+and populating it with fresh packCount.</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySLmGsEemTNvAnnLvP1w">
+          <body>// enforce pack limit
+if (packCount > MAX_PACKS) {
+    packCount = MAX_PACKS;
+    System.out.printf(&quot;Maximum number of packCount exceeded, set to maximum: %d%n&quot;, packCount);
+}
+
+this.packCount = packCount;
+Pack pack = new Pack();
+
+int cardCount = packCount * pack.getCount();
+this.cards = new Card[cardCount];
+
+
+// for the desired number of packCount, copy the STANDARD pack into packCount
+for (int i = 0; i &lt; packCount; i++) {
+    System.arraycopy(Pack.STANDARD, 0,
+            this.cards, i * pack.getCount(),
+            Pack.STANDARD.length);
+}
+
+// set the position of the top card
+this.topCard = cardCount - 1; // zero-indexed
+this.cardCount = cardCount;
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYySL2GsEemTNvAnnLvP1w" name="packCount" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYySMGGsEemTNvAnnLvP1w">
+            <body>the number of packCount to refresh with</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySMWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySMmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySM2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySNGGsEemTNvAnnLvP1w" name="init" visibility="public">
+        <ownedComment xmi:id="_aYySNWGsEemTNvAnnLvP1w">
+          <body>Refreshes this deck, discarding all current cards (if any)
+and populating it with a fresh pack.</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySNmGsEemTNvAnnLvP1w">
+          <body>// re-initializes an existing Deck object with one pack
+        this.init(DEFAULT_PACKS_COUNT);</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySN2GsEemTNvAnnLvP1w" name="dealCard" visibility="public">
+        <ownedComment xmi:id="_aYySOGGsEemTNvAnnLvP1w">
+          <body>Removes the top card of the deck and returns it</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySOWGsEemTNvAnnLvP1w">
+          <body>return dealtCard;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySOmGsEemTNvAnnLvP1w">
+          <body>//returns the top card of the deck and removes it
+        Card dealtCard = cards[topCard];
+        cards[topCard] = null;
+        topCard--;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYySO2GsEemTNvAnnLvP1w" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYySPGGsEemTNvAnnLvP1w">
+            <body>the top card from the deck</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySPWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySPmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySP2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySQGGsEemTNvAnnLvP1w" name="getTopCard" visibility="public">
+        <ownedComment xmi:id="_aYySQWGsEemTNvAnnLvP1w">
+          <body>Fetches the top card from this deck without removing it</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySQmGsEemTNvAnnLvP1w">
+          <body>return this.topCard;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySQ2GsEemTNvAnnLvP1w">
+          <body>//returns the topCard integer</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYySRGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYySRWGsEemTNvAnnLvP1w">
+            <body>the top card in this deck</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySRmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySR2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySSGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySSWGsEemTNvAnnLvP1w" name="inspectCard" visibility="public">
+        <ownedComment xmi:id="_aYySSmGsEemTNvAnnLvP1w">
+          <body>Fetches the card at a given position within the deck
+-OR- an invalid card if that position is not populated
+or the position is otherwise invalid
+does not remove the card from the deck</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySS2GsEemTNvAnnLvP1w">
+          <body>//takes an integer and accesses the deck at that index and returns a card object
+        if (k >= 0 &amp;&amp; k &lt;= topCard) {
+            return cards[k];
+        } else return new Card(null, Card.Suit.diamonds); //returns a card with errorFlag if index is out of range</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYySTGGsEemTNvAnnLvP1w" name="k" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYySTWGsEemTNvAnnLvP1w">
+            <body>the position of the card in the deck to inspect</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySTmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyST2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySUGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYySUWGsEemTNvAnnLvP1w" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYySUmGsEemTNvAnnLvP1w">
+            <body>the card at the given position, or and invalid card if not found</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySU2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySVGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySVWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySVmGsEemTNvAnnLvP1w" name="swap" visibility="private">
+        <ownedComment xmi:id="_aYySV2GsEemTNvAnnLvP1w">
+          <body>Exchanges the card in one position with the card in another position</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySWGGsEemTNvAnnLvP1w">
+          <body>//helper function for shuffle, takes two ints and swaps the cards at those indexes
+        if (cardA == cardB) {
+            return;
+        }
+
+        Card tempCard = cards[cardA];
+        cards[cardA] = cards[cardB];
+        cards[cardB] = tempCard;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYySWWGsEemTNvAnnLvP1w" name="cardA" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYySWmGsEemTNvAnnLvP1w">
+            <body>the position of a card to swap</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySW2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySXGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySXWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYySXmGsEemTNvAnnLvP1w" name="cardB" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYySX2GsEemTNvAnnLvP1w">
+            <body>the position of another card to swap</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySYGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySYWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySYmGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySY2GsEemTNvAnnLvP1w" name="shuffle" visibility="public">
+        <ownedComment xmi:id="_aYySZGGsEemTNvAnnLvP1w">
+          <body>Randomizes the order of the cards within this deck</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySZWGsEemTNvAnnLvP1w">
+          <body>//
+        int numCards = this.topCard + 1;
+        int shuffleSteps = numCards * 25;
+        for (int i = 0; i &lt; shuffleSteps; i++) {
+            int cardA = (int) (Math.random() * numCards);
+            int cardB = (int) (Math.random() * numCards);
+            swap(cardA, cardB);
+        }</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySZmGsEemTNvAnnLvP1w" name="getNumCards" visibility="package">
+        <ownedComment xmi:id="_aYySZ2GsEemTNvAnnLvP1w">
+          <body>return cards.length;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYySaGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYySaWGsEemTNvAnnLvP1w">
+            <body>the number of cards in this deck</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySamGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySa2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySbGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySbWGsEemTNvAnnLvP1w" name="addCard" visibility="package">
+        <ownedComment xmi:id="_aYySbmGsEemTNvAnnLvP1w">
+          <body>Adds a given card to this deck</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySb2GsEemTNvAnnLvP1w">
+          <body>return cards[topCard] == card;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyScGGsEemTNvAnnLvP1w">
+          <body>cards[topCard + 1] = card;
+topCard++;
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyScWGsEemTNvAnnLvP1w" name="card" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyScmGsEemTNvAnnLvP1w">
+            <body>the card to add</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySc2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySdGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySdWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYySdmGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYySd2GsEemTNvAnnLvP1w">
+            <body>true if successful</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySeGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySeWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySemGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySe2GsEemTNvAnnLvP1w" name="removeCard" visibility="package">
+        <ownedComment xmi:id="_aYySfGGsEemTNvAnnLvP1w">
+          <body>Removes a given card from this deck</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySfWGsEemTNvAnnLvP1w">
+          <body>return success;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySfmGsEemTNvAnnLvP1w">
+          <body>boolean success = false;
+for (Card c : cards) {
+    if (c == card) {
+        cards[topCard] = null;
+        topCard--;
+        success = true;
+    }
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYySf2GsEemTNvAnnLvP1w" name="card" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYySgGGsEemTNvAnnLvP1w">
+            <body>the card to remove</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySgWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySgmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySg2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyShGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyShWGsEemTNvAnnLvP1w">
+            <body>true if successful</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyShmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySh2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySiGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySiWGsEemTNvAnnLvP1w" name="sort" visibility="package">
+        <ownedComment xmi:id="_aYySimGsEemTNvAnnLvP1w">
+          <body>Sorts the cards in this deck by face value and suit</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySi2GsEemTNvAnnLvP1w">
+          <body>Card.arraySort(cards, topCard);</body>
+        </ownedComment>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aYySjGGsEemTNvAnnLvP1w" memberEnd="_aYySBmGsEemTNvAnnLvP1w _aYySjWGsEemTNvAnnLvP1w">
+      <ownedEnd xmi:id="_aYySjWGsEemTNvAnnLvP1w" visibility="public" type="_aYySA2GsEemTNvAnnLvP1w" association="_aYySjGGsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySjmGsEemTNvAnnLvP1w"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aYySj2GsEemTNvAnnLvP1w" memberEnd="_aYySCWGsEemTNvAnnLvP1w _aYySkGGsEemTNvAnnLvP1w">
+      <ownedEnd xmi:id="_aYySkGGsEemTNvAnnLvP1w" visibility="public" type="_aYySA2GsEemTNvAnnLvP1w" association="_aYySj2GsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySkWGsEemTNvAnnLvP1w"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_aYySkmGsEemTNvAnnLvP1w" name="CardViewBuilder">
+      <ownedComment xmi:id="_aYySk2GsEemTNvAnnLvP1w">
+        <body>todo: add desc
+
+@author todo</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_aYySlGGsEemTNvAnnLvP1w" name="imagesDir" visibility="private" isStatic="true" isUnique="false">
+        <eAnnotations xmi:id="_aYySlWGsEemTNvAnnLvP1w" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_aYySlmGsEemTNvAnnLvP1w" name="isNoType"/>
+        </eAnnotations>
+        <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_aYySl2GsEemTNvAnnLvP1w">
+          <body>&quot;images/&quot;</body>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYySmGGsEemTNvAnnLvP1w" name="iconsLoaded" visibility="private" isStatic="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_aYySmWGsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYySmmGsEemTNvAnnLvP1w" name="iconCards" visibility="private" isStatic="true" isUnique="false">
+        <eAnnotations xmi:id="_aYySm2GsEemTNvAnnLvP1w" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_aYySnGGsEemTNvAnnLvP1w" name="isNoType"/>
+        </eAnnotations>
+        <ownedComment xmi:id="_aYySnWGsEemTNvAnnLvP1w">
+          <body>14 = A through K plus joker</body>
+        </ownedComment>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySnmGsEemTNvAnnLvP1w" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySn2GsEemTNvAnnLvP1w"/>
+        <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_aYySoGGsEemTNvAnnLvP1w">
+          <body>new ImageIcon[14][4]</body>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYySoWGsEemTNvAnnLvP1w" name="iconBack" visibility="private" isStatic="true" isUnique="false">
+        <eAnnotations xmi:id="_aYySomGsEemTNvAnnLvP1w" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_aYySo2GsEemTNvAnnLvP1w" name="isNoType"/>
+        </eAnnotations>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_aYySpGGsEemTNvAnnLvP1w" name="loadCardIcons" visibility="private" isStatic="true">
+        <ownedComment xmi:id="_aYySpWGsEemTNvAnnLvP1w">
+          <body>Populates the static iconCards array</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySpmGsEemTNvAnnLvP1w">
+          <body>if (iconsLoaded) {
+    return;
+}
+for (Card.FaceValue value : Card.FaceValue.values()) {
+    for (Card.Suit suit : Card.Suit.values()) {
+        int vID = value.ordinal();
+        int sID = suit.ordinal();
+
+        iconCards[vID][sID] = new ImageIcon(
+                imagesDir + value.toString() + suit.toString() + &quot;.gif&quot;);
+    }
+}
+iconBack = new ImageIcon(imagesDir + &quot;BK.gif&quot;);
+iconsLoaded = true;
+</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySp2GsEemTNvAnnLvP1w" name="getBackCardIcon" visibility="public" isStatic="true">
+        <ownedComment xmi:id="_aYySqGGsEemTNvAnnLvP1w">
+          <body>retrieves the icon for the backside of cards</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySqWGsEemTNvAnnLvP1w">
+          <body>return iconBack;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYySqmGsEemTNvAnnLvP1w">
+          <body>loadCardIcons();</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYySq2GsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <eAnnotations xmi:id="_aYySrGGsEemTNvAnnLvP1w" source="Objing">
+            <contents xmi:type="uml:Property" xmi:id="_aYySrWGsEemTNvAnnLvP1w" name="isNoType"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_aYySrmGsEemTNvAnnLvP1w">
+            <body>the backside UI icon</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySr2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySsGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySsWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySsmGsEemTNvAnnLvP1w" name="getIcon" visibility="public" isStatic="true">
+        <ownedComment xmi:id="_aYySs2GsEemTNvAnnLvP1w">
+          <body>retrieves a given card's icon</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyStGGsEemTNvAnnLvP1w">
+          <body>return iconCards[Card.valueAsInt(card)][Card.suitAsInt(card)];</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyStWGsEemTNvAnnLvP1w">
+          <body>loadCardIcons();</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyStmGsEemTNvAnnLvP1w" name="card" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYySt2GsEemTNvAnnLvP1w">
+            <body>the card to retrieve</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySuGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySuWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySumGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYySu2GsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <eAnnotations xmi:id="_aYySvGGsEemTNvAnnLvP1w" source="Objing">
+            <contents xmi:type="uml:Property" xmi:id="_aYySvWGsEemTNvAnnLvP1w" name="isNoType"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_aYySvmGsEemTNvAnnLvP1w">
+            <body>the corresponding UI icon for that card</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySv2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySwGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySwWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_aYySwmGsEemTNvAnnLvP1w" name="Timer" visibility="package">
+      <ownedComment xmi:id="_aYySw2GsEemTNvAnnLvP1w">
+        <body>todo: add desc
+
+@author todo</body>
+      </ownedComment>
+      <ownedComment xmi:id="_aYySxGGsEemTNvAnnLvP1w">
+        <body>/**
+ * todo: add desc
+ *
+ * @author todo
+ */</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_aYySxWGsEemTNvAnnLvP1w" name="controller" visibility="private" type="_aYy5NmGsEemTNvAnnLvP1w" association="_aYyS4mGsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySxmGsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYySx2GsEemTNvAnnLvP1w" name="timePlayed" visibility="private" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYySyGGsEemTNvAnnLvP1w" name="isRunning" visibility="private" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_aYySyWGsEemTNvAnnLvP1w" name="Timer" visibility="public">
+        <ownedComment xmi:id="_aYySymGsEemTNvAnnLvP1w">
+          <body>this.controller = controller;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYySy2GsEemTNvAnnLvP1w" name="controller" type="_aYy5NmGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYySzGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYySzWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYySzmGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYySz2GsEemTNvAnnLvP1w" name="setRunning" visibility="public">
+        <ownedComment xmi:id="_aYyS0GGsEemTNvAnnLvP1w">
+          <body>sets isRunning of the Timer</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyS0WGsEemTNvAnnLvP1w">
+          <body>isRunning = running;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyS0mGsEemTNvAnnLvP1w" name="running" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyS02GsEemTNvAnnLvP1w">
+            <body>todo</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyS1GGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyS1WGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyS1mGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyS12GsEemTNvAnnLvP1w" name="start" visibility="public">
+        <ownedComment xmi:id="_aYyS2GGsEemTNvAnnLvP1w">
+          <body>isRunning = true;
+Thread timerThread = new Thread(this);
+timerThread.start();
+</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyS2WGsEemTNvAnnLvP1w" name="doNothing" visibility="public">
+        <ownedComment xmi:id="_aYyS2mGsEemTNvAnnLvP1w">
+          <body>Thread.sleep(milliseconds);</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyS22GsEemTNvAnnLvP1w" name="milliseconds" isUnique="false" direction="inout">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyS3GGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyS3WGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyS3mGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyS32GsEemTNvAnnLvP1w" name="run" visibility="public">
+        <ownedComment xmi:id="_aYyS4GGsEemTNvAnnLvP1w">
+          <body>@Override</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyS4WGsEemTNvAnnLvP1w">
+          <body>while (true) {
+    try {
+        if (isRunning) {
+            controller.changeTimerDisplay(timePlayed);
+            doNothing(1000);
+            timePlayed++;
+        } else {
+            doNothing(0);
+        }
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+        break;
+    }
+}
+</body>
+        </ownedComment>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aYyS4mGsEemTNvAnnLvP1w" memberEnd="_aYySxWGsEemTNvAnnLvP1w _aYyS42GsEemTNvAnnLvP1w">
+      <ownedEnd xmi:id="_aYyS42GsEemTNvAnnLvP1w" visibility="public" type="_aYySwmGsEemTNvAnnLvP1w" association="_aYyS4mGsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyS5GGsEemTNvAnnLvP1w"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_aYyS5WGsEemTNvAnnLvP1w" name="Hand" visibility="package">
+      <ownedComment xmi:id="_aYyS5mGsEemTNvAnnLvP1w">
+        <body>todo: add desc
+
+@author todo</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_aYyS52GsEemTNvAnnLvP1w" name="myCards" visibility="private" type="_aYyTNGGsEemTNvAnnLvP1w" association="_aYyTMWGsEemTNvAnnLvP1w">
+        <ownedComment xmi:id="_aYyS6GGsEemTNvAnnLvP1w">
+          <body>---------/ also called myArray in assignment desc</body>
+        </ownedComment>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyS6WGsEemTNvAnnLvP1w" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyS6mGsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyS62GsEemTNvAnnLvP1w" name="MAX_CARDS" visibility="public" isStatic="true" isUnique="false">
+        <ownedComment xmi:id="_aYyS7GGsEemTNvAnnLvP1w">
+          <body>no 'monster arrays'</body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyS7WGsEemTNvAnnLvP1w" value="50"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyS7mGsEemTNvAnnLvP1w" name="numCards" visibility="private" isUnique="false">
+        <ownedComment xmi:id="_aYyS72GsEemTNvAnnLvP1w">
+          <body>-----------/ count of cards</body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_aYyS8GGsEemTNvAnnLvP1w" name="Hand" visibility="public">
+        <ownedComment xmi:id="_aYyS8WGsEemTNvAnnLvP1w">
+          <body>Creates an empty hand</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyS8mGsEemTNvAnnLvP1w">
+          <body>this.myCards = new Card[MAX_CARDS];
+this.numCards = 0;
+</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyS82GsEemTNvAnnLvP1w" name="takeCard" visibility="public">
+        <ownedComment xmi:id="_aYyS9GGsEemTNvAnnLvP1w">
+          <body>Adds a card to the hand, usually from another play area, like a deck.</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyS9WGsEemTNvAnnLvP1w">
+          <body>if (numCards &lt; MAX_CARDS) {
+    Card takenCard = new Card(card.getValue(), card.getSuit());
+    myCards[numCards++] = takenCard; //copies card to myCards
+    return true;//return true if success
+} else {
+    return false;
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyS9mGsEemTNvAnnLvP1w" name="card" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyS92GsEemTNvAnnLvP1w">
+            <body>the card to add</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyS-GGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyS-WGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyS-mGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyS-2GsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyS_GGsEemTNvAnnLvP1w">
+            <body>true if card successfully taken</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyS_WGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyS_mGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyS_2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyTAGGsEemTNvAnnLvP1w" name="resetHand" visibility="public">
+        <ownedComment xmi:id="_aYyTAWGsEemTNvAnnLvP1w">
+          <body>Resets this hand to its initial (empty) state</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTAmGsEemTNvAnnLvP1w">
+          <body>numCards = 0;
+myCards = new Card[MAX_CARDS];
+</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyTA2GsEemTNvAnnLvP1w" name="getNumCards" visibility="public">
+        <ownedComment xmi:id="_aYyTBGGsEemTNvAnnLvP1w">
+          <body>return numCards;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyTBWGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyTBmGsEemTNvAnnLvP1w">
+            <body>the number of cards currently in this hand</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTB2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTCGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTCWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyTCmGsEemTNvAnnLvP1w" name="inspectCard" visibility="package">
+        <ownedComment xmi:id="_aYyTC2GsEemTNvAnnLvP1w">
+          <body>Fetches the card in a given position in the hand without removing it.</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTDGGsEemTNvAnnLvP1w">
+          <body>return new Card(null, Card.Suit.spades); //creates a card that will not work so error flag returns true</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTDWGsEemTNvAnnLvP1w">
+          <body>//if(index is less than the accessible and greater than the index)
+if (0 &lt;= k &amp;&amp; k &lt;= numCards) {
+    return new Card(myCards[k].getValue(), myCards[k].getSuit());
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyTDmGsEemTNvAnnLvP1w" name="k" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyTD2GsEemTNvAnnLvP1w">
+            <body>the position to fetch the card from</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTEGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTEWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTEmGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyTE2GsEemTNvAnnLvP1w" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyTFGGsEemTNvAnnLvP1w">
+            <body>the card from the given position in the hand
+-OR- an invalid card if that position is invalid or unpopulated</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTFWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTFmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTF2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyTGGGsEemTNvAnnLvP1w" name="toString" visibility="public">
+        <ownedComment xmi:id="_aYyTGWGsEemTNvAnnLvP1w">
+          <body>@Override</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTGmGsEemTNvAnnLvP1w">
+          <body>return joiner.toString();</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTG2GsEemTNvAnnLvP1w">
+          <body>StringJoiner joiner = new StringJoiner(&quot;, &quot;, &quot;{ &quot;, &quot; }&quot;);
+if (numCards &lt;= 0) {
+    return joiner.add(&quot;empty&quot;).toString();
+}
+for (int i = 0; i &lt; numCards; i++) {
+    joiner.add(myCards[i].toString());
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyTHGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTHWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTHmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTH2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyTIGGsEemTNvAnnLvP1w" name="playCard" visibility="public">
+        <ownedComment xmi:id="_aYyTIWGsEemTNvAnnLvP1w">
+          <body>Plays a given card from this Hand</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTImGsEemTNvAnnLvP1w">
+          <body>return card;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTI2GsEemTNvAnnLvP1w">
+          <body>if (numCards == 0) //error
+{
+    //Creates a card that does not work
+    return new Card(null, Card.Suit.spades);
+}
+//Decreases numCards.
+Card card = myCards[cardIndex];
+
+numCards--;
+for (int i = cardIndex; i &lt; numCards; i++) {
+    myCards[i] = myCards[i + 1];
+}
+
+myCards[numCards] = null;
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyTJGGsEemTNvAnnLvP1w" name="cardIndex" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyTJWGsEemTNvAnnLvP1w">
+            <body>the index of the card in this hand to play</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTJmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTJ2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTKGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyTKWGsEemTNvAnnLvP1w" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyTKmGsEemTNvAnnLvP1w">
+            <body>the Card that was played or an invalid card upon failure</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTK2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTLGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTLWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyTLmGsEemTNvAnnLvP1w" name="sort" visibility="package">
+        <ownedComment xmi:id="_aYyTL2GsEemTNvAnnLvP1w">
+          <body>Sorts this hands cards by value and suit</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTMGGsEemTNvAnnLvP1w">
+          <body>Card.arraySort(myCards, numCards);</body>
+        </ownedComment>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aYyTMWGsEemTNvAnnLvP1w" memberEnd="_aYyS52GsEemTNvAnnLvP1w _aYyTMmGsEemTNvAnnLvP1w">
+      <ownedEnd xmi:id="_aYyTMmGsEemTNvAnnLvP1w" visibility="public" type="_aYyS5WGsEemTNvAnnLvP1w" association="_aYyTMWGsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTM2GsEemTNvAnnLvP1w"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_aYyTNGGsEemTNvAnnLvP1w" name="Card">
+      <ownedComment xmi:id="_aYyTNWGsEemTNvAnnLvP1w">
+        <body>todo: add desc
+
+@author todo</body>
+      </ownedComment>
+      <ownedComment xmi:id="_aYyTNmGsEemTNvAnnLvP1w">
+        <body>/**
+ * todo: add desc
+ *
+ * @author todo
+ */</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_aYyTN2GsEemTNvAnnLvP1w" name="value" visibility="private" type="_aYyTUGGsEemTNvAnnLvP1w" isUnique="false"/>
+      <ownedAttribute xmi:id="_aYyTOGGsEemTNvAnnLvP1w" name="suit" visibility="private" type="_aYyTOmGsEemTNvAnnLvP1w" isUnique="false"/>
+      <ownedAttribute xmi:id="_aYyTOWGsEemTNvAnnLvP1w" name="errorFlag" visibility="private" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedAttribute>
+      <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_aYyTOmGsEemTNvAnnLvP1w" name="Suit" visibility="package">
+        <ownedComment xmi:id="_aYyTO2GsEemTNvAnnLvP1w">
+          <body>Represents a Playing Card Card.Suit</body>
+        </ownedComment>
+        <ownedOperation xmi:id="_aYyTPGGsEemTNvAnnLvP1w" name="toString" visibility="public">
+          <ownedComment xmi:id="_aYyTPWGsEemTNvAnnLvP1w">
+            <body>@Override</body>
+          </ownedComment>
+          <ownedComment xmi:id="_aYyTPmGsEemTNvAnnLvP1w">
+            <body>return this.name().substring(0, 1).toUpperCase();</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_aYyTP2GsEemTNvAnnLvP1w" isUnique="false" direction="return">
+            <eAnnotations xmi:id="_aYyTQGGsEemTNvAnnLvP1w" source="Objing">
+              <contents xmi:type="uml:Property" xmi:id="_aYyTQWGsEemTNvAnnLvP1w" name="isNoType"/>
+            </eAnnotations>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTQmGsEemTNvAnnLvP1w" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTQ2GsEemTNvAnnLvP1w" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTRGGsEemTNvAnnLvP1w" value=""/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_aYyTRWGsEemTNvAnnLvP1w" name="toUnicode" visibility="public">
+          <ownedComment xmi:id="_aYyTRmGsEemTNvAnnLvP1w">
+            <body>switch (this) {
+    case clubs:
+        return '\u2663'; // ♣
+    case diamonds:
+        return '\u2666'; // ♦
+    case hearts:
+        return '\u2665'; // ♥
+    case spades:
+        return '\u2660'; // ♠
+    default:
+        return '\uFFFD'; // � -- should never happen
+}
+</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_aYyTR2GsEemTNvAnnLvP1w" isUnique="false" direction="return">
+            <ownedComment xmi:id="_aYyTSGGsEemTNvAnnLvP1w">
+              <body>the corresponding Unicode character for a given suit</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EChar"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTSWGsEemTNvAnnLvP1w" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTSmGsEemTNvAnnLvP1w" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTS2GsEemTNvAnnLvP1w" value=""/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedLiteral xmi:id="_aYyTTGGsEemTNvAnnLvP1w" name="clubs"/>
+        <ownedLiteral xmi:id="_aYyTTWGsEemTNvAnnLvP1w" name="diamonds"/>
+        <ownedLiteral xmi:id="_aYyTTmGsEemTNvAnnLvP1w" name="hearts"/>
+        <ownedLiteral xmi:id="_aYyTT2GsEemTNvAnnLvP1w" name="spades"/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_aYyTUGGsEemTNvAnnLvP1w" name="FaceValue" visibility="package">
+        <ownedComment xmi:id="_aYyTUWGsEemTNvAnnLvP1w">
+          <body>Represents a Playing Card face value</body>
+        </ownedComment>
+        <ownedOperation xmi:id="_aYyTUmGsEemTNvAnnLvP1w" name="valueOf" visibility="public" isStatic="true">
+          <ownedComment xmi:id="_aYyTU2GsEemTNvAnnLvP1w">
+            <body>Converts a character to its corresponding Card.FaceValue
+@throws IllegalArgumentException when character has no corresponding Card.FaceValue</body>
+          </ownedComment>
+          <ownedComment xmi:id="_aYyTVGGsEemTNvAnnLvP1w">
+            <body>return FaceValue.valueOf(&quot;&quot; + character);</body>
+          </ownedComment>
+          <ownedComment xmi:id="_aYyTVWGsEemTNvAnnLvP1w">
+            <body>if (Character.isDigit(character)) {
+    return FaceValue.valueOf(&quot;_&quot; + character);
+}
+</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_aYyTVmGsEemTNvAnnLvP1w" name="character" isUnique="false" direction="inout">
+            <ownedComment xmi:id="_aYyTV2GsEemTNvAnnLvP1w">
+              <body>the character to convert into a Card.FaceValue</body>
+            </ownedComment>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EChar"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTWGGsEemTNvAnnLvP1w" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTWWGsEemTNvAnnLvP1w" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTWmGsEemTNvAnnLvP1w" value=""/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_aYyTW2GsEemTNvAnnLvP1w" type="_aYyTUGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+            <ownedComment xmi:id="_aYyTXGGsEemTNvAnnLvP1w">
+              <body>the corresponding Card.FaceValue for this character</body>
+            </ownedComment>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTXWGsEemTNvAnnLvP1w" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTXmGsEemTNvAnnLvP1w" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTX2GsEemTNvAnnLvP1w" value=""/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_aYyTYGGsEemTNvAnnLvP1w" name="toString" visibility="public">
+          <ownedComment xmi:id="_aYyTYWGsEemTNvAnnLvP1w">
+            <body>@Override</body>
+          </ownedComment>
+          <ownedComment xmi:id="_aYyTYmGsEemTNvAnnLvP1w">
+            <body>return this.name().substring(this.name().length() - 1);</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_aYyTY2GsEemTNvAnnLvP1w" isUnique="false" direction="return">
+            <eAnnotations xmi:id="_aYyTZGGsEemTNvAnnLvP1w" source="Objing">
+              <contents xmi:type="uml:Property" xmi:id="_aYyTZWGsEemTNvAnnLvP1w" name="isNoType"/>
+            </eAnnotations>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTZmGsEemTNvAnnLvP1w" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTZ2GsEemTNvAnnLvP1w" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTaGGsEemTNvAnnLvP1w" value=""/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedLiteral xmi:id="_aYyTaWGsEemTNvAnnLvP1w" name="A">
+          <ownedComment xmi:id="_aYyTamGsEemTNvAnnLvP1w">
+            <body>Ace</body>
+          </ownedComment>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="_aYyTa2GsEemTNvAnnLvP1w" name="_2">
+          <ownedComment xmi:id="_aYyTbGGsEemTNvAnnLvP1w">
+            <body>Numeric</body>
+          </ownedComment>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="_aYyTbWGsEemTNvAnnLvP1w" name="_3"/>
+        <ownedLiteral xmi:id="_aYyTbmGsEemTNvAnnLvP1w" name="_4"/>
+        <ownedLiteral xmi:id="_aYyTb2GsEemTNvAnnLvP1w" name="_5"/>
+        <ownedLiteral xmi:id="_aYyTcGGsEemTNvAnnLvP1w" name="_6"/>
+        <ownedLiteral xmi:id="_aYyTcWGsEemTNvAnnLvP1w" name="_7"/>
+        <ownedLiteral xmi:id="_aYyTcmGsEemTNvAnnLvP1w" name="_8"/>
+        <ownedLiteral xmi:id="_aYyTc2GsEemTNvAnnLvP1w" name="_9"/>
+        <ownedLiteral xmi:id="_aYyTdGGsEemTNvAnnLvP1w" name="T">
+          <ownedComment xmi:id="_aYyTdWGsEemTNvAnnLvP1w">
+            <body>10</body>
+          </ownedComment>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="_aYyTdmGsEemTNvAnnLvP1w" name="J">
+          <ownedComment xmi:id="_aYyTd2GsEemTNvAnnLvP1w">
+            <body>Jack</body>
+          </ownedComment>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="_aYyTeGGsEemTNvAnnLvP1w" name="Q">
+          <ownedComment xmi:id="_aYyTeWGsEemTNvAnnLvP1w">
+            <body>Queen</body>
+          </ownedComment>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="_aYyTemGsEemTNvAnnLvP1w" name="K">
+          <ownedComment xmi:id="_aYyTe2GsEemTNvAnnLvP1w">
+            <body>King</body>
+          </ownedComment>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="_aYyTfGGsEemTNvAnnLvP1w" name="X">
+          <ownedComment xmi:id="_aYyTfWGsEemTNvAnnLvP1w">
+            <body>Joker</body>
+          </ownedComment>
+        </ownedLiteral>
+      </nestedClassifier>
+      <ownedOperation xmi:id="_aYyTfmGsEemTNvAnnLvP1w" name="Card" visibility="public">
+        <ownedComment xmi:id="_aYyTf2GsEemTNvAnnLvP1w">
+          <body>Create a default card, an Ace of Spades</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTgGGsEemTNvAnnLvP1w">
+          <body>this(FaceValue.A, Suit.spades);</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyTgWGsEemTNvAnnLvP1w" name="Card" visibility="public">
+        <ownedComment xmi:id="_aYyTgmGsEemTNvAnnLvP1w">
+          <body>Create a card with a given value and suit</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTg2GsEemTNvAnnLvP1w">
+          <body>set(value, suit);</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyThGGsEemTNvAnnLvP1w" name="value" type="_aYyTUGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyThWGsEemTNvAnnLvP1w">
+            <body>the card's value</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyThmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTh2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTiGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyTiWGsEemTNvAnnLvP1w" name="suit" type="_aYyTOmGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyTimGsEemTNvAnnLvP1w">
+            <body>the card's suit</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTi2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTjGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTjWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyTjmGsEemTNvAnnLvP1w" name="isValid" visibility="private" isStatic="true">
+        <ownedComment xmi:id="_aYyTj2GsEemTNvAnnLvP1w">
+          <body>Checks a given face value and suit for validity</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTkGGsEemTNvAnnLvP1w">
+          <body>return value != null &amp;&amp; suit != null;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyTkWGsEemTNvAnnLvP1w" name="value" type="_aYyTUGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyTkmGsEemTNvAnnLvP1w">
+            <body>the value to check</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTk2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTlGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTlWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyTlmGsEemTNvAnnLvP1w" name="suit" type="_aYyTOmGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyTl2GsEemTNvAnnLvP1w">
+            <body>the suit to check</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTmGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTmWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTmmGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyTm2GsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyTnGGsEemTNvAnnLvP1w">
+            <body>true if valid</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTnWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTnmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTn2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyToGGsEemTNvAnnLvP1w" name="valueAsInt" visibility="package" isStatic="true">
+        <ownedComment xmi:id="_aYyToWGsEemTNvAnnLvP1w">
+          <body>Returns an int given a card value
+turns &quot;A&quot;, &quot;2&quot;, &quot;3&quot;, ... &quot;Q&quot;, &quot;K&quot;, &quot;X&quot; into 0 - 13</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTomGsEemTNvAnnLvP1w">
+          <body>return card.value.ordinal();</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyTo2GsEemTNvAnnLvP1w" name="card" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyTpGGsEemTNvAnnLvP1w">
+            <body>the card to check</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTpWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTpmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTp2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyTqGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyTqWGsEemTNvAnnLvP1w">
+            <body>cardValue</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTqmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTq2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTrGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyTrWGsEemTNvAnnLvP1w" name="arraySort" visibility="package" isStatic="true">
+        <ownedComment xmi:id="_aYyTrmGsEemTNvAnnLvP1w">
+          <body>Sorts a given array of cards, first by values then by suit</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTr2GsEemTNvAnnLvP1w">
+          <body>for (int i = 0; i &lt; arraySize - 1; i++) {
+    for (int j = 0; j &lt; arraySize - i - 1; j++) {
+        Card card1 = cards[j];
+        Card card2 = cards[j + 1];
+        if (card1.getValue() == card2.getValue()) {
+            if (suitAsInt(card1) > suitAsInt(card2)) {
+                cards[j + 1] = card1;
+                cards[j] = card2;
+            }
+        }
+
+        for (FaceValue c : FaceValue.values()) {
+            if (c == card1.getValue()) {
+                break;
+            }
+            if (c == card2.getValue()) {
+                cards[j + 1] = card1;
+                cards[j] = card2;
+            }
+        }
+    }
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyTsGGsEemTNvAnnLvP1w" name="cards" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyTsWGsEemTNvAnnLvP1w">
+            <body>the array to sort</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTsmGsEemTNvAnnLvP1w" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTs2GsEemTNvAnnLvP1w"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTtGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyTtWGsEemTNvAnnLvP1w" name="arraySize" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyTtmGsEemTNvAnnLvP1w">
+            <body>the size of the array to sort</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTt2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTuGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTuWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyTumGsEemTNvAnnLvP1w" name="suitAsInt" visibility="package" isStatic="true">
+        <ownedComment xmi:id="_aYyTu2GsEemTNvAnnLvP1w">
+          <body>Returns a int given a card suit</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTvGGsEemTNvAnnLvP1w">
+          <body>return card.suit.ordinal();</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyTvWGsEemTNvAnnLvP1w" name="card" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyTvmGsEemTNvAnnLvP1w">
+            <body>the card with a suit to check</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTv2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTwGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTwWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyTwmGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyTw2GsEemTNvAnnLvP1w">
+            <body>cardSuit if j is valid or `false` in case of error message</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTxGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTxWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTxmGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyTx2GsEemTNvAnnLvP1w" name="set" visibility="public">
+        <ownedComment xmi:id="_aYyTyGGsEemTNvAnnLvP1w">
+          <body>Assigns new values for this card's value and suit</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTyWGsEemTNvAnnLvP1w">
+          <body>return this.errorFlag;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyTymGsEemTNvAnnLvP1w">
+          <body>if (isValid(value, suit)) {
+    this.value = value;
+    this.suit = suit;
+    this.errorFlag = false;
+} else {
+    this.errorFlag = true;
+
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyTy2GsEemTNvAnnLvP1w" name="value" type="_aYyTUGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyTzGGsEemTNvAnnLvP1w">
+            <body>the new value for this card</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyTzWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyTzmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyTz2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyT0GGsEemTNvAnnLvP1w" name="suit" type="_aYyTOmGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyT0WGsEemTNvAnnLvP1w">
+            <body>the new suit for this card</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyT0mGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyT02GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyT1GGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyT1WGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyT1mGsEemTNvAnnLvP1w">
+            <body>true if the set operation was successful</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyT12GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyT2GGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyT2WGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyT2mGsEemTNvAnnLvP1w" name="getSuit" visibility="public">
+        <ownedComment xmi:id="_aYyT22GsEemTNvAnnLvP1w">
+          <body>return suit;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyT3GGsEemTNvAnnLvP1w" type="_aYyTOmGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyT3WGsEemTNvAnnLvP1w">
+            <body>the Card's suit</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyT3mGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyT32GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyT4GGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyT4WGsEemTNvAnnLvP1w" name="getErrorFlag" visibility="public">
+        <ownedComment xmi:id="_aYyT4mGsEemTNvAnnLvP1w">
+          <body>return errorFlag;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyT42GsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyT5GGsEemTNvAnnLvP1w">
+            <body>the Card's errorFlag</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyT5WGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyT5mGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyT52GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyT6GGsEemTNvAnnLvP1w" name="getValue" visibility="public">
+        <ownedComment xmi:id="_aYyT6WGsEemTNvAnnLvP1w">
+          <body>return value;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyT6mGsEemTNvAnnLvP1w" type="_aYyTUGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyT62GsEemTNvAnnLvP1w">
+            <body>the Card's value</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyT7GGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyT7WGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyT7mGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyT72GsEemTNvAnnLvP1w" name="equals" visibility="public">
+        <ownedComment xmi:id="_aYyT8GGsEemTNvAnnLvP1w">
+          <body>@Override</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyT8WGsEemTNvAnnLvP1w">
+          <body>return false;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyT8mGsEemTNvAnnLvP1w">
+          <body>if (obj instanceof Card) {
+    Card other = (Card) obj;
+    return this.equals(other);
+}
+</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyT82GsEemTNvAnnLvP1w">
+          <body>&lt;Enter note text here></body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyT9GGsEemTNvAnnLvP1w" name="obj" isUnique="false" direction="inout">
+          <eAnnotations xmi:id="_aYyT9WGsEemTNvAnnLvP1w" source="Objing">
+            <contents xmi:type="uml:Property" xmi:id="_aYyT9mGsEemTNvAnnLvP1w" name="isNoType"/>
+          </eAnnotations>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyT92GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyT-GGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyT-WGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyT-mGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyT-2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyT_GGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyT_WGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyT_mGsEemTNvAnnLvP1w" name="equals" visibility="public">
+        <ownedComment xmi:id="_aYyT_2GsEemTNvAnnLvP1w">
+          <body>Checks whether this card is equivalent to another card (has the same suit and value)</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUAGGsEemTNvAnnLvP1w">
+          <body>return card.getSuit() == this.getSuit() &amp;&amp;
+                card.getValue() == this.getValue() &amp;&amp;
+                card.getErrorFlag() == this.getErrorFlag();</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUAWGsEemTNvAnnLvP1w">
+          <body>// errorFlag (invalid) cards can be checked also (not sure if that is OK)
+// they are technically evaluable, but not useful for the app
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyUAmGsEemTNvAnnLvP1w" name="card" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyUA2GsEemTNvAnnLvP1w">
+            <body>the other card to evaluate against</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUBGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUBWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUBmGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyUB2GsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyUCGGsEemTNvAnnLvP1w">
+            <body>true if the two cards are equivalent</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUCWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUCmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUC2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyUDGGsEemTNvAnnLvP1w" name="toString" visibility="public">
+        <ownedComment xmi:id="_aYyUDWGsEemTNvAnnLvP1w">
+          <body>@Override</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUDmGsEemTNvAnnLvP1w">
+          <body>return &quot;&quot; + this.getValue() + this.getSuit().toUnicode();</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUD2GsEemTNvAnnLvP1w">
+          <body>if (this.getErrorFlag()) {
+    return &quot;\uFFFD\uFFFD&quot;; // �� -- invalid card
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyUEGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUEWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUEmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUE2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyUFGGsEemTNvAnnLvP1w" name="compareTo" visibility="public">
+        <ownedComment xmi:id="_aYyUFWGsEemTNvAnnLvP1w">
+          <body>@Override</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUFmGsEemTNvAnnLvP1w">
+          <body>return valueCompared;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUF2GsEemTNvAnnLvP1w">
+          <body>int valueCompared = this.getValue().compareTo(o.getValue());
+
+// value tie-breaker
+if (valueCompared == 0) {
+    return this.getSuit().compareTo(o.getSuit());
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyUGGGsEemTNvAnnLvP1w" name="o" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUGWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUGmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUG2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyUHGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUHWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUHmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUH2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_aYyUIGGsEemTNvAnnLvP1w" name="GameView" visibility="package">
+      <ownedComment xmi:id="_aYyUIWGsEemTNvAnnLvP1w">
+        <body>todo: add desc
+
+@author todo</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_aYyUImGsEemTNvAnnLvP1w" name="controller" visibility="private" type="_aYy5NmGsEemTNvAnnLvP1w" association="_aYyUt2GsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUI2GsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyUJGGsEemTNvAnnLvP1w" name="pnlHandAi" visibility="private" type="_aYy5NmGsEemTNvAnnLvP1w" isUnique="false"/>
+      <ownedAttribute xmi:id="_aYyUJWGsEemTNvAnnLvP1w" name="pnlHandPlayer" visibility="private" isUnique="false">
+        <eAnnotations xmi:id="_aYyUJmGsEemTNvAnnLvP1w" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_aYyUJ2GsEemTNvAnnLvP1w" name="isNoType"/>
+        </eAnnotations>
+        <ownedComment xmi:id="_aYyUKGGsEemTNvAnnLvP1w">
+          <body>&lt;Enter note text here></body>
+        </ownedComment>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyUKWGsEemTNvAnnLvP1w" name="pnlPlayArea" visibility="private" isUnique="false">
+        <eAnnotations xmi:id="_aYyUKmGsEemTNvAnnLvP1w" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_aYyUK2GsEemTNvAnnLvP1w" name="isNoType"/>
+        </eAnnotations>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyULGGsEemTNvAnnLvP1w" name="pnlSkipTurn" visibility="private" isUnique="false">
+        <eAnnotations xmi:id="_aYyULWGsEemTNvAnnLvP1w" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_aYyULmGsEemTNvAnnLvP1w" name="isNoType"/>
+        </eAnnotations>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyUL2GsEemTNvAnnLvP1w" name="btnStopTimer" visibility="private" isUnique="false">
+        <eAnnotations xmi:id="_aYyUMGGsEemTNvAnnLvP1w" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_aYyUMWGsEemTNvAnnLvP1w" name="isNoType"/>
+        </eAnnotations>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyUMmGsEemTNvAnnLvP1w" name="txtTimerTime" visibility="private" isUnique="false">
+        <eAnnotations xmi:id="_aYyUM2GsEemTNvAnnLvP1w" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_aYyUNGGsEemTNvAnnLvP1w" name="isNoType"/>
+        </eAnnotations>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyUNWGsEemTNvAnnLvP1w" name="txtNotifications" visibility="private" isUnique="false">
+        <eAnnotations xmi:id="_aYyUNmGsEemTNvAnnLvP1w" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_aYyUN2GsEemTNvAnnLvP1w" name="isNoType"/>
+        </eAnnotations>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyUOGGsEemTNvAnnLvP1w" name="lblPlayedCard" visibility="private" isUnique="false">
+        <eAnnotations xmi:id="_aYyUOWGsEemTNvAnnLvP1w" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_aYyUOmGsEemTNvAnnLvP1w" name="isNoType"/>
+        </eAnnotations>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUO2GsEemTNvAnnLvP1w" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUPGGsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyUPWGsEemTNvAnnLvP1w" name="btnSkipTurn" visibility="private" isUnique="false">
+        <eAnnotations xmi:id="_aYyUPmGsEemTNvAnnLvP1w" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_aYyUP2GsEemTNvAnnLvP1w" name="isNoType"/>
+        </eAnnotations>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_aYyUQGGsEemTNvAnnLvP1w" name="GameView" visibility="public">
+        <ownedComment xmi:id="_aYyUQWGsEemTNvAnnLvP1w">
+          <body>Simply calls super, call build after setting the controller
+to render completely wired UI</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUQmGsEemTNvAnnLvP1w">
+          <body>super();</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyUQ2GsEemTNvAnnLvP1w" name="build" visibility="public">
+        <ownedComment xmi:id="_aYyURGGsEemTNvAnnLvP1w">
+          <body>setTitle(title);
+setSize(800, 600);
+setLocationRelativeTo(null);
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+setLayout(new BorderLayout());
+//--- Top panel -- AI hand (face down) ------------------------------\\
+pnlHandAi = new JPanel();
+pnlHandAi.setLayout(new GridLayout(1, numCardsPerHand));
+
+add(pnlHandAi, BorderLayout.NORTH);
+
+//--- Middle panel -- play area -------------------------------------\\
+pnlPlayArea = new JPanel();
+pnlPlayArea.setLayout(new GridLayout(2, numPlayers));
+
+add(pnlPlayArea, BorderLayout.CENTER);
+
+//--- Bottom panel -- player's controls &amp; notifications -------------\\
+JPanel pnlPlayer = new JPanel();
+pnlPlayer.setLayout(new BorderLayout());
+
+// player hand
+pnlHandPlayer = new JPanel();
+pnlHandPlayer.setLayout(new GridLayout(1, numCardsPerHand));
+pnlPlayer.add(pnlHandPlayer, BorderLayout.NORTH);
+
+// status notifications &amp; controls
+// skip | notifications | timer &amp; button
+JPanel pnlStatus = new JPanel();
+pnlStatus.setLayout(new BorderLayout());
+
+pnlSkipTurn = new JPanel();
+pnlStatus.add(pnlSkipTurn, BorderLayout.WEST);
+
+btnSkipTurn = new JButton(&quot;Skip Turn&quot;);
+pnlSkipTurn.add(btnSkipTurn);
+btnSkipTurn.addActionListener(controller.getSkipTurnListener());
+
+
+txtNotifications = new JLabel();
+pnlStatus.add(txtNotifications, BorderLayout.CENTER);
+
+JPanel pnlTimer = new JPanel();
+pnlStatus.add(pnlTimer, BorderLayout.EAST);
+
+btnStopTimer = new JButton(&quot;stop&quot;);
+btnStopTimer.addActionListener(controller.getTimerListener());
+
+txtTimerTime = new JLabel(&quot;0&quot;);
+pnlTimer.add(txtTimerTime);
+pnlTimer.add(btnStopTimer);
+
+
+pnlPlayer.add(pnlStatus, BorderLayout.SOUTH);
+add(pnlPlayer, BorderLayout.SOUTH);
+
+addPlayerHands();
+
+setVisible(true);
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyURWGsEemTNvAnnLvP1w" name="title" isUnique="false" direction="inout">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyURmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUR2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUSGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyUSWGsEemTNvAnnLvP1w" name="numCardsPerHand" isUnique="false" direction="inout">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUSmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUS2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUTGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyUTWGsEemTNvAnnLvP1w" name="numPlayers" isUnique="false" direction="inout">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUTmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUT2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUUGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyUUWGsEemTNvAnnLvP1w" name="setController" visibility="public">
+        <ownedComment xmi:id="_aYyUUmGsEemTNvAnnLvP1w">
+          <body>sets controller of the GameView</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUU2GsEemTNvAnnLvP1w">
+          <body>this.controller = controller;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyUVGGsEemTNvAnnLvP1w" name="controller" type="_aYy5NmGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyUVWGsEemTNvAnnLvP1w">
+            <body>todo</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUVmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUV2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUWGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyUWWGsEemTNvAnnLvP1w" name="validateAll" visibility="private">
+        <ownedComment xmi:id="_aYyUWmGsEemTNvAnnLvP1w">
+          <body>Validate the panels in the CardTable</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUW2GsEemTNvAnnLvP1w">
+          <body>return true;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUXGGsEemTNvAnnLvP1w">
+          <body>pnlPlayArea.validate();
+pnlHandAi.validate();
+pnlHandPlayer.validate();
+pnlSkipTurn.validate();
+super.validate();
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyUXWGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyUXmGsEemTNvAnnLvP1w">
+            <body>true if successful</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUX2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUYGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUYWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyUYmGsEemTNvAnnLvP1w" name="removeAllPanels" visibility="public">
+        <ownedComment xmi:id="_aYyUY2GsEemTNvAnnLvP1w">
+          <body>Clears the panels in the CardTable</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUZGGsEemTNvAnnLvP1w">
+          <body>return true;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUZWGsEemTNvAnnLvP1w">
+          <body>pnlHandAi.removeAll();
+pnlHandPlayer.removeAll();
+pnlPlayArea.removeAll();
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyUZmGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyUZ2GsEemTNvAnnLvP1w">
+            <body>true if successful</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUaGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUaWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUamGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyUa2GsEemTNvAnnLvP1w" name="buildHandButtons" visibility="public">
+        <ownedComment xmi:id="_aYyUbGGsEemTNvAnnLvP1w">
+          <body>populates UI buttons for a given hand</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUbWGsEemTNvAnnLvP1w">
+          <body>return buttons;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUbmGsEemTNvAnnLvP1w">
+          <body>JButton[] buttons = new JButton[hand.getNumCards()];
+
+for (int i = 0; i &lt; hand.getNumCards(); i++) {
+    Card card = hand.inspectCard(i);
+    JButton button = new JButton(CardViewBuilder.getIcon(card));
+    button.addActionListener(controller.playCardListener());
+    button.setActionCommand(String.valueOf(i));
+    buttons[i] = button;
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyUb2GsEemTNvAnnLvP1w" name="hand" type="_aYyS5WGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyUcGGsEemTNvAnnLvP1w">
+            <body>the hand to display</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUcWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUcmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUc2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyUdGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <eAnnotations xmi:id="_aYyUdWGsEemTNvAnnLvP1w" source="Objing">
+            <contents xmi:type="uml:Property" xmi:id="_aYyUdmGsEemTNvAnnLvP1w" name="isNoType"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_aYyUd2GsEemTNvAnnLvP1w">
+            <body>an array of buttons to place into a UI container.</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUeGGsEemTNvAnnLvP1w" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUeWGsEemTNvAnnLvP1w"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUemGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyUe2GsEemTNvAnnLvP1w" name="buildHandLabels" visibility="private">
+        <ownedComment xmi:id="_aYyUfGGsEemTNvAnnLvP1w">
+          <body>populates UI labels for a given hand</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUfWGsEemTNvAnnLvP1w">
+          <body>return handLabels;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUfmGsEemTNvAnnLvP1w">
+          <body>JLabel[] handLabels = new JLabel[hand.getNumCards()];
+
+for (int i = 0; i &lt; hand.getNumCards(); i++) {
+    JLabel label;
+    if (isFaceUp) {
+        label = new JLabel(CardViewBuilder.getIcon(hand.inspectCard(i)));
+    } else {
+        label = new JLabel(CardViewBuilder.getBackCardIcon());
+    }
+    handLabels[i] = label;
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyUf2GsEemTNvAnnLvP1w" name="hand" type="_aYyS5WGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyUgGGsEemTNvAnnLvP1w">
+            <body>the hand to display</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUgWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUgmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUg2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyUhGGsEemTNvAnnLvP1w" name="isFaceUp" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyUhWGsEemTNvAnnLvP1w">
+            <body>whether the cards are face up or face down in the UI</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUhmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUh2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUiGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyUiWGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <eAnnotations xmi:id="_aYyUimGsEemTNvAnnLvP1w" source="Objing">
+            <contents xmi:type="uml:Property" xmi:id="_aYyUi2GsEemTNvAnnLvP1w" name="isNoType"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_aYyUjGGsEemTNvAnnLvP1w">
+            <body>an array of labels to place into a UI container</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUjWGsEemTNvAnnLvP1w" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUjmGsEemTNvAnnLvP1w"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUj2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyUkGGsEemTNvAnnLvP1w" name="addPlayerHands" visibility="public">
+        <ownedComment xmi:id="_aYyUkWGsEemTNvAnnLvP1w">
+          <body>Adds labels for CardTable's players</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUkmGsEemTNvAnnLvP1w">
+          <body>return true;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUk2GsEemTNvAnnLvP1w">
+          <body>JButton[] btnsPlayerHand = buildHandButtons(controller.getPlayerHand());
+for (JButton button : btnsPlayerHand) {
+    pnlHandPlayer.add(button);
+}
+
+JLabel[] lblsAiHand = buildHandLabels(controller.getAiHand(), false);
+for (JLabel label : lblsAiHand) {
+    pnlHandAi.add(label);
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyUlGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyUlWGsEemTNvAnnLvP1w">
+            <body>true if successful</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUlmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUl2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUmGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyUmWGsEemTNvAnnLvP1w" name="takeTurn" visibility="public">
+        <ownedComment xmi:id="_aYyUmmGsEemTNvAnnLvP1w">
+          <body>The main loop for this Card Game</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUm2GsEemTNvAnnLvP1w">
+          <body>String playerPrompt = &quot;Test&quot;;
+String computerPrompt = &quot;Test1&quot;;
+String tieCountPrompt = &quot;&quot;;
+
+// clear everything
+removeAllPanels();
+
+Hand playHand = new Hand();
+if (playerChoice != null &amp;&amp; computerChoice != null) {
+    playHand.takeCard(computerChoice);
+    playHand.takeCard(playerChoice);
+    lblPlayedCard = buildHandLabels(playHand, true);
+    playerPrompt = &quot;[Status]User Cannot Plays: &quot; + controller.getPlayerSkips();
+    computerPrompt = &quot;[Status]Computer Cannot Plays: &quot; + controller.getAiSkips();
+}
+
+//TODO: Add cards to table first but cant because of null check
+if (lblPlayedCard[0] != null || lblPlayedCard[1] != null) {
+    pnlPlayArea.add(lblPlayedCard[0]);
+    pnlPlayArea.add(lblPlayedCard[1]);
+    addPlayerHands();
+}
+
+pnlPlayArea.add(new JLabel(computerPrompt, SwingConstants.HORIZONTAL));
+pnlPlayArea.add(new JLabel(playerPrompt + &quot;\n&quot; + tieCountPrompt, SwingConstants.HORIZONTAL));
+
+validateAll();
+// If something goes wrong we know because this will return false
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyUnGGsEemTNvAnnLvP1w" name="playerChoice" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyUnWGsEemTNvAnnLvP1w">
+            <body>the player's chosen card</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUnmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUn2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUoGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyUoWGsEemTNvAnnLvP1w" name="computerChoice" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <ownedComment xmi:id="_aYyUomGsEemTNvAnnLvP1w">
+            <body>the computer's chosen card</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUo2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUpGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUpWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyUpmGsEemTNvAnnLvP1w" name="changeTimerDisplay" visibility="public">
+        <ownedComment xmi:id="_aYyUp2GsEemTNvAnnLvP1w">
+          <body>return true;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYyUqGGsEemTNvAnnLvP1w">
+          <body>txtTimerTime.setText(Integer.toString(time));
+txtTimerTime.repaint();
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyUqWGsEemTNvAnnLvP1w" name="time" isUnique="false" direction="inout">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUqmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUq2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUrGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyUrWGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUrmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUr2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUsGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyUsWGsEemTNvAnnLvP1w" name="timerState" visibility="public">
+        <ownedComment xmi:id="_aYyUsmGsEemTNvAnnLvP1w">
+          <body>if (state) {
+    // start the txtTimerTime and set button text to stop
+    btnStopTimer.setText(&quot;stop&quot;);
+} else {
+    btnStopTimer.setText(&quot;start&quot;);
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyUs2GsEemTNvAnnLvP1w" name="state" isUnique="false" direction="inout">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUtGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUtWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyUtmGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aYyUt2GsEemTNvAnnLvP1w" memberEnd="_aYyUImGsEemTNvAnnLvP1w _aYyUuGGsEemTNvAnnLvP1w">
+      <ownedEnd xmi:id="_aYyUuGGsEemTNvAnnLvP1w" visibility="public" type="_aYyUIGGsEemTNvAnnLvP1w" association="_aYyUt2GsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUuWGsEemTNvAnnLvP1w"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_aYyUumGsEemTNvAnnLvP1w" name="Game">
+      <ownedComment xmi:id="_aYyUu2GsEemTNvAnnLvP1w">
+        <body>todo: add desc
+
+@author todo</body>
+      </ownedComment>
+      <ownedComment xmi:id="_aYyUvGGsEemTNvAnnLvP1w">
+        <body>/**
+ * todo: add desc
+ *
+ * @author todo
+ */</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_aYyUvWGsEemTNvAnnLvP1w" name="deck" visibility="private" type="_aYySA2GsEemTNvAnnLvP1w" association="_aYy5KmGsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUvmGsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyUv2GsEemTNvAnnLvP1w" name="hand" visibility="private" type="_aYyS5WGsEemTNvAnnLvP1w" association="_aYy5LWGsEemTNvAnnLvP1w">
+        <ownedComment xmi:id="_aYyUwGGsEemTNvAnnLvP1w">
+          <body>-------/ each player's hand</body>
+        </ownedComment>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUwWGsEemTNvAnnLvP1w" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUwmGsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyUw2GsEemTNvAnnLvP1w" name="leftStack" visibility="private" type="_aYyTNGGsEemTNvAnnLvP1w" association="_aYy5MGGsEemTNvAnnLvP1w">
+        <ownedComment xmi:id="_aYyUxGGsEemTNvAnnLvP1w">
+          <body>----/ top card on the left stack</body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUxWGsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyUxmGsEemTNvAnnLvP1w" name="rightStack" visibility="private" type="_aYyTNGGsEemTNvAnnLvP1w" association="_aYy5M2GsEemTNvAnnLvP1w">
+        <ownedComment xmi:id="_aYyUx2GsEemTNvAnnLvP1w">
+          <body>---/ top card on the right stack</body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyUyGGsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyUyWGsEemTNvAnnLvP1w" name="DEFAULT_NUM_CARDS_PER_HAND" visibility="public" isStatic="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUymGsEemTNvAnnLvP1w" value="7"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyUy2GsEemTNvAnnLvP1w" name="DEFAULT_NUM_PLAYERS" visibility="public" isStatic="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUzGGsEemTNvAnnLvP1w" value="2"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyUzWGsEemTNvAnnLvP1w" name="DEFAULT_CARDS_PER_HAND" visibility="private" isStatic="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyUzmGsEemTNvAnnLvP1w" value="7"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyUz2GsEemTNvAnnLvP1w" name="MAX_PLAYERS" visibility="private" isStatic="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyU0GGsEemTNvAnnLvP1w" value="50"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyU0WGsEemTNvAnnLvP1w" name="DEFAULT_TITLE" visibility="private" isStatic="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyU0mGsEemTNvAnnLvP1w" value="&quot;Timed Card Game&quot;"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyU02GsEemTNvAnnLvP1w" name="title" visibility="private" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyU1GGsEemTNvAnnLvP1w" name="numPlayers" visibility="private" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyU1WGsEemTNvAnnLvP1w" name="numCardsPerHand" visibility="private" isUnique="false">
+        <ownedComment xmi:id="_aYyU1mGsEemTNvAnnLvP1w">
+          <body>count of cards dealt to each player</body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyU12GsEemTNvAnnLvP1w" name="playerSkips" visibility="private" isUnique="false">
+        <ownedComment xmi:id="_aYyU2GGsEemTNvAnnLvP1w">
+          <body>//todo add ui-element to gameView for stacks
+//todo add click to select card, click on stack to play card.
+//todo add stack card value constraint
+//todo add draw on play logic
+//todo add ai play/skip logic
+//todo add skip turn functionality
+//todo add both skip -> deal from deck to both stacks
+//todo add empty deck -> count min skip to winner logic</body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYyU2WGsEemTNvAnnLvP1w" name="aiSkips" visibility="private" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_aYyU2mGsEemTNvAnnLvP1w" name="getTitle" visibility="public">
+        <ownedComment xmi:id="_aYyU22GsEemTNvAnnLvP1w">
+          <body>return title;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyU3GGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyU3WGsEemTNvAnnLvP1w">
+            <body>title of the Game</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyU3mGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyU32GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyU4GGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyU4WGsEemTNvAnnLvP1w" name="getNumPlayers" visibility="public">
+        <ownedComment xmi:id="_aYyU4mGsEemTNvAnnLvP1w">
+          <body>return numPlayers;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyU42GsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyU5GGsEemTNvAnnLvP1w">
+            <body>numPlayers of the Game</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyU5WGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyU5mGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyU52GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyU6GGsEemTNvAnnLvP1w" name="getNumCardsPerHand" visibility="public">
+        <ownedComment xmi:id="_aYyU6WGsEemTNvAnnLvP1w">
+          <body>return numCardsPerHand;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyU6mGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYyU62GsEemTNvAnnLvP1w">
+            <body>numCardsPerHand of the Game</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyU7GGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyU7WGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyU7mGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYyU72GsEemTNvAnnLvP1w" name="Game" visibility="public">
+        <ownedComment xmi:id="_aYyU8GGsEemTNvAnnLvP1w">
+          <body>this.deck = deck;
+this.title = title;
+
+// players
+if (1 &lt;= numPlayers &amp;&amp; numPlayers &lt;= MAX_PLAYERS) {
+    this.numPlayers = numPlayers;
+} else {
+    this.numPlayers = 4;
+}
+
+// hand sizes
+if (1 &lt;= numCardsPerHand &amp;&amp; numCardsPerHand &lt;= (deck.getCardCount() / numPlayers)) {
+    this.numCardsPerHand = numCardsPerHand;
+} else {
+    this.numCardsPerHand = deck.getCardCount() / numPlayers;
+}
+
+// hand
+this.hand = new Hand[numPlayers];
+for (int i = 0; i &lt; numPlayers; i++)
+    this.hand[i] = new Hand();
+
+
+// prepare deck and shuffle
+playerSkips = 0;
+aiSkips = 0;
+
+newGame();
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYyU8WGsEemTNvAnnLvP1w" name="deck" type="_aYySA2GsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyU8mGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyU82GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyU9GGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyU9WGsEemTNvAnnLvP1w" name="title" isUnique="false" direction="inout">
+          <eAnnotations xmi:id="_aYyU9mGsEemTNvAnnLvP1w" source="Objing">
+            <contents xmi:type="uml:Property" xmi:id="_aYyU92GsEemTNvAnnLvP1w" name="isNoType"/>
+          </eAnnotations>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyU-GGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyU-WGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyU-mGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyU-2GsEemTNvAnnLvP1w" name="numPlayers" isUnique="false" direction="inout">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyU_GGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYyU_WGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYyU_mGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYyU_2GsEemTNvAnnLvP1w" name="numCardsPerHand" isUnique="false" direction="inout">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYyVAGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy40GGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy40WGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy40mGsEemTNvAnnLvP1w" name="Game" visibility="public">
+        <ownedComment xmi:id="_aYy402GsEemTNvAnnLvP1w">
+          <body>this(Deck.DEFAULT_DECK, DEFAULT_TITLE, DEFAULT_NUM_PLAYERS, DEFAULT_CARDS_PER_HAND);</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy41GGsEemTNvAnnLvP1w" name="getPlayerSkips" visibility="public">
+        <ownedComment xmi:id="_aYy41WGsEemTNvAnnLvP1w">
+          <body>return playerSkips;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy41mGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYy412GsEemTNvAnnLvP1w">
+            <body>playerSkips of the Game</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy42GGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy42WGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy42mGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy422GsEemTNvAnnLvP1w" name="getAiSkips" visibility="public">
+        <ownedComment xmi:id="_aYy43GGsEemTNvAnnLvP1w">
+          <body>return aiSkips;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy43WGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <ownedComment xmi:id="_aYy43mGsEemTNvAnnLvP1w">
+            <body>aiSkips of the Game</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy432GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy44GGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy44WGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy44mGsEemTNvAnnLvP1w" name="skipPlayer" visibility="public">
+        <ownedComment xmi:id="_aYy442GsEemTNvAnnLvP1w">
+          <body>return playerSkips++;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy45GGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy45WGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy45mGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy452GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy46GGsEemTNvAnnLvP1w" name="skipAi" visibility="public">
+        <ownedComment xmi:id="_aYy46WGsEemTNvAnnLvP1w">
+          <body>return aiSkips++;</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy46mGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy462GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy47GGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy47WGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy47mGsEemTNvAnnLvP1w" name="getHand" visibility="public">
+        <ownedComment xmi:id="_aYy472GsEemTNvAnnLvP1w">
+          <body>return new Hand();</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYy48GGsEemTNvAnnLvP1w">
+          <body>// on error return automatic empty hand
+if (0 &lt;= k &amp;&amp; k &lt; numPlayers) {
+    return hand[k];
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy48WGsEemTNvAnnLvP1w" name="k" isUnique="false" direction="inout">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy48mGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy482GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy49GGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYy49WGsEemTNvAnnLvP1w" type="_aYyS5WGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy49mGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy492GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy4-GGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy4-WGsEemTNvAnnLvP1w" name="getCardFromDeck" visibility="public">
+        <ownedComment xmi:id="_aYy4-mGsEemTNvAnnLvP1w">
+          <body>return deck.dealCard();</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy4-2GsEemTNvAnnLvP1w" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy4_GGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy4_WGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy4_mGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy4_2GsEemTNvAnnLvP1w" name="getNumCardsRemainingInDeck" visibility="public">
+        <ownedComment xmi:id="_aYy5AGGsEemTNvAnnLvP1w">
+          <body>return deck.getNumCards();</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy5AWGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5AmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5A2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5BGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy5BWGsEemTNvAnnLvP1w" name="newGame" visibility="public">
+        <ownedComment xmi:id="_aYy5BmGsEemTNvAnnLvP1w">
+          <body>// clear the hands
+for (int i = 0; i &lt; numPlayers; i++) {
+    hand[i].resetHand();
+}
+
+// restock &amp; shuffle the deck
+deck.init();
+deck.shuffle();
+</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy5B2GsEemTNvAnnLvP1w" name="deal" visibility="public">
+        <ownedComment xmi:id="_aYy5CGGsEemTNvAnnLvP1w">
+          <body>return enoughCards;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYy5CWGsEemTNvAnnLvP1w">
+          <body>// returns false if not enough cards, but deals what it can
+boolean enoughCards;
+
+// clear all hands
+for (int i = 0; i &lt; numPlayers; i++)
+    hand[i].resetHand();
+
+enoughCards = true;
+for (int i = 0; i &lt; numCardsPerHand &amp;&amp; enoughCards; i++) {
+    for (int j = 0; j &lt; numPlayers; j++) {
+        if (deck.getNumCards() > 0) {
+            hand[j].takeCard(deck.dealCard());
+        } else {
+            enoughCards = false;
+            break;
+        }
+    }
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy5CmGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5C2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5DGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5DWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy5DmGsEemTNvAnnLvP1w" name="sortHands" visibility="package">
+        <ownedComment xmi:id="_aYy5D2GsEemTNvAnnLvP1w">
+          <body>for (int i = 0; i &lt; numPlayers; i++) {
+    hand[i].sort();
+}
+</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy5EGGsEemTNvAnnLvP1w" name="playCard" visibility="package">
+        <ownedComment xmi:id="_aYy5EWGsEemTNvAnnLvP1w">
+          <body>return new Card(null, Card.Suit.spades);</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYy5EmGsEemTNvAnnLvP1w">
+          <body>// card is ok
+if ((0 &lt;= playerIndex &amp;&amp; playerIndex &lt;= (numPlayers - 1)) &amp;&amp;
+        (0 &lt;= cardIndex &amp;&amp; cardIndex &lt;= (numCardsPerHand - 1))) {
+    // return the played card
+    return hand[playerIndex].playCard(cardIndex);
+}
+
+// bad card, return invalid
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy5E2GsEemTNvAnnLvP1w" name="playerIndex" isUnique="false" direction="inout">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5FGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5FWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5FmGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYy5F2GsEemTNvAnnLvP1w" name="cardIndex" isUnique="false" direction="inout">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5GGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5GWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5GmGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYy5G2GsEemTNvAnnLvP1w" type="_aYyTNGGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5HGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5HWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5HmGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy5H2GsEemTNvAnnLvP1w" name="takeCard" visibility="package">
+        <ownedComment xmi:id="_aYy5IGGsEemTNvAnnLvP1w">
+          <body>return false;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYy5IWGsEemTNvAnnLvP1w">
+          <body>// Are there enough Cards?
+if (deck.getNumCards() &lt;= 0) {
+    return false;
+}
+
+// is the index ok?
+if (0 &lt;= playerIndex &amp;&amp; playerIndex &lt;= (numPlayers - 1)) {
+    return hand[playerIndex].takeCard(deck.dealCard());
+}
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy5ImGsEemTNvAnnLvP1w" name="playerIndex" isUnique="false" direction="inout">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5I2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5JGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5JWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYy5JmGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5J2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5KGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5KWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aYy5KmGsEemTNvAnnLvP1w" memberEnd="_aYyUvWGsEemTNvAnnLvP1w _aYy5K2GsEemTNvAnnLvP1w">
+      <ownedEnd xmi:id="_aYy5K2GsEemTNvAnnLvP1w" visibility="public" type="_aYyUumGsEemTNvAnnLvP1w" association="_aYy5KmGsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5LGGsEemTNvAnnLvP1w"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aYy5LWGsEemTNvAnnLvP1w" memberEnd="_aYyUv2GsEemTNvAnnLvP1w _aYy5LmGsEemTNvAnnLvP1w">
+      <ownedEnd xmi:id="_aYy5LmGsEemTNvAnnLvP1w" visibility="public" type="_aYyUumGsEemTNvAnnLvP1w" association="_aYy5LWGsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5L2GsEemTNvAnnLvP1w"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aYy5MGGsEemTNvAnnLvP1w" memberEnd="_aYyUw2GsEemTNvAnnLvP1w _aYy5MWGsEemTNvAnnLvP1w">
+      <ownedEnd xmi:id="_aYy5MWGsEemTNvAnnLvP1w" visibility="public" type="_aYyUumGsEemTNvAnnLvP1w" association="_aYy5MGGsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5MmGsEemTNvAnnLvP1w"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aYy5M2GsEemTNvAnnLvP1w" memberEnd="_aYyUxmGsEemTNvAnnLvP1w _aYy5NGGsEemTNvAnnLvP1w">
+      <ownedEnd xmi:id="_aYy5NGGsEemTNvAnnLvP1w" visibility="public" type="_aYyUumGsEemTNvAnnLvP1w" association="_aYy5M2GsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5NWGsEemTNvAnnLvP1w"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_aYy5NmGsEemTNvAnnLvP1w" name="GameController">
+      <ownedAttribute xmi:id="_aYy5N2GsEemTNvAnnLvP1w" name="model" visibility="private" type="_aYyUumGsEemTNvAnnLvP1w" association="_aYy5iGGsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5OGGsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYy5OWGsEemTNvAnnLvP1w" name="view" visibility="private" type="_aYyUIGGsEemTNvAnnLvP1w" association="_aYy5i2GsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5OmGsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_aYy5O2GsEemTNvAnnLvP1w" name="timer" visibility="private" type="_aYySwmGsEemTNvAnnLvP1w" association="_aYy5jmGsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5PGGsEemTNvAnnLvP1w"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_aYy5PWGsEemTNvAnnLvP1w" name="GameController" visibility="public">
+        <ownedComment xmi:id="_aYy5PmGsEemTNvAnnLvP1w">
+          <body>model = game;
+
+this.view = view;
+view.setController(this);
+
+this.timer = new Timer(this);
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy5P2GsEemTNvAnnLvP1w" name="game" type="_aYyUumGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5QGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5QWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5QmGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYy5Q2GsEemTNvAnnLvP1w" name="view" type="_aYyUIGGsEemTNvAnnLvP1w" isUnique="false" direction="inout">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5RGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5RWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5RmGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy5R2GsEemTNvAnnLvP1w" name="getPlayerHand" visibility="public">
+        <ownedComment xmi:id="_aYy5SGGsEemTNvAnnLvP1w">
+          <body>return model.getHand(1);</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy5SWGsEemTNvAnnLvP1w" type="_aYyS5WGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5SmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5S2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5TGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy5TWGsEemTNvAnnLvP1w" name="getAiHand" visibility="public">
+        <ownedComment xmi:id="_aYy5TmGsEemTNvAnnLvP1w">
+          <body>return model.getHand(0);</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy5T2GsEemTNvAnnLvP1w" type="_aYyS5WGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5UGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5UWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5UmGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy5U2GsEemTNvAnnLvP1w" name="getPlayerSkips" visibility="public">
+        <ownedComment xmi:id="_aYy5VGGsEemTNvAnnLvP1w">
+          <body>return model.getPlayerSkips();</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy5VWGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5VmGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5V2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5WGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy5WWGsEemTNvAnnLvP1w" name="getAiSkips" visibility="public">
+        <ownedComment xmi:id="_aYy5WmGsEemTNvAnnLvP1w">
+          <body>return model.getAiSkips();</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy5W2GsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5XGGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5XWGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5XmGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy5X2GsEemTNvAnnLvP1w" name="changeTimerDisplay" visibility="public">
+        <ownedComment xmi:id="_aYy5YGGsEemTNvAnnLvP1w">
+          <body>return true;</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYy5YWGsEemTNvAnnLvP1w">
+          <body>view.changeTimerDisplay(time);</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy5YmGsEemTNvAnnLvP1w" name="time" isUnique="false" direction="inout">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5Y2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5ZGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5ZWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_aYy5ZmGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5Z2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5aGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5aWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy5amGsEemTNvAnnLvP1w" name="getSkipTurnListener" visibility="public">
+        <ownedComment xmi:id="_aYy5a2GsEemTNvAnnLvP1w">
+          <body>return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getActionCommand().equals(&quot;Skip Turn&quot;)) {
+                    model.skipPlayer();
+                }
+            }
+        };</body>
+        </ownedComment>
+        <ownedComment xmi:id="_aYy5bGGsEemTNvAnnLvP1w">
+          <body>&lt;Enter note text here></body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy5bWGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <eAnnotations xmi:id="_aYy5bmGsEemTNvAnnLvP1w" source="Objing">
+            <contents xmi:type="uml:Property" xmi:id="_aYy5b2GsEemTNvAnnLvP1w" name="isNoType"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_aYy5cGGsEemTNvAnnLvP1w">
+            <body>cannotPlayListener of the GameControl</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5cWGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5cmGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5c2GsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy5dGGsEemTNvAnnLvP1w" name="getTimerListener" visibility="public">
+        <ownedComment xmi:id="_aYy5dWGsEemTNvAnnLvP1w">
+          <body>return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getActionCommand().equals(&quot;start&quot;)) {
+                    timer.setRunning(true);
+                    view.timerState(true);
+                } else {
+                    timer.setRunning(false);
+                    view.timerState(false);
+                }
+            }
+        };</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy5dmGsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <eAnnotations xmi:id="_aYy5d2GsEemTNvAnnLvP1w" source="Objing">
+            <contents xmi:type="uml:Property" xmi:id="_aYy5eGGsEemTNvAnnLvP1w" name="isNoType"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_aYy5eWGsEemTNvAnnLvP1w">
+            <body>timerListener of the GameControl</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5emGsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5e2GsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5fGGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy5fWGsEemTNvAnnLvP1w" name="playCardListener" visibility="public">
+        <ownedComment xmi:id="_aYy5fmGsEemTNvAnnLvP1w">
+          <body>return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int humanIndex = Integer.parseInt(e.getActionCommand());
+
+                // cards are ordered by value
+                Card humanCard = model.getHand(1).playCard(humanIndex);
+                Card botCard = model.getHand(0).playCard(humanIndex);
+
+                // If the bot has a card higher, should we do something?
+                view.takeTurn(humanCard, botCard);
+                view.repaint();
+            }
+        };</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_aYy5f2GsEemTNvAnnLvP1w" isUnique="false" direction="return">
+          <eAnnotations xmi:id="_aYy5gGGsEemTNvAnnLvP1w" source="Objing">
+            <contents xmi:type="uml:Property" xmi:id="_aYy5gWGsEemTNvAnnLvP1w" name="isNoType"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_aYy5gmGsEemTNvAnnLvP1w">
+            <body>an action listener for played cards</body>
+          </ownedComment>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYy5g2GsEemTNvAnnLvP1w" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5hGGsEemTNvAnnLvP1w" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_aYy5hWGsEemTNvAnnLvP1w" value=""/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_aYy5hmGsEemTNvAnnLvP1w" name="startGame" visibility="public">
+        <ownedComment xmi:id="_aYy5h2GsEemTNvAnnLvP1w">
+          <body>// shuffle and deal into the hands.
+model.deal();
+
+//view.takeTurn(null, null); // Start off with nothing selected
+view.build(model.getTitle(), model.getNumPlayers(), model.getNumCardsPerHand());
+timer.start();
+</body>
+        </ownedComment>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aYy5iGGsEemTNvAnnLvP1w" memberEnd="_aYy5N2GsEemTNvAnnLvP1w _aYy5iWGsEemTNvAnnLvP1w">
+      <ownedEnd xmi:id="_aYy5iWGsEemTNvAnnLvP1w" visibility="public" type="_aYy5NmGsEemTNvAnnLvP1w" association="_aYy5iGGsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5imGsEemTNvAnnLvP1w"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aYy5i2GsEemTNvAnnLvP1w" memberEnd="_aYy5OWGsEemTNvAnnLvP1w _aYy5jGGsEemTNvAnnLvP1w">
+      <ownedEnd xmi:id="_aYy5jGGsEemTNvAnnLvP1w" visibility="public" type="_aYy5NmGsEemTNvAnnLvP1w" association="_aYy5i2GsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5jWGsEemTNvAnnLvP1w"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aYy5jmGsEemTNvAnnLvP1w" memberEnd="_aYy5O2GsEemTNvAnnLvP1w _aYy5j2GsEemTNvAnnLvP1w">
+      <ownedEnd xmi:id="_aYy5j2GsEemTNvAnnLvP1w" visibility="public" type="_aYy5NmGsEemTNvAnnLvP1w" association="_aYy5jmGsEemTNvAnnLvP1w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYy5kGGsEemTNvAnnLvP1w"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:id="_accpwGGsEemTNvAnnLvP1w">
+      <eAnnotations xmi:id="_accpwWGsEemTNvAnnLvP1w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="JavaExtensions.profile.uml#_aaCO92GsEemTNvAnnLvP1w"/>
+      </eAnnotations>
+      <appliedProfile href="JavaExtensions.profile.uml#_aaCO8GGsEemTNvAnnLvP1w"/>
+    </profileApplication>
+    <profileApplication xmi:id="_acee8GGsEemTNvAnnLvP1w">
+      <eAnnotations xmi:id="_acee8WGsEemTNvAnnLvP1w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="Code.profile.uml#_abPv52GsEemTNvAnnLvP1w"/>
+      </eAnnotations>
+      <appliedProfile href="Code.profile.uml#_abPv4GGsEemTNvAnnLvP1w"/>
+    </profileApplication>
+    <profileApplication xmi:id="_acgUIGGsEemTNvAnnLvP1w">
+      <eAnnotations xmi:id="_acgUIWGsEemTNvAnnLvP1w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="default.profile.uml#_acP1d2GsEemTNvAnnLvP1w"/>
+      </eAnnotations>
+      <appliedProfile href="default.profile.uml#_acP1cGGsEemTNvAnnLvP1w"/>
+    </profileApplication>
+  </uml:Model>
+  <JavaExtensions:JavaClass xmi:id="_aciwYGGsEemTNvAnnLvP1w" base_Class="_aYyRxGGsEemTNvAnnLvP1w"/>
+  <Code:StandardParameter xmi:id="_aciwYWGsEemTNvAnnLvP1w" base_Parameter="_aYyRx2GsEemTNvAnnLvP1w">
+    <type>Array</type>
+  </Code:StandardParameter>
+  <JavaExtensions:StandardParameter xmi:id="_aciwYmGsEemTNvAnnLvP1w" base_Parameter="_aYyRx2GsEemTNvAnnLvP1w" JavaTypeExpr="String"/>
+  <JavaExtensions:JavaClass xmi:id="_acjXcGGsEemTNvAnnLvP1w" base_Class="_aYyRy2GsEemTNvAnnLvP1w"/>
+  <JavaExtensions:StandardAssociationEnd xmi:id="_acjXcWGsEemTNvAnnLvP1w" base_Property="_aYyRzmGsEemTNvAnnLvP1w" JavaFinal="true"/>
+  <Code:StandardAssociationEnd xmi:id="_acjXcmGsEemTNvAnnLvP1w" base_Property="_aYyRzmGsEemTNvAnnLvP1w">
+    <type>Array</type>
+  </Code:StandardAssociationEnd>
+  <JavaExtensions:StandardAttribute xmi:id="_acjXc2GsEemTNvAnnLvP1w" base_Property="_aYyR0mGsEemTNvAnnLvP1w" JavaFinal="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acjXdGGsEemTNvAnnLvP1w" base_Property="_aYyR1GGsEemTNvAnnLvP1w" JavaFinal="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acjXdWGsEemTNvAnnLvP1w" base_Property="_aYyR1mGsEemTNvAnnLvP1w" JavaFinal="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acjXdmGsEemTNvAnnLvP1w" base_Property="_aYyR2GGsEemTNvAnnLvP1w" JavaFinal="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acjXd2GsEemTNvAnnLvP1w" base_Property="_aYyR2mGsEemTNvAnnLvP1w" JavaFinal="true"/>
+  <Code:StandardParameter xmi:id="_acjXeGGsEemTNvAnnLvP1w" base_Parameter="_aYyR4GGsEemTNvAnnLvP1w">
+    <type>Array</type>
+  </Code:StandardParameter>
+  <Code:StandardParameter xmi:id="_acjXeWGsEemTNvAnnLvP1w" base_Parameter="_aYyR62GsEemTNvAnnLvP1w">
+    <type>Array</type>
+  </Code:StandardParameter>
+  <Code:StandardParameter xmi:id="_acj-gGGsEemTNvAnnLvP1w" base_Parameter="_aYyR72GsEemTNvAnnLvP1w">
+    <type>Array</type>
+  </Code:StandardParameter>
+  <Code:StandardParameter xmi:id="_acj-gWGsEemTNvAnnLvP1w" base_Parameter="_aYyR9WGsEemTNvAnnLvP1w">
+    <type>Array</type>
+  </Code:StandardParameter>
+  <JavaExtensions:JavaClass xmi:id="_acj-gmGsEemTNvAnnLvP1w" base_Class="_aYySA2GsEemTNvAnnLvP1w"/>
+  <JavaExtensions:StandardAssociationEnd xmi:id="_acj-g2GsEemTNvAnnLvP1w" base_Property="_aYySBmGsEemTNvAnnLvP1w" JavaFinal="true"/>
+  <Code:StandardAssociationEnd xmi:id="_acj-hGGsEemTNvAnnLvP1w" base_Property="_aYySCWGsEemTNvAnnLvP1w">
+    <type>Array</type>
+  </Code:StandardAssociationEnd>
+  <JavaExtensions:StandardFeature xmi:id="_acj-hWGsEemTNvAnnLvP1w" base_Feature="_aYySCWGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acj-hmGsEemTNvAnnLvP1w" base_Property="_aYySDGGsEemTNvAnnLvP1w" JavaFinal="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acj-h2GsEemTNvAnnLvP1w" base_Property="_aYySDmGsEemTNvAnnLvP1w" JavaFinal="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_acj-iGGsEemTNvAnnLvP1w" base_Feature="_aYySEGGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_acj-iWGsEemTNvAnnLvP1w" base_Feature="_aYySEWGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_acj-imGsEemTNvAnnLvP1w" base_Feature="_aYySEmGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <default:create xmi:id="_acj-i2GsEemTNvAnnLvP1w" base_Operation="_aYySE2GsEemTNvAnnLvP1w"/>
+  <default:create xmi:id="_acklkGGsEemTNvAnnLvP1w" base_Operation="_aYySG2GsEemTNvAnnLvP1w"/>
+  <JavaExtensions:JavaClass xmi:id="_acklkWGsEemTNvAnnLvP1w" base_Class="_aYySkmGsEemTNvAnnLvP1w">
+    <JavaImport>javax.swing.*</JavaImport>
+  </JavaExtensions:JavaClass>
+  <JavaExtensions:StandardAttribute xmi:id="_acklkmGsEemTNvAnnLvP1w" base_Property="_aYySlGGsEemTNvAnnLvP1w" JavaFinal="true" JavaTypeExpr="String"/>
+  <Code:StandardAttribute xmi:id="_acklk2GsEemTNvAnnLvP1w" base_Property="_aYySmmGsEemTNvAnnLvP1w">
+    <type>Array</type>
+  </Code:StandardAttribute>
+  <JavaExtensions:StandardAttribute xmi:id="_ackllGGsEemTNvAnnLvP1w" base_Property="_aYySmmGsEemTNvAnnLvP1w" JavaArrayDimension="2" JavaTypeExpr="Icon"/>
+  <JavaExtensions:StandardAttribute xmi:id="_ackllWGsEemTNvAnnLvP1w" base_Property="_aYySoWGsEemTNvAnnLvP1w" JavaTypeExpr="Icon"/>
+  <JavaExtensions:StandardFeature xmi:id="_ackllmGsEemTNvAnnLvP1w" base_Feature="_aYySoWGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardParameter xmi:id="_ackll2GsEemTNvAnnLvP1w" base_Parameter="_aYySq2GsEemTNvAnnLvP1w" JavaTypeExpr="Icon"/>
+  <JavaExtensions:StandardParameter xmi:id="_aclMoGGsEemTNvAnnLvP1w" base_Parameter="_aYySu2GsEemTNvAnnLvP1w" JavaTypeExpr="Icon"/>
+  <JavaExtensions:JavaClass xmi:id="_aclMoWGsEemTNvAnnLvP1w" base_Class="_aYySwmGsEemTNvAnnLvP1w" JavaExtends="Thread"/>
+  <JavaExtensions:StandardFeature xmi:id="_aclMomGsEemTNvAnnLvP1w" base_Feature="_aYySxWGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_aclMo2GsEemTNvAnnLvP1w" base_Feature="_aYySx2GsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_aclMpGGsEemTNvAnnLvP1w" base_Feature="_aYySyGGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <default:create xmi:id="_aclMpWGsEemTNvAnnLvP1w" base_Operation="_aYySyWGsEemTNvAnnLvP1w"/>
+  <JavaExtensions:StandardOperation xmi:id="_aclMpmGsEemTNvAnnLvP1w" base_Operation="_aYyS2WGsEemTNvAnnLvP1w">
+    <JavaThrownException>InterruptedException</JavaThrownException>
+  </JavaExtensions:StandardOperation>
+  <JavaExtensions:JavaClass xmi:id="_aclMp2GsEemTNvAnnLvP1w" base_Class="_aYyS5WGsEemTNvAnnLvP1w">
+    <JavaImport>java.util.StringJoiner</JavaImport>
+  </JavaExtensions:JavaClass>
+  <Code:StandardAssociationEnd xmi:id="_aclMqGGsEemTNvAnnLvP1w" base_Property="_aYyS52GsEemTNvAnnLvP1w">
+    <type>Array</type>
+  </Code:StandardAssociationEnd>
+  <JavaExtensions:StandardFeature xmi:id="_aclMqWGsEemTNvAnnLvP1w" base_Feature="_aYyS52GsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_aclMqmGsEemTNvAnnLvP1w" base_Feature="_aYyS7mGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <default:create xmi:id="_aclMq2GsEemTNvAnnLvP1w" base_Operation="_aYyS8GGsEemTNvAnnLvP1w"/>
+  <JavaExtensions:StandardParameter xmi:id="_aclzsGGsEemTNvAnnLvP1w" base_Parameter="_aYyTHGGsEemTNvAnnLvP1w" JavaTypeExpr="String"/>
+  <JavaExtensions:JavaClass xmi:id="_aclzsWGsEemTNvAnnLvP1w" base_Class="_aYyTNGGsEemTNvAnnLvP1w">
+    <JavaImplements>Comparable&lt;Card></JavaImplements>
+  </JavaExtensions:JavaClass>
+  <JavaExtensions:JavaEnumeration xmi:id="_aclzsmGsEemTNvAnnLvP1w" base_Enumeration="_aYyTOmGsEemTNvAnnLvP1w"/>
+  <JavaExtensions:StandardParameter xmi:id="_aclzs2GsEemTNvAnnLvP1w" base_Parameter="_aYyTP2GsEemTNvAnnLvP1w" JavaTypeExpr="String"/>
+  <JavaExtensions:JavaEnumeration xmi:id="_aclztGGsEemTNvAnnLvP1w" base_Enumeration="_aYyTUGGsEemTNvAnnLvP1w"/>
+  <JavaExtensions:StandardOperation xmi:id="_aclztWGsEemTNvAnnLvP1w" base_Operation="_aYyTUmGsEemTNvAnnLvP1w">
+    <JavaThrownException>IllegalArgumentException</JavaThrownException>
+  </JavaExtensions:StandardOperation>
+  <JavaExtensions:StandardParameter xmi:id="_aclztmGsEemTNvAnnLvP1w" base_Parameter="_aYyTY2GsEemTNvAnnLvP1w" JavaTypeExpr="String"/>
+  <JavaExtensions:StandardFeature xmi:id="_aclzt2GsEemTNvAnnLvP1w" base_Feature="_aYyTN2GsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_aclzuGGsEemTNvAnnLvP1w" base_Feature="_aYyTOGGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_aclzuWGsEemTNvAnnLvP1w" base_Feature="_aYyTOWGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <default:create xmi:id="_aclzumGsEemTNvAnnLvP1w" base_Operation="_aYyTfmGsEemTNvAnnLvP1w"/>
+  <default:create xmi:id="_aclzu2GsEemTNvAnnLvP1w" base_Operation="_aYyTgWGsEemTNvAnnLvP1w"/>
+  <Code:StandardParameter xmi:id="_acmawGGsEemTNvAnnLvP1w" base_Parameter="_aYyTsGGsEemTNvAnnLvP1w">
+    <type>Array</type>
+  </Code:StandardParameter>
+  <JavaExtensions:StandardParameter xmi:id="_acmawWGsEemTNvAnnLvP1w" base_Parameter="_aYyT9GGsEemTNvAnnLvP1w" JavaTypeExpr="Object"/>
+  <JavaExtensions:StandardParameter xmi:id="_acmawmGsEemTNvAnnLvP1w" base_Parameter="_aYyUEGGsEemTNvAnnLvP1w" JavaTypeExpr="String"/>
+  <JavaExtensions:JavaClass xmi:id="_acmaw2GsEemTNvAnnLvP1w" base_Class="_aYyUIGGsEemTNvAnnLvP1w" JavaExtends="JFrame">
+    <JavaImport>javax.swing.*</JavaImport>
+    <JavaImport>java.awt.*</JavaImport>
+  </JavaExtensions:JavaClass>
+  <JavaExtensions:StandardFeature xmi:id="_acmaxGGsEemTNvAnnLvP1w" base_Feature="_aYyUImGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acmaxWGsEemTNvAnnLvP1w" base_Property="_aYyUJGGsEemTNvAnnLvP1w" JavaTypeExpr="JPanel"/>
+  <JavaExtensions:StandardFeature xmi:id="_acmaxmGsEemTNvAnnLvP1w" base_Feature="_aYyUJGGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acmax2GsEemTNvAnnLvP1w" base_Property="_aYyUJWGsEemTNvAnnLvP1w" JavaTypeExpr="JPanel"/>
+  <JavaExtensions:StandardFeature xmi:id="_acmayGGsEemTNvAnnLvP1w" base_Feature="_aYyUJWGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acmayWGsEemTNvAnnLvP1w" base_Property="_aYyUKWGsEemTNvAnnLvP1w" JavaTypeExpr="JPanel"/>
+  <JavaExtensions:StandardFeature xmi:id="_acmaymGsEemTNvAnnLvP1w" base_Feature="_aYyUKWGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acnB0GGsEemTNvAnnLvP1w" base_Property="_aYyULGGsEemTNvAnnLvP1w" JavaTypeExpr="JPanel"/>
+  <JavaExtensions:StandardFeature xmi:id="_acnB0WGsEemTNvAnnLvP1w" base_Feature="_aYyULGGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acnB0mGsEemTNvAnnLvP1w" base_Property="_aYyUL2GsEemTNvAnnLvP1w" JavaTypeExpr="JButton"/>
+  <JavaExtensions:StandardFeature xmi:id="_acnB02GsEemTNvAnnLvP1w" base_Feature="_aYyUL2GsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acnB1GGsEemTNvAnnLvP1w" base_Property="_aYyUMmGsEemTNvAnnLvP1w" JavaTypeExpr="JLabel"/>
+  <JavaExtensions:StandardFeature xmi:id="_acnB1WGsEemTNvAnnLvP1w" base_Feature="_aYyUMmGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acnB1mGsEemTNvAnnLvP1w" base_Property="_aYyUNWGsEemTNvAnnLvP1w" JavaTypeExpr="JLabel"/>
+  <JavaExtensions:StandardFeature xmi:id="_acnB12GsEemTNvAnnLvP1w" base_Feature="_aYyUNWGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <Code:StandardAttribute xmi:id="_acnB2GGsEemTNvAnnLvP1w" base_Property="_aYyUOGGsEemTNvAnnLvP1w">
+    <type>Array</type>
+  </Code:StandardAttribute>
+  <JavaExtensions:StandardAttribute xmi:id="_acnB2WGsEemTNvAnnLvP1w" base_Property="_aYyUOGGsEemTNvAnnLvP1w" JavaTypeExpr="JLabel"/>
+  <JavaExtensions:StandardFeature xmi:id="_acnB2mGsEemTNvAnnLvP1w" base_Feature="_aYyUOGGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acnB22GsEemTNvAnnLvP1w" base_Property="_aYyUPWGsEemTNvAnnLvP1w" JavaTypeExpr="JButton"/>
+  <JavaExtensions:StandardFeature xmi:id="_acnB3GGsEemTNvAnnLvP1w" base_Feature="_aYyUPWGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <default:create xmi:id="_acnB3WGsEemTNvAnnLvP1w" base_Operation="_aYyUQGGsEemTNvAnnLvP1w"/>
+  <JavaExtensions:StandardParameter xmi:id="_acno4GGsEemTNvAnnLvP1w" base_Parameter="_aYyURWGsEemTNvAnnLvP1w" JavaTypeExpr="String"/>
+  <Code:StandardParameter xmi:id="_acno4WGsEemTNvAnnLvP1w" base_Parameter="_aYyUdGGsEemTNvAnnLvP1w">
+    <type>Array</type>
+  </Code:StandardParameter>
+  <JavaExtensions:StandardParameter xmi:id="_acno4mGsEemTNvAnnLvP1w" base_Parameter="_aYyUdGGsEemTNvAnnLvP1w" JavaTypeExpr="JButton"/>
+  <Code:StandardParameter xmi:id="_acno42GsEemTNvAnnLvP1w" base_Parameter="_aYyUiWGsEemTNvAnnLvP1w">
+    <type>Array</type>
+  </Code:StandardParameter>
+  <JavaExtensions:StandardParameter xmi:id="_acno5GGsEemTNvAnnLvP1w" base_Parameter="_aYyUiWGsEemTNvAnnLvP1w" JavaTypeExpr="JLabel"/>
+  <JavaExtensions:JavaClass xmi:id="_acno5WGsEemTNvAnnLvP1w" base_Class="_aYyUumGsEemTNvAnnLvP1w"/>
+  <JavaExtensions:StandardFeature xmi:id="_acno5mGsEemTNvAnnLvP1w" base_Feature="_aYyUvWGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <Code:StandardAssociationEnd xmi:id="_acno52GsEemTNvAnnLvP1w" base_Property="_aYyUv2GsEemTNvAnnLvP1w">
+    <type>Array</type>
+  </Code:StandardAssociationEnd>
+  <JavaExtensions:StandardFeature xmi:id="_acno6GGsEemTNvAnnLvP1w" base_Feature="_aYyUv2GsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_acno6WGsEemTNvAnnLvP1w" base_Feature="_aYyUw2GsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_acno6mGsEemTNvAnnLvP1w" base_Feature="_aYyUxmGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acno62GsEemTNvAnnLvP1w" base_Property="_aYyUyWGsEemTNvAnnLvP1w" JavaFinal="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acno7GGsEemTNvAnnLvP1w" base_Property="_aYyUy2GsEemTNvAnnLvP1w" JavaFinal="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acoP8GGsEemTNvAnnLvP1w" base_Property="_aYyUzWGsEemTNvAnnLvP1w" JavaFinal="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acoP8WGsEemTNvAnnLvP1w" base_Property="_aYyUz2GsEemTNvAnnLvP1w" JavaFinal="true"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acoP8mGsEemTNvAnnLvP1w" base_Property="_aYyU0WGsEemTNvAnnLvP1w" JavaFinal="true" JavaTypeExpr="String"/>
+  <JavaExtensions:StandardAttribute xmi:id="_acoP82GsEemTNvAnnLvP1w" base_Property="_aYyU02GsEemTNvAnnLvP1w" JavaTypeExpr="String"/>
+  <JavaExtensions:StandardFeature xmi:id="_acoP9GGsEemTNvAnnLvP1w" base_Feature="_aYyU02GsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_acoP9WGsEemTNvAnnLvP1w" base_Feature="_aYyU1GGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_acoP9mGsEemTNvAnnLvP1w" base_Feature="_aYyU1WGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_acoP92GsEemTNvAnnLvP1w" base_Feature="_aYyU12GsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_acoP-GGsEemTNvAnnLvP1w" base_Feature="_aYyU2WGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardParameter xmi:id="_acoP-WGsEemTNvAnnLvP1w" base_Parameter="_aYyU3GGsEemTNvAnnLvP1w" JavaTypeExpr="String"/>
+  <default:create xmi:id="_acoP-mGsEemTNvAnnLvP1w" base_Operation="_aYyU72GsEemTNvAnnLvP1w"/>
+  <JavaExtensions:StandardParameter xmi:id="_aco3AGGsEemTNvAnnLvP1w" base_Parameter="_aYyU9WGsEemTNvAnnLvP1w" JavaTypeExpr="String"/>
+  <default:create xmi:id="_aco3AWGsEemTNvAnnLvP1w" base_Operation="_aYy40mGsEemTNvAnnLvP1w"/>
+  <JavaExtensions:JavaClass xmi:id="_aco3AmGsEemTNvAnnLvP1w" base_Class="_aYy5NmGsEemTNvAnnLvP1w">
+    <JavaImport>java.awt.event.ActionEvent</JavaImport>
+    <JavaImport>java.awt.event.ActionListener</JavaImport>
+  </JavaExtensions:JavaClass>
+  <JavaExtensions:StandardFeature xmi:id="_aco3A2GsEemTNvAnnLvP1w" base_Feature="_aYy5N2GsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_aco3BGGsEemTNvAnnLvP1w" base_Feature="_aYy5OWGsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <JavaExtensions:StandardFeature xmi:id="_aco3BWGsEemTNvAnnLvP1w" base_Feature="_aYy5O2GsEemTNvAnnLvP1w" JavaNoInitValue="true"/>
+  <default:create xmi:id="_aco3BmGsEemTNvAnnLvP1w" base_Operation="_aYy5PWGsEemTNvAnnLvP1w"/>
+  <JavaExtensions:StandardParameter xmi:id="_aco3B2GsEemTNvAnnLvP1w" base_Parameter="_aYy5bWGsEemTNvAnnLvP1w" JavaTypeExpr="ActionListener"/>
+  <JavaExtensions:StandardParameter xmi:id="_aco3CGGsEemTNvAnnLvP1w" base_Parameter="_aYy5dmGsEemTNvAnnLvP1w" JavaTypeExpr="ActionListener"/>
+  <JavaExtensions:StandardParameter xmi:id="_aco3CWGsEemTNvAnnLvP1w" base_Parameter="_aYy5f2GsEemTNvAnnLvP1w" JavaTypeExpr="ActionListener"/>
+</xmi:XMI>
